@@ -1,0 +1,28 @@
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/database');
+
+const ApiKey = sequelize.define('ApiKey', {
+  key: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true
+  },
+  owner: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  isActive: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: true
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW
+  },
+  lastUsed: {
+    type: DataTypes.DATE,
+    allowNull: true
+  }
+});
+
+module.exports = ApiKey;

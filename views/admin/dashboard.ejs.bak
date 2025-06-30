@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <%- include('../partials/header') %>
+  <title>Tableau de bord Admin</title>
+</head>
+<body>
+  <%- include('../partials/nav', { user: user }) %>
+  
+  <div class="container mt-4">
+    <h2 class="mb-4">Tableau de bord Administrateur</h2>
+    
+    <% if (messages.success) { %>
+      <div class="alert alert-success"><%= messages.success %></div>
+    <% } %>
+    <% if (messages.error) { %>
+      <div class="alert alert-danger"><%= messages.error %></div>
+    <% } %>
+    
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-header bg-info text-white">
+            <h5>Gestion des Astuces</h5>
+          </div>
+          <div class="card-body">
+            <form action="/admin/tips" method="POST">
+              <div class="form-group">
+                <label for="newTip">Nouvelle astuce</label>
+                <textarea class="form-control" id="newTip" name="content" rows="3" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-success">
+                <i class="fas fa-plus"></i> Ajouter
+              </button>
+            </form>
+            
+            <hr>
+            
+            <h5>Astuces existantes</h5>
+            <% if (tips && tips.length > 0) { %>
+              <ul class="list-group">
+                <% tips.forEach(tip => { %>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span><%= tip.content %></span>
+                    <div>
+                      <a href="#" class="btn btn-sm btn-warning edit-tip" data-id="<%= tip.id %>">
+                        <i class="fas fa-edit"></i>
+                      </a>
+                      <form action="/admin/tips/<%= tip.id %>/delete" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-sm btn-danger">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </form>
+                    </div>
+                  </li>
+                <% }); %>
+              </ul>
+            <% } else { %>
+              <p>Aucune astuce disponible</p>
+            <% } %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-header bg-info text-white">
+            <h5>Gestion des Clés API</h5>
+          </div>
+          <div class="card-body">
+            <form action="/admin/keys/generate" method="POST">
+              <div class="form-group">
+                <label for="owner">Propriétaire</label>
+                <input type="text" class="form-control" id="owner" name="owner" required>
+              </div>
+              <button type="submit" class="btn btn-success">
+                <i class="fas fa-key"></i> Générer une clé
+              </button>
+            </form>
+            
+            <hr>
+            
+            <h5>Clés existantes</h5>
+            <% if (apiKeys && apiKeys.length > 0) { %>
+              <ul class="list-group">
+                <% apiKeys.forEach(key => { %>
+                  <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <strong><%= key.owner %></strong><br>
+                        <small class="text-muted"><%= key.key %></small><br>
+                        <span class="badge badge-<%= key.isActive ? 'success' : 'danger' %>">
+                          <%= key.isActive ? 'Active' : 'Révoquée' %>
+                        </span>
+                      </div>
+                      <div>
+                        <% if (key.isActive) { %>
+                          <form action="/admin/keys/<%= key.id %>/revoke" method="POST" class="d-inline">
+                            <button type="submit" class="btn btn-sm btn-danger">
+                              <i class="fas fa-ban"></i> Révoquer
+                            </button>
+                          </form>
+                        <% } else { %>
+                          <form action="/admin/keys/<%= key.id %>/activate" method="POST" class="d-inline">
+                            <button type="submit" class="btn btn-sm btn-success">
+                              <i class="fas fa-check"></i> Activer
+                            </button>
+                          </form>
+                        <% } %>
+                      </div>
+                    </div>
+                  </li>
+                <% }); %>
+              </ul>
+            <% } else { %>
+              <p>Aucune clé API disponible</p>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <%- include('../partials/footer') %>
+  
+  <!-- Modal pour éditer les astuces -->
+  <div class="modal fade" id="editTipModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modifier l'astuce</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <form id="editTipForm" method="POST">
+          <div class="modal-body">
+            <div class="form-group">
+              <textarea class="form-control" name="content" rows="3" required></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $('.edit-tip').click(function(e) {
+        e.preventDefault();
+        const tipId = $(this).data('id');
+        const tipContent = $(this).closest('li').find('span').first().text();
+        
+        $('#editTipForm').attr('action', `/admin/tips/${tipId}`);
+        $('#editTipForm textarea').val(tipContent);
+        $('#editTipModal').modal('show');
+      });
+    });
+  </script>
+</body>
+</html>

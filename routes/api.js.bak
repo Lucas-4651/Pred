@@ -1,0 +1,24 @@
+const express = require('express');
+const router = express.Router();
+const predictionController = require('../controllers/predictionController');
+const { apiKeyAuth } = require('../middlewares/auth');
+
+router.get('/predict', apiKeyAuth, predictionController.apiPredict);
+// Dans votre backend (routes/api.js)
+router.post('/validate-key', (req, res) => {
+  const apiKey = req.headers['x-api-key'];
+  
+  ApiKey.findOne({ where: { key: apiKey, isActive: true } })
+    .then(key => {
+      if (key) {
+        res.json({ valid: true });
+      } else {
+        res.status(401).json({ valid: false, message: 'Clé invalide ou expirée' });
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ valid: false, message: 'Erreur serveur' });
+    });
+});
+
+module.exports = router;

@@ -1,0 +1,23 @@
+const express = require('express');
+const router = express.Router();
+const predictionController = require('../controllers/predictionController');
+const tipController = require('../controllers/tipController');
+
+router.get('/', predictionController.predict);
+router.get('/tips', tipController.showTips);
+// Dans votre backend (routes/web.js)
+router.get('/api/daily-tip', (req, res) => {
+  Tip.findOne({ order: [['createdAt', 'DESC']] })
+    .then(tip => {
+      if (tip) {
+        res.json({ tip: tip.content });
+      } else {
+        res.json({ tip: "Analysez les dernières performances plutôt que la saison complète" });
+      }
+    })
+    .catch(() => {
+      res.json({ tip: "Consultez les statistiques des équipes avant de parier" });
+    });
+});
+
+module.exports = router;

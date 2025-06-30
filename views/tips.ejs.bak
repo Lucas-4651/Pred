@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <%- include('partials/header') %>
+  <title>Astuces pour les paris</title>
+</head>
+<body>
+  <%- include('../partials/nav', { user: user }) %>
+  
+  <div class="container my-4">
+    <h2 class="mb-4">Astuces et Conseils pour les Paris</h2>
+    
+    <% if (tips && tips.length > 0) { %>
+      <div class="list-group">
+        <% tips.forEach(tip => { %>
+          <div class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Astuce #<%= tip.id %></h5>
+              <small><%= tip.createdAt.toLocaleDateString('fr-FR') %></small>
+            </div>
+            <p class="mb-1"><%= tip.content %></p>
+          </div>
+        <% }); %>
+      </div>
+    <% } else { %>
+      <div class="alert alert-info">
+        Aucune astuce disponible pour le moment
+      </div>
+    <% } %>
+  </div>
+  
+  <%- include('partials/footer') %>
+</body>
+</html>

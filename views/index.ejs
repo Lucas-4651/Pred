@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prédictions Sportives - Madagascar</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Police compacte -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --madagascar-red: #FC3D32;
+            --madagascar-green: #007E3A;
+            --madagascar-white: #FFFFFF;
+            --accent-color: #FFC107;
+            --dark-bg: #0d1b2a;
+            --card-bg: rgba(255, 255, 255, 0.95);
+        }
+        
+        * {
+            font-family: 'Rubik', sans-serif;
+            font-size: 0.92rem;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0d1b2a, #1b263b, #0d1b2a);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+            background-attachment: fixed;
+        }
+        
+        .container-main {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            border: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: var(--card-bg);
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        
+        .card-header {
+            font-weight: 700;
+            padding: 12px 20px;
+            background: var(--madagascar-green);
+            color: white;
+        }
+        
+        .key-access-card {
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin-top: 60px;
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .logo-container h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: white;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+            background: linear-gradient(90deg, var(--madagascar-red), var(--madagascar-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            padding: 0 15px;
+            border-radius: 30px;
+        }
+        
+        .logo-container p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 0;
+            letter-spacing: 1px;
+        }
+        
+        .form-control {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .form-control:focus {
+            border-color: var(--madagascar-green);
+            box-shadow: 0 0 0 0.2rem rgba(0, 126, 58, 0.25);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--madagascar-green), #005a2b);
+            border: none;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        
+        .btn-primary:disabled {
+            background: #6c757d;
+        }
+        
+        .key-error {
+            color: #e74c3c;
+            font-weight: 500;
+            height: 24px;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+        
+        .shake {
+            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+        }
+        
+        .badge {
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .badge-success {
+            background-color: var(--madagascar-green);
+        }
+        
+        .badge-info {
+            background-color: #3498db;
+        }
+        
+        .badge-warning {
+            background-color: #f39c12;
+        }
+        
+        .prediction-card .card-header {
+            padding: 12px 15px;
+            background: var(--madagascar-red);
+        }
+        
+        .prediction-card .card-body {
+            padding: 15px;
+        }
+        
+        .prediction-card h5 {
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+        
+        .prediction-card p {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .unlock-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0,126,58,0.8) 0%, rgba(0,126,58,0) 70%);
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0;
+            animation: unlockAnimation 1.5s ease-out;
+        }
+        
+        .tips-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--madagascar-red);
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .tips-section h4 {
+            color: var(--madagascar-green);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            font-size: 0.88rem;
+        }
+        
+        .tip-item {
+            background: rgba(252, 61, 50, 0.08);
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 3px solid var(--madagascar-green);
+        }
+        
+        .tip-item strong {
+            color: var(--madagascar-red);
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
+            20%, 40%, 60%, 80% { transform: translateX(8px); }
+        }
+        
+        @keyframes unlockAnimation {
+            0% {
+                opacity: 0.8;
+                transform: scale(0.5);
+            }
+            70% {
+                opacity: 0.4;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(2);
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        .madagascar-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(252, 61, 50, 0.05) 0%, rgba(252, 61, 50, 0) 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 126, 58, 0.05) 0%, rgba(0, 126, 58, 0) 20%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .loading-dots {
+            display: inline-block;
+        }
+        
+        .loading-dots span {
+            animation: blink 1.4s infinite both;
+            opacity: 0.2;
+        }
+        
+        .loading-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .loading-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="madagascar-pattern"></div>
+    
+    <div class="container-main">
+        <div class="logo-container">
+            <h1><i class="fas fa-futbol me-2"></i>VIRTUAL MG</h1>
+            <p>Analyse prédictive des matchs virtuel - Madagascar</p>
+        </div>
+        
+        <!-- Carte d'accès par clé API -->
+        <div class="card key-access-card">
+            <div class="card-header text-center">
+                <i class="fas fa-key me-2"></i>Accès aux Prédictions
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="apiKeyInput" class="form-label">Clé API</label>
+                    <input type="password" class="form-control" id="apiKeyInput" placeholder="Entrez votre clé API">
+                    <div id="keyError" class="key-error"></div>
+                </div>
+                <button id="unlockBtn" class="btn btn-primary w-100">
+                    <i class="fas fa-lock-open me-2"></i>Déverrouiller
+                </button>
+            </div>
+        </div>
+        
+        <!-- Container pour les prédictions (caché initialement) -->
+        <div id="predictionsContainer" class="d-none mt-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 class="text-white"><i class="fas fa-chart-line me-2"></i>Prédictions du Jour</h3>
+                <button id="refreshBtn" class="btn btn-sm btn-outline-light">
+                    <i class="fas fa-sync-alt me-1"></i>Prochaines prédictions
+                </button>
+            </div>
+            
+            <!-- Section des astuces (dynamique depuis la DB) -->
+            <% if (tips && tips.length > 0) { %>
+                <div class="tips-section">
+                    <h4><i class="fas fa-lightbulb text-warning"></i> Astuces du Jour</h4>
+                    <div class="tips-grid">
+                        <% tips.forEach((tip, index) => { %>
+                            <div class="tip-item">
+                                <strong>Astuce <%= index + 1 %></strong>
+                                <%= tip.content %>
+                            </div>
+                        <% }); %>
+                    </div>
+                </div>
+            <% } else { %>
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i>
+                    Aucune astuce disponible pour le moment
+                </div>
+            <% } %>
+            
+            <!-- Les prédictions seront injectées ici par JavaScript -->
+            <div id="predictionsList"></div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>© Prediction booster</p>
+        <p><%= copyright %></p>
+    </div>
+
+    <!-- Bootstrap & Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Votre script JavaScript externe -->
+    <script src="/js/script.js"></script>
+</body>
+</html>

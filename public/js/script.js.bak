@@ -1,0 +1,183 @@
+// public/js/script.js
+document.addEventListener('DOMContentLoaded', function() {
+  const unlockBtn = document.getElementById('unlockBtn');
+  const apiKeyInput = document.getElementById('apiKeyInput');
+  const keyError = document.getElementById('keyError');
+  const predictionsContainer = document.getElementById('predictionsContainer');
+  const keyAccessCard = document.querySelector('.key-access-card');
+  const refreshBtn = document.getElementById('refreshBtn');
+
+  // Fonction pour charger les prédictions
+  async function loadPredictions() {
+    try {
+      const apiKey = localStorage.getItem('apiKey') || '';
+      const response = await fetch('/api/predict', {
+        headers: {
+          'X-API-Key': apiKey
+        }
+      });
+      
+      if (response.status === 401) {
+        throw new Error('Clé API invalide. Veuillez vérifier et réessayer.');
+      }
+      
+      if (!response.ok) {
+        throw new Error('Erreur de connexion au serveur');
+      }
+      
+      const predictions = await response.json();
+      updatePredictions(predictions);
+    } catch (error) {
+      console.error('Erreur lors du chargement des prédictions:', error);
+      // Réafficher le formulaire si l'erreur est liée à la clé
+      if (error.message.includes('Clé API invalide')) {
+        keyAccessCard.classList.remove('d-none');
+        keyAccessCard.style.opacity = '1';
+        keyAccessCard.style.transform = 'translateY(0)';
+        predictionsContainer.classList.add('d-none');
+        showError(error.message);
+      }
+    }
+  }
+
+  if (unlockBtn) {
+    unlockBtn.addEventListener('click', async function() {
+      const apiKey = apiKeyInput.value.trim();
+      
+      if (!apiKey) {
+        showError('Veuillez entrer votre clé API');
+        return;
+      }
+      
+      // Effet visuel
+      unlockBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Vérification...';
+      unlockBtn.disabled = true;
+      
+      // Créer l'effet de déverrouillage
+      const unlockEffect = document.createElement('div');
+      unlockEffect.className = 'unlock-effect';
+      document.body.appendChild(unlockEffect);
+      
+      try {
+        const response = await fetch('/api/predict', {
+          headers: {
+            'X-API-Key': apiKey
+          }
+        });
+        
+        if (response.status === 401) {
+          throw new Error('Clé API invalide. Veuillez vérifier et réessayer.');
+        }
+        
+        if (!response.ok) {
+          throw new Error('Erreur de connexion au serveur');
+        }
+        
+        const predictions = await response.json();
+        
+        // Enregistrer la clé valide
+        localStorage.setItem('apiKey', apiKey);
+        
+        // Cacher la carte d'accès après un délai
+        setTimeout(() => {
+          keyAccessCard.style.opacity = '0';
+          keyAccessCard.style.transform = 'translateY(-50px)';
+          
+          // Afficher les prédictions
+          setTimeout(() => {
+            keyAccessCard.classList.add('d-none');
+            predictionsContainer.classList.remove('d-none');
+            updatePredictions(predictions);
+          }, 500);
+        }, 1000);
+        
+      } catch (error) {
+        showError(error.message);
+        unlockBtn.innerHTML = '<i class="fas fa-lock-open"></i> Déverrouiller';
+        unlockBtn.disabled = false;
+      } finally {
+        // Nettoyer l'effet visuel
+        setTimeout(() => {
+          if (unlockEffect.parentNode) {
+            unlockEffect.parentNode.removeChild(unlockEffect);
+          }
+        }, 1500);
+      }
+    });
+    
+    // Pré-remplir la clé si elle existe dans localStorage
+    const savedKey = localStorage.getItem('apiKey');
+    if (savedKey) {
+      apiKeyInput.value = savedKey;
+    }
+  }
+  
+  // Ajout du gestionnaire pour le bouton d'actualisation
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', function() {
+      refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+      refreshBtn.disabled = true;
+      loadPredictions().finally(() => {
+        refreshBtn.innerHTML = '<i class="fas fa-sync-alt me-1"></i>Actualiser';
+        refreshBtn.disabled = false;
+      });
+    });
+  }
+  
+  function showError(message) {
+    keyError.textContent = message;
+    keyError.classList.add('shake');
+    setTimeout(() => {
+      keyError.classList.remove('shake');
+    }, 500);
+  }
+  
+  function updatePredictions(predictions) {
+    const container = document.getElementById('predictionsList');
+    if (!container) return;
+    
+    container.innerHTML = '';
+    
+    if (!predictions || predictions.length === 0) {
+      container.innerHTML = `
+        <div class="alert alert-warning">
+          Aucune prédiction disponible pour le moment
+        </div>
+      `;
+      return;
+    }
+    
+    predictions.forEach(pred => {
+      const card = document.createElement('div');
+      card.className = 'card mb-4 shadow prediction-card';
+      card.innerHTML = `
+        <div class="card-header bg-primary text-white">
+          <h5>${pred.match}</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>Score final:</strong> <span class="badge bg-success">${pred.final_result}</span></p>
+              <p><strong>Nombre de buts:</strong> <span class="badge bg-info">${pred.goals}</span></p>
+              <p><strong>Mi-temps:</strong> <span class="badge bg-warning">${pred.half_time}</span></p>
+            </div>
+            <div class="col-md-6">
+              <p><strong>Forme domicile:</strong> ${pred.home_form}</p>
+              <p><strong>Forme extérieur:</strong> ${pred.away_form}</p>
+              <p><strong>Cotes 1X2:</strong> ${pred.odds_1x2}</p>
+              <p><strong>Cotes mi-temps:</strong> ${pred.odds_ht}</p>
+            </div>
+          </div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+  
+  // Charger automatiquement les prédictions si une clé est déjà sauvegardée
+  if (localStorage.getItem('apiKey')) {
+    keyAccessCard.classList.add('d-none');
+    predictionsContainer.classList.remove('d-none');
+    loadPredictions();
+  }
+});

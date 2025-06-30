@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <%- include('../partials/header') %>
+  <title>Tableau de bord Admin</title>
+  <style>
+    .stat-card {
+      transition: all 0.3s ease;
+      border: none;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    
+    .stat-card i {
+      font-size: 2.5rem;
+      opacity: 0.7;
+    }
+    
+    .key-card {
+      position: relative;
+      border-left: 4px solid;
+      transition: all 0.3s;
+    }
+    
+    .key-card.active {
+      border-left-color: #28a745;
+    }
+    
+    .key-card.revoked {
+      border-left-color: #dc3545;
+    }
+    
+    .key-card:hover {
+      background-color: #f8f9fa;
+      transform: translateX(5px);
+    }
+    
+    .copy-btn {
+      transition: all 0.2s;
+    }
+    
+    .copy-btn:hover {
+      transform: scale(1.1);
+    }
+    
+    .copy-success {
+      animation: copyPulse 0.5s;
+    }
+    
+    @keyframes copyPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    
+    .key-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 0.7rem;
+    }
+  </style>
+</head>
+<body>
+  <%- include('../partials/nav', { user: user }) %>
+  
+  <div class="container-fluid mt-4">
+    <h2 class="mb-4">Tableau de bord Administrateur</h2>
+    
+    <% if (messages.success) { %>
+      <div class="alert alert-success alert-dismissible fade show">
+        <%= messages.success %>
+        <button type="button" class="close" data-dismiss="alert">
+          <span>&times;</span>
+        </button>
+      </div>
+    <% } %>
+    
+    <% if (messages.error) { %>
+      <div class="alert alert-danger alert-dismissible fade show">
+        <%= messages.error %>
+        <button type="button" class="close" data-dismiss="alert">
+          <span>&times;</span>
+        </button>
+      </div>
+    <% } %>
+    
+    <!-- Cartes de statistiques -->
+    <div class="row mb-4">
+      <div class="col-md-3 mb-3">
+        <div class="stat-card card bg-light text-center p-3">
+          <i class="fas fa-key text-primary mb-3"></i>
+          <h3><%= apiKeys.length %></h3>
+          <p class="mb-0">Clés API</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 mb-3">
+        <div class="stat-card card bg-light text-center p-3">
+          <i class="fas fa-lightbulb text-warning mb-3"></i>
+          <h3><%= tips.length %></h3>
+          <p class="mb-0">Astuces</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 mb-3">
+        <div class="stat-card card bg-light text-center p-3">
+          <i class="fas fa-users text-info mb-3"></i>
+          <h3><%= activeKeys %></h3>
+          <p class="mb-0">Clés Actives</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 mb-3">
+        <div class="stat-card card bg-light text-center p-3">
+          <i class="fas fa-chart-line text-success mb-3"></i>
+          <h3><%= usageCount %></h3>
+          <p class="mb-0">Utilisations</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <!-- Gestion des clés API -->
+      <div class="col-lg-6 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Gestion des Clés API</h5>
+            <button class="btn btn-sm btn-light" data-toggle="collapse" data-target="#keyCollapse">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+          
+          <div class="collapse show" id="keyCollapse">
+            <div class="card-body">
+              <form action="/admin/keys/generate" method="POST" class="mb-4">
+                <div class="form-row align-items-end">
+                  <div class="col-md-6">
+                    <label for="owner">Propriétaire</label>
+                    <input type="text" class="form-control" id="owner" name="owner" 
+                           placeholder="Nom du client" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="duration">Validité</label>
+                    <select class="form-control" id="duration" name="duration">
+                      <option value="30">30 jours</option>
+                      <option value="90">90 jours</option>
+                      <option value="180">6 mois</option>
+                      <option value="365">1 an</option>
+                    </select>
+                  </div>
+                  <div class="col-md-2">
+                    <button type="submit" class="btn btn-success btn-block">
+                      <i class="fas fa-plus"></i> Créer
+                    </button>
+                  </div>
+                </div>
+              </form>
+              
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead class="thead-light">
+                    <tr>
+                      <th>Propriétaire</th>
+                      <th>Clé API</th>
+                      <th>Statut</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% apiKeys.forEach(key => { %>
+                      <tr class="key-card <%= key.isActive ? 'active' : 'revoked' %>">
+                        <td><%= key.owner %></td>
+                        <td>
+                          <span class="key-value"><%= key.key %></span>
+                          <% if (key.lastUsed) { %>
+                            <span class="badge badge-info key-badge">
+                              Utilisé le <%= new Date(key.lastUsed).toLocaleDateString('fr-FR') %>
+                            </span>
+                          <% } %>
+                        </td>
+                        <td>
+                          <% if (key.isActive) { %>
+                            <span class="badge badge-success">Active</span>
+                          <% } else { %>
+                            <span class="badge badge-danger">Révoquée</span>
+                          <% } %>
+                        </td>
+                        <td>
+                          <button class="btn btn-sm btn-outline-info copy-btn mr-1" 
+                                  data-key="<%= key.key %>"
+                                  title="Copier la clé">
+                            <i class="fas fa-copy"></i>
+                          </button>
+                          
+                          <% if (key.isActive) { %>
+                            <form action="/admin/keys/<%= key.id %>/revoke" method="POST" class="d-inline">
+                              <button type="submit" class="btn btn-sm btn-outline-danger" title="Révoquer">
+                                <i class="fas fa-ban"></i>
+                              </button>
+                            </form>
+                          <% } else { %>
+                            <form action="/admin/keys/<%= key.id %>/activate" method="POST" class="d-inline">
+                              <button type="submit" class="btn btn-sm btn-outline-success" title="Activer">
+                                <i class="fas fa-check"></i>
+                              </button>
+                            </form>
+                          <% } %>
+                        </td>
+                      </tr>
+                    <% }); %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Gestion des astuces -->
+      <div class="col-lg-6 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Gestion des Astuces</h5>
+            <button class="btn btn-sm btn-light" data-toggle="collapse" data-target="#tipCollapse">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+          
+          <div class="collapse show" id="tipCollapse">
+            <div class="card-body">
+              <form action="/admin/tips" method="POST" class="mb-4">
+                <div class="form-group">
+                  <label for="newTip">Nouvelle astuce</label>
+                  <textarea class="form-control" id="newTip" name="content" 
+                            rows="3" placeholder="Conseil pour les parieurs..." required></textarea>
+                </div>
+                <div class="text-right">
+                  <button type="submit" class="btn btn-success">
+                    <i class="fas fa-plus mr-2"></i>Ajouter l'astuce
+                  </button>
+                </div>
+              </form>
+              
+              <div class="list-group">
+                <% tips.forEach(tip => { %>
+                  <div class="list-group-item">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="tip-content" style="flex-grow: 1; margin-right: 15px;">
+                        <p class="mb-0"><%= tip.content %></p>
+                        <small class="text-muted">
+                          Créée le <%= tip.createdAt.toLocaleDateString('fr-FR') %>
+                        </small>
+                      </div>
+                      <div class="btn-group">
+                        <button class="btn btn-sm btn-outline-warning edit-tip" 
+                                data-id="<%= tip.id %>" data-content="<%= tip.content %>"
+                                title="Modifier">
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <form action="/admin/tips/<%= tip.id %>/delete" method="POST" class="d-inline">
+                          <button type="submit" class="btn btn-sm btn-outline-danger" title="Supprimer">
+                            <i class="fas fa-trash"></i>
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                <% }); %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Dernières activités -->
+    <div class="card shadow-sm mb-4">
+      <div class="card-header bg-secondary text-white">
+        <h5 class="mb-0">Activités Récentes</h5>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+              <i class="fas fa-key text-primary mr-2"></i>
+              Nouvelle clé générée pour "Client Premium"
+            </div>
+            <small>Il y a 2 heures</small>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+              <i class="fas fa-user text-info mr-2"></i>
+              Connexion administrateur réussie
+            </div>
+            <small>Aujourd'hui, 09:45</small>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+              <i class="fas fa-lightbulb text-warning mr-2"></i>
+              Astuce "Analyse des équipes" mise à jour
+            </div>
+            <small>Hier, 16:30</small>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <%- include('../partials/footer') %>
+  
+  <!-- Modal pour éditer les astuces -->
+  <div class="modal fade" id="editTipModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modifier l'astuce</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <form id="editTipForm" method="POST">
+          <div class="modal-body">
+            <div class="form-group">
+              <textarea class="form-control" name="content" rows="3" required></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      // Édition des astuces
+      $('.edit-tip').click(function() {
+        const tipId = $(this).data('id');
+        const tipContent = $(this).data('content');
+        
+        $('#editTipForm').attr('action', `/admin/tips/${tipId}`);
+        $('#editTipForm textarea').val(tipContent);
+        $('#editTipModal').modal('show');
+      });
+      
+      // Copie des clés API
+      $('.copy-btn').click(function() {
+        const key = $(this).data('key');
+        const $icon = $(this).find('i');
+        
+        navigator.clipboard.writeText(key)
+          .then(() => {
+            // Animation de succès
+            $(this).addClass('copy-success');
+            $icon.removeClass('fa-copy').addClass('fa-check');
+            
+            setTimeout(() => {
+              $(this).removeClass('copy-success');
+              $icon.removeClass('fa-check').addClass('fa-copy');
+            }, 2000);
+          })
+          .catch(err => {
+            alert('Erreur lors de la copie: ' + err.message);
+          });
+      });
+      
+      // Désactiver le bouton après soumission du formulaire
+      $('form').submit(function() {
+        $(this).find('button[type="submit"]').prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i>');
+      });
+    });
+  </script>
+</body>
+</html>

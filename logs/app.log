@@ -1,0 +1,184 @@
+[INFO] 2025-06-30T15:20:26.072Z - Serveur démarré sur le port 10000
+[INFO] 2025-06-30T15:20:26.135Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T15:22:21.196Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T15:22:21.268Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T15:24:14.095Z - API results réussie
+[INFO] 2025-06-30T15:24:14.878Z - API matches réussie
+[INFO] 2025-06-30T15:24:15.188Z - API ranking réussie
+[INFO] 2025-06-30T15:24:15.202Z - Prédiction par 'Score exact': 3 buts (confiance: 22.97%)
+[INFO] 2025-06-30T15:24:15.210Z - Prédiction par 'Score exact': 4 buts (confiance: 23.50%)
+[INFO] 2025-06-30T15:24:15.212Z - Prédiction par 'Score exact': 3 buts (confiance: 25.50%)
+[INFO] 2025-06-30T15:24:15.215Z - Prédiction par 'Score exact': 4 buts (confiance: 23.53%)
+[INFO] 2025-06-30T15:24:15.218Z - Prédiction par 'Score exact': 2 buts (confiance: 22.98%)
+[INFO] 2025-06-30T15:24:15.221Z - Prédiction par 'Score exact': 3 buts (confiance: 23.00%)
+[INFO] 2025-06-30T15:24:15.223Z - Prédiction par 'Score exact': 2 buts (confiance: 26.26%)
+[INFO] 2025-06-30T15:24:15.225Z - Prédiction par 'Score exact': 3 buts (confiance: 23.00%)
+[INFO] 2025-06-30T15:24:15.237Z - Prédiction par 'Score exact': 5 buts (confiance: 22.71%)
+[INFO] 2025-06-30T15:24:15.241Z - Prédiction par 'Score exact': 3 buts (confiance: 23.15%)
+[INFO] 2025-06-30T15:24:16.127Z - API results réussie
+[INFO] 2025-06-30T15:24:16.897Z - API matches réussie
+[INFO] 2025-06-30T15:24:17.203Z - API ranking réussie
+[INFO] 2025-06-30T15:24:17.205Z - Prédiction par 'Score exact': 3 buts (confiance: 22.97%)
+[INFO] 2025-06-30T15:24:17.207Z - Prédiction par 'Score exact': 4 buts (confiance: 23.50%)
+[INFO] 2025-06-30T15:24:17.208Z - Prédiction par 'Score exact': 3 buts (confiance: 25.50%)
+[INFO] 2025-06-30T15:24:17.210Z - Prédiction par 'Score exact': 4 buts (confiance: 23.53%)
+[INFO] 2025-06-30T15:24:17.219Z - Prédiction par 'Score exact': 2 buts (confiance: 22.98%)
+[INFO] 2025-06-30T15:24:17.220Z - Prédiction par 'Score exact': 3 buts (confiance: 23.00%)
+[INFO] 2025-06-30T15:24:17.223Z - Prédiction par 'Score exact': 2 buts (confiance: 26.26%)
+[INFO] 2025-06-30T15:24:17.225Z - Prédiction par 'Score exact': 3 buts (confiance: 23.00%)
+[INFO] 2025-06-30T15:24:17.227Z - Prédiction par 'Score exact': 5 buts (confiance: 22.71%)
+[INFO] 2025-06-30T15:24:17.229Z - Prédiction par 'Score exact': 3 buts (confiance: 23.15%)
+[INFO] 2025-06-30T15:34:13.855Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T15:34:13.938Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T15:39:55.534Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T15:39:55.618Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T15:41:24.303Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T15:41:24.401Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T15:52:38.614Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T15:52:38.659Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T15:56:17.838Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T15:56:17.948Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T15:57:32.415Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T15:57:32.431Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T16:08:18.346Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T16:08:18.442Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T16:22:24.417Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T16:22:24.493Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T16:24:53.974Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T16:24:54.052Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T16:27:27.192Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T16:27:27.274Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T16:28:03.243Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T16:28:03.258Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T16:28:21.306Z - API results réussie
+[INFO] 2025-06-30T16:28:21.999Z - API matches réussie
+[INFO] 2025-06-30T16:28:22.325Z - API ranking réussie
+[INFO] 2025-06-30T16:28:22.338Z - Prédiction par 'Score exact': 4 buts (confiance: 23.50%)
+[INFO] 2025-06-30T16:28:22.347Z - Prédiction par 'Score exact': 4 buts (confiance: 23.37%)
+[INFO] 2025-06-30T16:28:22.350Z - Prédiction par 'Score exact': 5 buts (confiance: 22.39%)
+[INFO] 2025-06-30T16:28:22.353Z - Prédiction par 'Score exact': 3 buts (confiance: 22.61%)
+[INFO] 2025-06-30T16:28:22.356Z - Prédiction par 'Score exact': 2 buts (confiance: 24.65%)
+[INFO] 2025-06-30T16:28:22.359Z - Prédiction par 'Score exact': 2 buts (confiance: 23.10%)
+[INFO] 2025-06-30T16:28:22.362Z - Prédiction par 'Score exact': 3 buts (confiance: 22.88%)
+[INFO] 2025-06-30T16:28:22.364Z - Prédiction par 'Score exact': 3 buts (confiance: 22.33%)
+[INFO] 2025-06-30T16:28:22.367Z - Prédiction par 'Score exact': 3 buts (confiance: 23.28%)
+[INFO] 2025-06-30T16:28:22.371Z - Prédiction par 'Score exact': 2 buts (confiance: 26.07%)
+[INFO] 2025-06-30T16:32:25.176Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T16:32:25.220Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T16:45:49.850Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T16:45:49.974Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T16:45:50.712Z - Utilisateur test créé (testadmin / testpassword)
+[INFO] 2025-06-30T16:47:36.412Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T16:47:36.487Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T16:48:52.194Z - API results réussie
+[INFO] 2025-06-30T16:48:53.495Z - API matches réussie
+[ERROR] 2025-06-30T16:48:53.860Z - Erreur API ranking: Request failed with status code 400
+[INFO] 2025-06-30T16:48:53.877Z - Prédiction par 'Score exact': 4 buts (confiance: 23.77%)
+[INFO] 2025-06-30T16:48:53.882Z - Prédiction par 'Score exact': 3 buts (confiance: 22.91%)
+[INFO] 2025-06-30T16:48:53.884Z - Prédiction par 'Score exact': 3 buts (confiance: 23.14%)
+[INFO] 2025-06-30T16:48:53.886Z - Prédiction par 'Score exact': 3 buts (confiance: 22.73%)
+[INFO] 2025-06-30T16:48:53.889Z - Prédiction par 'Score exact': 3 buts (confiance: 22.46%)
+[INFO] 2025-06-30T16:48:53.893Z - Prédiction par 'Score exact': 3 buts (confiance: 23.07%)
+[INFO] 2025-06-30T16:48:53.895Z - Prédiction par 'Score exact': 3 buts (confiance: 22.69%)
+[INFO] 2025-06-30T16:48:53.897Z - Prédiction par 'Score exact': 3 buts (confiance: 23.11%)
+[INFO] 2025-06-30T16:48:53.899Z - Prédiction par 'Score exact': 2 buts (confiance: 23.89%)
+[INFO] 2025-06-30T16:48:53.912Z - Prédiction par 'Score exact': 3 buts (confiance: 23.21%)
+[INFO] 2025-06-30T16:49:05.093Z - API results réussie
+[INFO] 2025-06-30T16:49:06.120Z - API matches réussie
+[ERROR] 2025-06-30T16:49:06.446Z - Erreur API ranking: Request failed with status code 400
+[INFO] 2025-06-30T16:49:06.450Z - Prédiction par 'Score exact': 4 buts (confiance: 23.77%)
+[INFO] 2025-06-30T16:49:06.451Z - Prédiction par 'Score exact': 3 buts (confiance: 22.91%)
+[INFO] 2025-06-30T16:49:06.452Z - Prédiction par 'Score exact': 3 buts (confiance: 23.14%)
+[INFO] 2025-06-30T16:49:06.453Z - Prédiction par 'Score exact': 3 buts (confiance: 22.73%)
+[INFO] 2025-06-30T16:49:06.455Z - Prédiction par 'Score exact': 3 buts (confiance: 22.46%)
+[INFO] 2025-06-30T16:49:06.456Z - Prédiction par 'Score exact': 3 buts (confiance: 23.07%)
+[INFO] 2025-06-30T16:49:06.457Z - Prédiction par 'Score exact': 3 buts (confiance: 22.69%)
+[INFO] 2025-06-30T16:49:06.458Z - Prédiction par 'Score exact': 3 buts (confiance: 23.11%)
+[INFO] 2025-06-30T16:49:06.460Z - Prédiction par 'Score exact': 2 buts (confiance: 23.89%)
+[INFO] 2025-06-30T16:49:06.461Z - Prédiction par 'Score exact': 3 buts (confiance: 23.21%)
+[INFO] 2025-06-30T16:54:41.450Z - API results réussie
+[INFO] 2025-06-30T16:54:42.755Z - API matches réussie
+[INFO] 2025-06-30T16:54:43.215Z - API ranking réussie
+[INFO] 2025-06-30T16:54:43.218Z - Prédiction par 'Score exact': 3 buts (confiance: 23.09%)
+[INFO] 2025-06-30T16:54:43.223Z - Prédiction par 'Score exact': 5 buts (confiance: 23.92%)
+[INFO] 2025-06-30T16:54:43.225Z - Prédiction par 'Score exact': 2 buts (confiance: 24.55%)
+[INFO] 2025-06-30T16:54:43.227Z - Prédiction par 'Score exact': 4 buts (confiance: 23.19%)
+[INFO] 2025-06-30T16:54:43.229Z - Prédiction par 'Score exact': 3 buts (confiance: 23.32%)
+[INFO] 2025-06-30T16:54:43.230Z - Prédiction par 'Score exact': 3 buts (confiance: 23.01%)
+[INFO] 2025-06-30T16:54:43.232Z - Prédiction par 'Score exact': 3 buts (confiance: 23.20%)
+[INFO] 2025-06-30T16:54:43.233Z - Prédiction par 'Score exact': 2 buts (confiance: 26.23%)
+[INFO] 2025-06-30T16:54:43.235Z - Prédiction par 'Score exact': 3 buts (confiance: 23.35%)
+[INFO] 2025-06-30T16:54:43.236Z - Prédiction par 'Score exact': 5 buts (confiance: 25.80%)
+[INFO] 2025-06-30T16:54:45.571Z - API results réussie
+[INFO] 2025-06-30T16:54:46.561Z - API matches réussie
+[INFO] 2025-06-30T16:54:46.881Z - API ranking réussie
+[INFO] 2025-06-30T16:54:46.883Z - Prédiction par 'Score exact': 3 buts (confiance: 23.09%)
+[INFO] 2025-06-30T16:54:46.885Z - Prédiction par 'Score exact': 5 buts (confiance: 23.92%)
+[INFO] 2025-06-30T16:54:46.886Z - Prédiction par 'Score exact': 2 buts (confiance: 24.55%)
+[INFO] 2025-06-30T16:54:46.889Z - Prédiction par 'Score exact': 4 buts (confiance: 23.19%)
+[INFO] 2025-06-30T16:54:46.891Z - Prédiction par 'Score exact': 3 buts (confiance: 23.32%)
+[INFO] 2025-06-30T16:54:46.894Z - Prédiction par 'Score exact': 3 buts (confiance: 23.01%)
+[INFO] 2025-06-30T16:54:46.895Z - Prédiction par 'Score exact': 3 buts (confiance: 23.20%)
+[INFO] 2025-06-30T16:54:46.895Z - Prédiction par 'Score exact': 2 buts (confiance: 26.23%)
+[INFO] 2025-06-30T16:54:46.896Z - Prédiction par 'Score exact': 3 buts (confiance: 23.35%)
+[INFO] 2025-06-30T16:54:46.897Z - Prédiction par 'Score exact': 5 buts (confiance: 25.80%)
+[INFO] 2025-06-30T16:57:38.912Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T16:57:38.956Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T16:57:39.570Z - Utilisateur test créé (testadmin / testpassword)
+[INFO] 2025-06-30T16:58:22.084Z - API results réussie
+[INFO] 2025-06-30T16:58:22.827Z - API matches réussie
+[INFO] 2025-06-30T16:58:23.122Z - API ranking réussie
+[INFO] 2025-06-30T16:58:23.138Z - Prédiction par 'Score exact': 3 buts (confiance: 22.98%)
+[INFO] 2025-06-30T16:58:23.144Z - Prédiction par 'Score exact': 3 buts (confiance: 22.82%)
+[INFO] 2025-06-30T16:58:23.149Z - Prédiction par 'Score exact': 3 buts (confiance: 23.03%)
+[INFO] 2025-06-30T16:58:23.151Z - Prédiction par 'Score exact': 3 buts (confiance: 23.12%)
+[INFO] 2025-06-30T16:58:23.153Z - Prédiction par 'Score exact': 2 buts (confiance: 25.90%)
+[INFO] 2025-06-30T16:58:23.155Z - Prédiction par 'Score exact': 4 buts (confiance: 25.12%)
+[INFO] 2025-06-30T16:58:23.156Z - Prédiction par 'Score exact': 5 buts (confiance: 23.71%)
+[INFO] 2025-06-30T16:58:23.158Z - Prédiction par 'Score exact': 3 buts (confiance: 23.97%)
+[INFO] 2025-06-30T16:58:23.159Z - Prédiction par 'Score exact': 3 buts (confiance: 23.04%)
+[INFO] 2025-06-30T16:58:23.161Z - Prédiction par 'Score exact': 2 buts (confiance: 26.07%)
+[INFO] 2025-06-30T17:01:40.598Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T17:01:40.685Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T17:01:41.319Z - Utilisateur test créé (testadmin / testpassword)
+[INFO] 2025-06-30T17:03:40.101Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T17:03:40.118Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T17:03:40.781Z - Utilisateur test créé (testadmin / testpassword)
+[INFO] 2025-06-30T17:21:51.963Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T17:21:51.998Z - Mode développement actif
+[INFO] 2025-06-30T17:21:51.998Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-06-30T17:21:52.067Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T17:21:52.728Z - Utilisateur test créé (testadmin / testpassword)
+[INFO] 2025-06-30T17:22:00.243Z - [Session] [session-file-store] will retry, error on last attempt: Error: ENOENT: no such file or directory, open '/root/Pr/Predicteur/sessions/rcVSIrmMD1pnYvNJrvTOBfXFKNUAl5YB.json'
+[INFO] 2025-06-30T17:23:06.516Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T17:23:06.588Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T17:23:23.708Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T17:23:23.727Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T17:24:13.103Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T17:24:13.121Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T17:24:36.939Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T17:24:36.957Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T17:24:56.474Z - [Session] [session-file-store] will retry, error on last attempt: Error: ENOENT: no such file or directory, open '/root/Pr/Predicteur/sessions/f73pbjgwcmnlMOfIweFN6FOs-flAajYs.json'
+[INFO] 2025-06-30T17:24:56.674Z - [Session] [session-file-store] will retry, error on last attempt: Error: ENOENT: no such file or directory, open '/root/Pr/Predicteur/sessions/f73pbjgwcmnlMOfIweFN6FOs-flAajYs.json'
+[INFO] 2025-06-30T17:25:39.468Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T17:25:39.474Z - Mode développement actif
+[INFO] 2025-06-30T17:25:39.474Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-06-30T17:25:39.486Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T17:25:40.106Z - Utilisateur test créé (testadmin / testpassword)
+[INFO] 2025-06-30T17:26:02.585Z - [Session] [session-file-store] will retry, error on last attempt: Error: ENOENT: no such file or directory, open '/root/Pr/Predicteur/sessions/f73pbjgwcmnlMOfIweFN6FOs-flAajYs.json'
+[INFO] 2025-06-30T17:36:53.641Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T17:36:53.661Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T17:37:16.257Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T17:37:16.310Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T17:40:08.385Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T17:40:08.393Z - Mode développement actif
+[INFO] 2025-06-30T17:40:08.393Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-06-30T17:40:08.404Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T17:40:09.127Z - Utilisateur test créé (testadmin / testpassword)
+[INFO] 2025-06-30T17:40:30.401Z - [Session] [session-file-store] will retry, error on last attempt: Error: ENOENT: no such file or directory, open '/root/Pr/Predicteur/sessions/uQhuiMEhD9g6rE4nJPoa0Ud5z8GnCByn.json'
+[INFO] 2025-06-30T18:08:58.472Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T18:08:58.524Z - Mode développement actif
+[INFO] 2025-06-30T18:08:58.525Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-06-30T18:08:58.573Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T18:08:59.255Z - Utilisateur test créé (testadmin / testpassword)
+[INFO] 2025-06-30T18:09:55.541Z - [Session] [session-file-store] will retry, error on last attempt: Error: ENOENT: no such file or directory, open '/root/Pr/Predicteur/sessions/8h8JRes5k2xyWTt5mxzjq_wL3Oez9Huz.json'

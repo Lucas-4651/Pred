@@ -1,0 +1,30 @@
+exports.apiKeyAuth = async (req, res, next) => {
+  const apiKey = req.headers['x-api-key'];
+  if (!apiKey) {
+    return res.status(401).json({ error: 'Clé API manquante' });
+  }
+
+  try {
+    const keyRecord = await ApiKey.findOne({ 
+      where: { 
+        key: apiKey,
+        isActive: true
+      }
+    });
+    
+    if (!keyRecord) {
+      return res.status(401).json({ 
+        error: 'Clé API invalide ou désactivée',
+        hint: 'Les clés sont au format: MotChiffre (ex: SuperPrediction25)'
+      });
+    }
+
+    // Mettre à jour la date de dernière utilisation
+    keyRecord.lastUsed = new Date();
+    await keyRecord.save();
+
+    next();
+  } catch (error) {
+    res.status(500).json({ error: 'Erreur serveur' });
+  }
+};

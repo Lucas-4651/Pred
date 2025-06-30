@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <%- include('partials/header') %>
+  <title>Erreur</title>
+</head>
+<body>
+  <%- include('partials/nav', { user: user }) %> <!-- Modifier cette ligne -->
+  
+  <div class="container my-5">
+    <div class="alert alert-danger">
+      <h4 class="alert-heading">Une erreur est survenue</h4>
+      <p><%= message %></p>
+      <hr>
+      <p class="mb-0">Veuillez réessayer plus tard ou contacter l'administrateur.</p>
+    </div>
+    <a href="/" class="btn btn-primary">
+      <i class="fas fa-home"></i> Retour à l'accueil
+    </a>
+  </div>
+  
+  <%- include('partials/footer') %>
+</body>
+</html>

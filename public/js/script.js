@@ -1,5 +1,4 @@
-// public/js/script.js
-
+// public/js/script.js (mis à jour pour afficher la confiance)
 // Fonction pour afficher les erreurs
 function showError(message) {
     const keyError = document.getElementById('keyError');
@@ -39,36 +38,41 @@ function updatePredictions(predictions) {
         card.style.animation = `slideUp 0.5s ease-out ${delay}ms forwards`;
         card.style.opacity = '0';
         
+        // Déterminer la couleur de la confiance
+        let confidenceColor = 'bg-primary';
+        if (pred.confidence >= 75) confidenceColor = 'bg-success';
+        else if (pred.confidence <= 50) confidenceColor = 'bg-warning';
+        
         card.innerHTML = `
             <div class="card-header">
                 <h5>${pred.match}</h5>
                 <div class="d-flex justify-content-between align-items-center mt-2">
-                    <span class="badge bg-dark">${pred.competition}</span>
-                    <span class="badge bg-secondary">${pred.date}</span>
+                    <span class="badge bg-dark">${pred.competition || 'English League'}</span>
+                    <span class="badge bg-secondary">${pred.date || 'Match Actuel'}</span>
                 </div>
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <p><strong>Score final:</strong> <span class="badge badge-success">${pred.final_result}</span></p>
-                        <p><strong>Nombre de buts:</strong> <span class="badge badge-info">${pred.goals}</span></p>
-                        <p><strong>Mi-temps:</strong> <span class="badge badge-warning">${pred.half_time}</span></p>
+                        <p><strong>Resultat final:</strong> <span class="badge badge-success">${pred.final_result}</span></p>
+                        <p><strong>Nombre de buts possible:</strong> <span class="badge badge-info">${pred.goals}</span></p>
+                        <p><strong>Resulat Mi-temps:</strong> <span class="badge badge-warning">${pred.half_time}</span></p>
                     </div>
                     <div class="col-md-6">
-                        <p><strong>Forme domicile:</strong> ${pred.home_form}</p>
-                        <p><strong>Forme extérieur:</strong> ${pred.away_form}</p>
+                        <p><strong>Forme domicile:</strong> ${(pred.home_form * 100).toFixed(0)}%</p>
+                        <p><strong>Forme extérieur:</strong> ${(pred.away_form * 100).toFixed(0)}%</p>
                         <p><strong>Cotes 1X2:</strong> ${pred.odds_1x2}</p>
                         <p><strong>Cotes mi-temps:</strong> ${pred.odds_ht}</p>
                     </div>
                 </div>
                 <div class="mt-3 d-flex justify-content-between">
-                    <span class="badge bg-primary">Confiance: ${pred.confidence}%</span>
-                    <span class="badge bg-info">Historique: ${pred.history}</span>
+                    <span class="badge ${confidenceColor}">Confiance: ${pred.confidence}%</span>
+                    <span class="badge bg-info">Modèle: Hybride v2.0</span>
                 </div>
             </div>
         `;
         container.appendChild(card);
-        delay += 100; // Augmenter le délai pour l'animation en cascade
+        delay += 100;
     });
 }
 
@@ -95,7 +99,6 @@ async function loadPredictions() {
         return predictions;
     } catch (error) {
         console.error('Erreur lors du chargement des prédictions:', error);
-        // Réafficher le formulaire si l'erreur est liée à la clé
         const keyAccessCard = document.querySelector('.key-access-card');
         const predictionsContainer = document.getElementById('predictionsContainer');
         
@@ -112,7 +115,6 @@ async function loadPredictions() {
 
 // Gestionnaire principal
 function unlockBtnHandler() {
-    // Vérifier que les éléments nécessaires sont présents
     if (!document.getElementById('unlockBtn') || !document.getElementById('apiKeyInput')) {
         console.error('Éléments requis non trouvés');
         return;
@@ -131,11 +133,9 @@ function unlockBtnHandler() {
             return;
         }
         
-        // Effet visuel
         unlockBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Vérification...';
         unlockBtn.disabled = true;
         
-        // Créer l'effet de déverrouillage
         const unlockEffect = document.createElement('div');
         unlockEffect.className = 'unlock-effect';
         document.body.appendChild(unlockEffect);
@@ -156,16 +156,12 @@ function unlockBtnHandler() {
             }
             
             const predictions = await response.json();
-            
-            // Enregistrer la clé valide
             localStorage.setItem('apiKey', apiKey);
             
-            // Cacher la carte d'accès après un délai
             setTimeout(() => {
                 keyAccessCard.style.opacity = '0';
                 keyAccessCard.style.transform = 'translateY(-50px)';
                 
-                // Afficher les prédictions
                 setTimeout(() => {
                     keyAccessCard.classList.add('d-none');
                     predictionsContainer.classList.remove('d-none');
@@ -182,7 +178,6 @@ function unlockBtnHandler() {
             unlockBtn.innerHTML = '<i class="fas fa-lock-open"></i> Déverrouiller';
             unlockBtn.disabled = false;
         } finally {
-            // Nettoyer l'effet visuel
             setTimeout(() => {
                 if (unlockEffect.parentNode) {
                     unlockEffect.parentNode.removeChild(unlockEffect);
@@ -191,14 +186,12 @@ function unlockBtnHandler() {
         }
     });
     
-    // Ajout du gestionnaire pour le bouton d'actualisation
     const refreshBtn = document.getElementById('refreshBtn');
     if (refreshBtn) {
         refreshBtn.addEventListener('click', function() {
             refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Chargement...';
             refreshBtn.disabled = true;
             
-            // Animation des prédictions
             const predictionsList = document.getElementById('predictionsList');
             if (predictionsList) {
                 predictionsList.style.opacity = '0.5';
@@ -206,29 +199,23 @@ function unlockBtnHandler() {
             }
             
             loadPredictions().then(() => {
-                // Animation de retour
                 if (predictionsList) predictionsList.style.opacity = '1';
-            }).catch(() => {
-                // Gérer l'erreur
-            }).finally(() => {
+            }).catch(() => {}).finally(() => {
                 refreshBtn.innerHTML = '<i class="fas fa-sync-alt me-1"></i>Prochaines prédictions';
                 refreshBtn.disabled = false;
             });
         });
     }
     
-    // Pré-remplir la clé si elle existe dans localStorage
     const savedKey = localStorage.getItem('apiKey');
     if (savedKey) {
         apiKeyInput.value = savedKey;
     }
     
-    // Charger automatiquement les prédictions si une clé est déjà sauvegardée
     if (localStorage.getItem('apiKey')) {
         keyAccessCard.classList.add('d-none');
         predictionsContainer.classList.remove('d-none');
         
-        // Afficher un état de chargement
         const container = document.getElementById('predictionsList');
         if (container) {
             container.innerHTML = `
@@ -242,12 +229,11 @@ function unlockBtnHandler() {
         }
         
         loadPredictions().catch(() => {
-            // En cas d'erreur, afficher le formulaire
             keyAccessCard.classList.remove('d-none');
             predictionsContainer.classList.add('d-none');
         });
     }
 }
 
-// Initialisation lorsque le DOM est chargé
+// Initialisation
 document.addEventListener('DOMContentLoaded', unlockBtnHandler);

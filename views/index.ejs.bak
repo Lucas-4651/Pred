@@ -1,3 +1,4 @@
+//view/index.ejs
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -349,8 +350,8 @@
     
     <div class="container-main">
         <div class="logo-container">
-            <h1><i class="fas fa-futbol me-2"></i>PREDICTFOOT MG</h1>
-            <p>Analyse prédictive des matchs de football - Madagascar</p>
+            <h1><i class="fas fa-futbol me-2"></i>VIRTUAL MG</h1>
+            <p>Analyse prédictive des matchs virtuel - Madagascar</p>
         </div>
         
         <!-- Carte d'accès par clé API -->
@@ -405,7 +406,7 @@
     </div>
     
     <div class="footer">
-        <p>© 2025 PredictFoot MG - Tous droits réservés</p>
+        <p>© Prediction booster</p>
         <p><%= copyright %></p>
     </div>
 

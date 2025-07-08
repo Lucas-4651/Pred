@@ -182,3 +182,2096 @@
 [INFO] 2025-06-30T18:08:58.573Z - Connexion à SQLite établie.
 [INFO] 2025-06-30T18:08:59.255Z - Utilisateur test créé (testadmin / testpassword)
 [INFO] 2025-06-30T18:09:55.541Z - [Session] [session-file-store] will retry, error on last attempt: Error: ENOENT: no such file or directory, open '/root/Pr/Predicteur/sessions/8h8JRes5k2xyWTt5mxzjq_wL3Oez9Huz.json'
+[INFO] 2025-06-30T19:31:55.259Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T19:31:55.275Z - Mode développement actif
+[INFO] 2025-06-30T19:31:55.276Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-06-30T19:31:55.293Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T19:31:55.730Z - Utilisateur test créé (testadmin / testpassword)
+[INFO] 2025-06-30T19:32:43.016Z - API results réussie
+[INFO] 2025-06-30T19:32:43.827Z - API matches réussie
+[INFO] 2025-06-30T19:32:44.136Z - API ranking réussie
+[WARN] 2025-06-30T19:32:44.145Z - Aucun match à venir trouvé
+[INFO] 2025-06-30T19:33:23.408Z - API results réussie
+[INFO] 2025-06-30T19:33:24.173Z - API matches réussie
+[INFO] 2025-06-30T19:33:24.473Z - API ranking réussie
+[WARN] 2025-06-30T19:33:24.476Z - Aucun match à venir trouvé
+[INFO] 2025-06-30T19:34:04.068Z - API results réussie
+[INFO] 2025-06-30T19:34:04.828Z - API matches réussie
+[INFO] 2025-06-30T19:34:05.137Z - API ranking réussie
+[WARN] 2025-06-30T19:34:05.139Z - Aucun match à venir trouvé
+[INFO] 2025-06-30T19:34:15.307Z - API results réussie
+[INFO] 2025-06-30T19:34:15.990Z - API matches réussie
+[INFO] 2025-06-30T19:34:16.265Z - API ranking réussie
+[WARN] 2025-06-30T19:34:16.266Z - Aucun match à venir trouvé
+[INFO] 2025-06-30T19:40:10.418Z - API results réussie
+[INFO] 2025-06-30T19:40:11.133Z - API matches réussie
+[INFO] 2025-06-30T19:40:11.424Z - API ranking réussie
+[WARN] 2025-06-30T19:40:11.425Z - Aucun match à venir trouvé
+[INFO] 2025-06-30T19:40:12.637Z - API results réussie
+[INFO] 2025-06-30T19:40:13.305Z - API matches réussie
+[INFO] 2025-06-30T19:40:13.593Z - API ranking réussie
+[WARN] 2025-06-30T19:40:13.594Z - Aucun match à venir trouvé
+[INFO] 2025-06-30T19:40:15.967Z - API results réussie
+[INFO] 2025-06-30T19:40:16.970Z - API matches réussie
+[INFO] 2025-06-30T19:40:17.265Z - API ranking réussie
+[WARN] 2025-06-30T19:40:17.267Z - Aucun match à venir trouvé
+[INFO] 2025-06-30T19:40:18.047Z - API results réussie
+[INFO] 2025-06-30T19:40:18.810Z - API matches réussie
+[INFO] 2025-06-30T19:40:19.076Z - API ranking réussie
+[WARN] 2025-06-30T19:40:19.077Z - Aucun match à venir trouvé
+[INFO] 2025-06-30T19:41:12.616Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T19:41:12.634Z - Mode développement actif
+[INFO] 2025-06-30T19:41:12.634Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-06-30T19:41:12.662Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T19:41:26.760Z - API results réussie
+[INFO] 2025-06-30T19:41:27.459Z - API matches réussie
+[INFO] 2025-06-30T19:41:27.762Z - API ranking réussie
+[INFO] 2025-06-30T19:41:27.764Z - Matches à venir trouvés: 10
+[INFO] 2025-06-30T19:41:27.776Z - Prédiction buts: 3 (confiance: 23.18%)
+[INFO] 2025-06-30T19:41:27.777Z - Prédiction buts: 3 (confiance: 22.60%)
+[INFO] 2025-06-30T19:41:27.778Z - Prédiction buts: 2 (confiance: 26.05%)
+[INFO] 2025-06-30T19:41:27.779Z - Prédiction buts: 3 (confiance: 23.18%)
+[INFO] 2025-06-30T19:41:27.780Z - Prédiction buts: 2 (confiance: 25.86%)
+[INFO] 2025-06-30T19:41:27.782Z - Prédiction buts: 5 (confiance: 24.73%)
+[INFO] 2025-06-30T19:41:27.783Z - Prédiction buts: 4 (confiance: 23.03%)
+[INFO] 2025-06-30T19:41:27.784Z - Prédiction buts: 3 (confiance: 24.58%)
+[INFO] 2025-06-30T19:41:27.785Z - Prédiction buts: 4 (confiance: 23.49%)
+[INFO] 2025-06-30T19:41:27.787Z - Prédiction buts: 5 (confiance: 24.37%)
+[INFO] 2025-06-30T19:41:28.714Z - API results réussie
+[INFO] 2025-06-30T19:41:29.457Z - API matches réussie
+[INFO] 2025-06-30T19:41:29.745Z - API ranking réussie
+[INFO] 2025-06-30T19:41:29.747Z - Matches à venir trouvés: 10
+[INFO] 2025-06-30T19:41:29.749Z - Prédiction buts: 3 (confiance: 23.18%)
+[INFO] 2025-06-30T19:41:29.752Z - Prédiction buts: 3 (confiance: 22.60%)
+[INFO] 2025-06-30T19:41:29.753Z - Prédiction buts: 2 (confiance: 26.05%)
+[INFO] 2025-06-30T19:41:29.755Z - Prédiction buts: 3 (confiance: 23.18%)
+[INFO] 2025-06-30T19:41:29.756Z - Prédiction buts: 2 (confiance: 25.86%)
+[INFO] 2025-06-30T19:41:29.758Z - Prédiction buts: 5 (confiance: 24.73%)
+[INFO] 2025-06-30T19:41:29.759Z - Prédiction buts: 4 (confiance: 23.03%)
+[INFO] 2025-06-30T19:41:29.760Z - Prédiction buts: 3 (confiance: 24.58%)
+[INFO] 2025-06-30T19:41:29.761Z - Prédiction buts: 4 (confiance: 23.49%)
+[INFO] 2025-06-30T19:41:29.762Z - Prédiction buts: 5 (confiance: 24.37%)
+[INFO] 2025-06-30T19:48:05.088Z - API results réussie
+[INFO] 2025-06-30T19:48:05.791Z - API matches réussie
+[INFO] 2025-06-30T19:48:06.106Z - API ranking réussie
+[INFO] 2025-06-30T19:48:06.107Z - Matches à venir trouvés: 10
+[INFO] 2025-06-30T19:48:06.113Z - Prédiction buts: 5 (confiance: 22.47%)
+[INFO] 2025-06-30T19:48:06.114Z - Prédiction buts: 4 (confiance: 24.61%)
+[INFO] 2025-06-30T19:48:06.115Z - Prédiction buts: 2 (confiance: 23.26%)
+[INFO] 2025-06-30T19:48:06.116Z - Prédiction buts: 3 (confiance: 22.89%)
+[INFO] 2025-06-30T19:48:06.117Z - Prédiction buts: 3 (confiance: 23.10%)
+[INFO] 2025-06-30T19:48:06.118Z - Prédiction buts: 2 (confiance: 25.14%)
+[INFO] 2025-06-30T19:48:06.119Z - Prédiction buts: 2 (confiance: 23.60%)
+[INFO] 2025-06-30T19:48:06.119Z - Prédiction buts: 4 (confiance: 22.98%)
+[INFO] 2025-06-30T19:48:06.120Z - Prédiction buts: 2 (confiance: 25.87%)
+[INFO] 2025-06-30T19:48:06.130Z - Prédiction buts: 4 (confiance: 24.82%)
+[INFO] 2025-06-30T19:48:07.301Z - API results réussie
+[INFO] 2025-06-30T19:48:08.012Z - API matches réussie
+[INFO] 2025-06-30T19:48:08.326Z - API ranking réussie
+[INFO] 2025-06-30T19:48:08.326Z - Matches à venir trouvés: 10
+[INFO] 2025-06-30T19:48:08.327Z - Prédiction buts: 5 (confiance: 22.47%)
+[INFO] 2025-06-30T19:48:08.328Z - Prédiction buts: 4 (confiance: 24.61%)
+[INFO] 2025-06-30T19:48:08.329Z - Prédiction buts: 2 (confiance: 23.26%)
+[INFO] 2025-06-30T19:48:08.329Z - Prédiction buts: 3 (confiance: 22.89%)
+[INFO] 2025-06-30T19:48:08.330Z - Prédiction buts: 3 (confiance: 23.10%)
+[INFO] 2025-06-30T19:48:08.330Z - Prédiction buts: 2 (confiance: 25.14%)
+[INFO] 2025-06-30T19:48:08.331Z - Prédiction buts: 2 (confiance: 23.60%)
+[INFO] 2025-06-30T19:48:08.332Z - Prédiction buts: 4 (confiance: 22.98%)
+[INFO] 2025-06-30T19:48:08.332Z - Prédiction buts: 2 (confiance: 25.87%)
+[INFO] 2025-06-30T19:48:08.333Z - Prédiction buts: 4 (confiance: 24.82%)
+[INFO] 2025-06-30T19:48:36.475Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T19:48:36.510Z - Mode développement actif
+[INFO] 2025-06-30T19:48:36.510Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-06-30T19:48:36.526Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T19:48:43.240Z - API results réussie
+[INFO] 2025-06-30T19:48:43.938Z - API matches réussie
+[INFO] 2025-06-30T19:48:44.240Z - API ranking réussie
+[INFO] 2025-06-30T19:48:44.242Z - Matches à venir trouvés: 10
+[INFO] 2025-06-30T19:48:45.249Z - API results réussie
+[INFO] 2025-06-30T19:48:45.917Z - API matches réussie
+[INFO] 2025-06-30T19:48:46.198Z - API ranking réussie
+[INFO] 2025-06-30T19:48:46.199Z - Matches à venir trouvés: 10
+[INFO] 2025-06-30T19:57:50.816Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T19:57:50.833Z - Mode développement actif
+[INFO] 2025-06-30T19:57:50.834Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-06-30T19:57:50.851Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T19:58:06.173Z - API results réussie
+[INFO] 2025-06-30T19:58:06.942Z - API matches réussie
+[INFO] 2025-06-30T19:58:07.248Z - API ranking réussie
+[INFO] 2025-06-30T19:58:07.251Z - Matches à venir trouvés: 10
+[INFO] 2025-06-30T19:58:08.833Z - API results réussie
+[INFO] 2025-06-30T19:58:09.558Z - API matches réussie
+[INFO] 2025-06-30T19:58:09.844Z - API ranking réussie
+[INFO] 2025-06-30T19:58:09.845Z - Matches à venir trouvés: 10
+[INFO] 2025-06-30T20:01:35.140Z - API results réussie
+[INFO] 2025-06-30T20:01:35.861Z - API matches réussie
+[INFO] 2025-06-30T20:01:36.186Z - API ranking réussie
+[INFO] 2025-06-30T20:01:36.187Z - Matches à venir trouvés: 10
+[INFO] 2025-06-30T20:05:20.450Z - API results réussie
+[INFO] 2025-06-30T20:05:21.128Z - API matches réussie
+[INFO] 2025-06-30T20:05:21.436Z - API ranking réussie
+[INFO] 2025-06-30T20:05:21.438Z - Matches à venir trouvés: 10
+[INFO] 2025-06-30T20:09:04.963Z - API results réussie
+[INFO] 2025-06-30T20:09:06.219Z - API matches réussie
+[INFO] 2025-06-30T20:09:06.555Z - API ranking réussie
+[INFO] 2025-06-30T20:09:06.556Z - Matches à venir trouvés: 10
+[INFO] 2025-06-30T20:09:07.995Z - API results réussie
+[INFO] 2025-06-30T20:09:08.726Z - API matches réussie
+[INFO] 2025-06-30T20:09:09.023Z - API ranking réussie
+[INFO] 2025-06-30T20:09:09.025Z - Matches à venir trouvés: 10
+[INFO] 2025-06-30T20:11:25.443Z - API results réussie
+[INFO] 2025-06-30T20:11:26.130Z - API matches réussie
+[INFO] 2025-06-30T20:11:26.427Z - API ranking réussie
+[INFO] 2025-06-30T20:11:26.428Z - Matches à venir trouvés: 10
+[INFO] 2025-06-30T20:15:15.019Z - API results réussie
+[INFO] 2025-06-30T20:15:15.688Z - API matches réussie
+[INFO] 2025-06-30T20:15:15.975Z - API ranking réussie
+[INFO] 2025-06-30T20:15:15.977Z - Matches à venir trouvés: 10
+[INFO] 2025-06-30T20:28:25.850Z - Serveur démarré sur le port 3000
+[INFO] 2025-06-30T20:28:25.875Z - Mode développement actif
+[INFO] 2025-06-30T20:28:25.875Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-06-30T20:28:25.906Z - Connexion à SQLite établie.
+[INFO] 2025-06-30T20:28:46.329Z - API results réussie
+[INFO] 2025-06-30T20:28:47.047Z - API matches réussie
+[INFO] 2025-06-30T20:28:47.363Z - API ranking réussie
+[INFO] 2025-06-30T20:28:47.366Z - Matches à venir trouvés: 10
+[INFO] 2025-06-30T20:28:47.414Z - Match serré détecté: Ipswich vs West Ham - Renforcement du match nul
+[INFO] 2025-06-30T20:28:49.309Z - API results réussie
+[INFO] 2025-06-30T20:28:49.993Z - API matches réussie
+[INFO] 2025-06-30T20:28:50.311Z - API ranking réussie
+[INFO] 2025-06-30T20:28:50.312Z - Matches à venir trouvés: 10
+[INFO] 2025-06-30T20:28:50.318Z - Match serré détecté: Ipswich vs West Ham - Renforcement du match nul
+[INFO] 2025-06-30T21:12:15.471Z - API results réussie
+[INFO] 2025-06-30T21:12:16.280Z - API matches réussie
+[INFO] 2025-06-30T21:12:16.797Z - API ranking réussie
+[INFO] 2025-06-30T21:12:16.798Z - Matches à venir trouvés: 10
+[INFO] 2025-06-30T21:12:16.802Z - Match serré détecté: Ipswich vs A. Villa - Renforcement du match nul
+[INFO] 2025-06-30T21:28:25.637Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-01T08:20:43.896Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-01T08:20:43.932Z - Mode développement actif
+[INFO] 2025-07-01T08:20:43.933Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-01T08:20:43.980Z - Connexion à SQLite établie.
+[INFO] 2025-07-01T08:21:02.651Z - API results réussie
+[INFO] 2025-07-01T08:21:03.130Z - API matches réussie
+[INFO] 2025-07-01T08:21:03.464Z - API ranking réussie
+[INFO] 2025-07-01T08:21:03.466Z - Matches à venir trouvés: 10
+[INFO] 2025-07-01T08:21:05.309Z - API results réussie
+[INFO] 2025-07-01T08:21:05.783Z - API matches réussie
+[INFO] 2025-07-01T08:21:06.084Z - API ranking réussie
+[INFO] 2025-07-01T08:21:06.086Z - Matches à venir trouvés: 10
+[INFO] 2025-07-01T08:38:56.454Z - API results réussie
+[INFO] 2025-07-01T08:38:56.480Z - API results réussie
+[INFO] 2025-07-01T08:38:57.244Z - API matches réussie
+[INFO] 2025-07-01T08:38:57.269Z - API matches réussie
+[INFO] 2025-07-01T08:38:57.525Z - API ranking réussie
+[INFO] 2025-07-01T08:38:57.526Z - Matches à venir trouvés: 10
+[INFO] 2025-07-01T08:38:57.557Z - API ranking réussie
+[INFO] 2025-07-01T08:38:57.557Z - Matches à venir trouvés: 10
+[INFO] 2025-07-01T09:24:16.941Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-01T09:58:21.675Z - API results réussie
+[INFO] 2025-07-01T09:58:22.750Z - API matches réussie
+[INFO] 2025-07-01T09:58:23.049Z - API ranking réussie
+[INFO] 2025-07-01T09:58:23.050Z - Matches à venir trouvés: 10
+[INFO] 2025-07-01T10:25:01.518Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-01T11:30:28.973Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-01T11:30:29.016Z - Mode développement actif
+[INFO] 2025-07-01T11:30:29.017Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-01T11:30:29.078Z - Connexion à SQLite établie.
+[INFO] 2025-07-01T11:30:49.918Z - API results réussie
+[INFO] 2025-07-01T11:30:50.681Z - API matches réussie
+[INFO] 2025-07-01T11:30:50.993Z - API ranking réussie
+[INFO] 2025-07-01T11:30:50.995Z - Matches à venir trouvés: 10
+[INFO] 2025-07-01T11:30:52.498Z - API results réussie
+[INFO] 2025-07-01T11:30:53.231Z - API matches réussie
+[INFO] 2025-07-01T11:30:53.518Z - API ranking réussie
+[INFO] 2025-07-01T11:30:53.519Z - Matches à venir trouvés: 10
+[INFO] 2025-07-01T11:32:17.381Z - API results réussie
+[INFO] 2025-07-01T11:32:18.138Z - API matches réussie
+[INFO] 2025-07-01T11:32:18.459Z - API ranking réussie
+[INFO] 2025-07-01T11:32:18.461Z - Matches à venir trouvés: 10
+[INFO] 2025-07-01T11:32:19.493Z - API results réussie
+[INFO] 2025-07-01T11:32:20.222Z - API matches réussie
+[INFO] 2025-07-01T11:32:20.516Z - API ranking réussie
+[INFO] 2025-07-01T11:32:20.517Z - Matches à venir trouvés: 10
+[INFO] 2025-07-02T11:28:15.963Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-02T11:28:15.998Z - Mode développement actif
+[INFO] 2025-07-02T11:28:15.999Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-02T11:28:16.056Z - Connexion à SQLite établie.
+[INFO] 2025-07-02T11:28:37.048Z - API results réussie
+[INFO] 2025-07-02T11:28:37.790Z - API matches réussie
+[INFO] 2025-07-02T11:28:38.089Z - API ranking réussie
+[INFO] 2025-07-02T11:28:38.123Z - Round actuel: 17, Matches: 10
+[INFO] 2025-07-02T11:28:38.124Z - Rounds similaires trouvés: 3
+[INFO] 2025-07-02T11:28:38.126Z - Tendances: Fort score 38.3%, Victoires domicile 53.2%, Nuls 23.4%
+[INFO] 2025-07-02T11:29:00.413Z - API results réussie
+[INFO] 2025-07-02T11:29:01.102Z - API matches réussie
+[INFO] 2025-07-02T11:29:01.408Z - API ranking réussie
+[INFO] 2025-07-02T11:29:01.439Z - Round actuel: 17, Matches: 10
+[INFO] 2025-07-02T11:29:01.439Z - Rounds similaires trouvés: 3
+[INFO] 2025-07-02T11:29:01.440Z - Tendances: Fort score 38.3%, Victoires domicile 53.2%, Nuls 23.4%
+[INFO] 2025-07-02T11:29:02.675Z - API results réussie
+[INFO] 2025-07-02T11:29:03.401Z - API matches réussie
+[INFO] 2025-07-02T11:29:03.712Z - API ranking réussie
+[INFO] 2025-07-02T11:29:03.727Z - Round actuel: 17, Matches: 10
+[INFO] 2025-07-02T11:29:03.727Z - Rounds similaires trouvés: 3
+[INFO] 2025-07-02T11:29:03.727Z - Tendances: Fort score 38.3%, Victoires domicile 53.2%, Nuls 23.4%
+[INFO] 2025-07-02T11:29:57.492Z - API results réussie
+[INFO] 2025-07-02T11:29:58.098Z - API matches réussie
+[INFO] 2025-07-02T11:29:58.375Z - API ranking réussie
+[ERROR] 2025-07-02T11:29:58.387Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T11:30:06.194Z - API results réussie
+[INFO] 2025-07-02T11:30:06.875Z - API matches réussie
+[INFO] 2025-07-02T11:30:07.259Z - API ranking réussie
+[ERROR] 2025-07-02T11:30:07.263Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T11:30:09.019Z - API results réussie
+[INFO] 2025-07-02T11:30:09.838Z - API matches réussie
+[INFO] 2025-07-02T11:30:10.162Z - API ranking réussie
+[ERROR] 2025-07-02T11:30:10.166Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T11:30:28.553Z - API results réussie
+[INFO] 2025-07-02T11:30:29.200Z - API matches réussie
+[INFO] 2025-07-02T11:30:29.499Z - API ranking réussie
+[ERROR] 2025-07-02T11:30:29.503Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T11:30:31.274Z - API results réussie
+[INFO] 2025-07-02T11:30:32.100Z - API matches réussie
+[INFO] 2025-07-02T11:30:32.402Z - API ranking réussie
+[ERROR] 2025-07-02T11:30:32.409Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T11:30:33.259Z - API results réussie
+[INFO] 2025-07-02T11:30:33.921Z - API matches réussie
+[INFO] 2025-07-02T11:30:34.214Z - API ranking réussie
+[ERROR] 2025-07-02T11:30:34.218Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T11:30:44.369Z - API results réussie
+[INFO] 2025-07-02T11:30:45.061Z - API matches réussie
+[INFO] 2025-07-02T11:30:45.366Z - API ranking réussie
+[ERROR] 2025-07-02T11:30:45.373Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T11:30:46.423Z - API results réussie
+[INFO] 2025-07-02T11:30:47.037Z - API matches réussie
+[INFO] 2025-07-02T11:30:47.322Z - API ranking réussie
+[ERROR] 2025-07-02T11:30:47.327Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T11:31:17.030Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-02T11:31:17.046Z - Mode développement actif
+[INFO] 2025-07-02T11:31:17.046Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-02T11:31:17.065Z - Connexion à SQLite établie.
+[INFO] 2025-07-02T11:31:34.745Z - API results réussie
+[INFO] 2025-07-02T11:31:35.386Z - API matches réussie
+[INFO] 2025-07-02T11:31:35.688Z - API ranking réussie
+[INFO] 2025-07-02T11:31:35.707Z - Round actuel: 19, Matches: 10
+[INFO] 2025-07-02T11:31:35.708Z - Rounds similaires trouvés: 3
+[INFO] 2025-07-02T11:31:35.708Z - Tendances: Fort score 38.3%, Victoires domicile 53.2%, Nuls 23.4%
+[INFO] 2025-07-02T11:31:36.673Z - API results réussie
+[INFO] 2025-07-02T11:31:37.273Z - API matches réussie
+[INFO] 2025-07-02T11:31:37.572Z - API ranking réussie
+[INFO] 2025-07-02T11:31:37.579Z - Round actuel: 19, Matches: 10
+[INFO] 2025-07-02T11:31:37.580Z - Rounds similaires trouvés: 3
+[INFO] 2025-07-02T11:31:37.581Z - Tendances: Fort score 38.3%, Victoires domicile 53.2%, Nuls 23.4%
+[INFO] 2025-07-02T11:43:35.647Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-02T11:43:35.692Z - Mode développement actif
+[INFO] 2025-07-02T11:43:35.692Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-02T11:43:35.756Z - Connexion à SQLite établie.
+[INFO] 2025-07-02T11:43:51.409Z - API results réussie
+[INFO] 2025-07-02T11:43:52.024Z - API matches réussie
+[INFO] 2025-07-02T11:43:52.318Z - API ranking réussie
+[INFO] 2025-07-02T11:43:52.343Z - Round actuel: 25, Matches: 10
+[INFO] 2025-07-02T11:43:52.343Z - Rounds similaires trouvés: 4
+[INFO] 2025-07-02T11:43:52.344Z - Tendances: Fort score 38.3%, Victoires domicile 53.2%, Nuls 23.4%
+[INFO] 2025-07-02T11:43:53.662Z - API results réussie
+[INFO] 2025-07-02T11:43:54.269Z - API matches réussie
+[INFO] 2025-07-02T11:43:54.566Z - API ranking réussie
+[INFO] 2025-07-02T11:43:54.580Z - Round actuel: 25, Matches: 10
+[INFO] 2025-07-02T11:43:54.580Z - Rounds similaires trouvés: 4
+[INFO] 2025-07-02T11:43:54.580Z - Tendances: Fort score 38.3%, Victoires domicile 53.2%, Nuls 23.4%
+[INFO] 2025-07-02T11:46:59.093Z - API results réussie
+[INFO] 2025-07-02T11:46:59.742Z - API matches réussie
+[INFO] 2025-07-02T11:47:00.062Z - API ranking réussie
+[INFO] 2025-07-02T11:47:00.084Z - Round actuel: 26, Matches: 10
+[INFO] 2025-07-02T11:47:00.085Z - Rounds similaires trouvés: 5
+[INFO] 2025-07-02T11:47:00.085Z - Tendances: Fort score 38.3%, Victoires domicile 53.2%, Nuls 23.4%
+[INFO] 2025-07-02T11:48:24.918Z - API results réussie
+[INFO] 2025-07-02T11:48:25.522Z - API matches réussie
+[INFO] 2025-07-02T11:48:25.809Z - API ranking réussie
+[INFO] 2025-07-02T11:48:25.830Z - Round actuel: 27, Matches: 10
+[INFO] 2025-07-02T11:48:25.830Z - Rounds similaires trouvés: 5
+[INFO] 2025-07-02T11:48:25.831Z - Tendances: Fort score 38.3%, Victoires domicile 53.2%, Nuls 23.4%
+[INFO] 2025-07-02T12:09:43.251Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-02T12:09:43.284Z - Mode développement actif
+[INFO] 2025-07-02T12:09:43.285Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-02T12:09:43.340Z - Connexion à SQLite établie.
+[INFO] 2025-07-02T12:09:58.810Z - API results réussie
+[INFO] 2025-07-02T12:09:59.489Z - API matches réussie
+[INFO] 2025-07-02T12:09:59.830Z - API ranking réussie
+[ERROR] 2025-07-02T12:09:59.847Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:10:00.784Z - API results réussie
+[INFO] 2025-07-02T12:10:00.785Z - API matches réussie
+[INFO] 2025-07-02T12:10:00.786Z - API ranking réussie
+[ERROR] 2025-07-02T12:10:00.789Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:10:03.408Z - API results réussie
+[INFO] 2025-07-02T12:10:03.410Z - API matches réussie
+[INFO] 2025-07-02T12:10:03.410Z - API ranking réussie
+[ERROR] 2025-07-02T12:10:03.414Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:10:03.750Z - API results réussie
+[INFO] 2025-07-02T12:10:03.751Z - API matches réussie
+[INFO] 2025-07-02T12:10:03.751Z - API ranking réussie
+[ERROR] 2025-07-02T12:10:03.753Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:21:09.620Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-02T12:21:09.663Z - Mode développement actif
+[INFO] 2025-07-02T12:21:09.663Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-02T12:21:09.706Z - Connexion à SQLite établie.
+[INFO] 2025-07-02T12:21:33.840Z - API results réussie
+[INFO] 2025-07-02T12:21:34.556Z - API matches réussie
+[INFO] 2025-07-02T12:21:34.851Z - API ranking réussie
+[WARN] 2025-07-02T12:21:34.872Z - Précision basse (0.0%), augmentation du seuil de confiance
+[INFO] 2025-07-02T12:21:34.873Z - Round actuel: 4, Matches: 10
+[INFO] 2025-07-02T12:21:34.873Z - Rounds similaires trouvés: 0
+[INFO] 2025-07-02T12:21:34.873Z - Tendances: Fort score 46.4%, Victoires domicile 53.6%, Nuls 17.9%
+[WARN] 2025-07-02T12:21:34.877Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:21:34.882Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:21:34.884Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:21:34.886Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:21:34.887Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:21:34.888Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:21:34.889Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:21:34.891Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:21:34.892Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:21:34.894Z - Précision basse (0.0%), augmentation du seuil de confiance
+[INFO] 2025-07-02T12:21:35.612Z - API results réussie
+[INFO] 2025-07-02T12:21:35.613Z - API matches réussie
+[INFO] 2025-07-02T12:21:35.613Z - API ranking réussie
+[WARN] 2025-07-02T12:21:35.614Z - Précision basse (0.0%), augmentation du seuil de confiance
+[INFO] 2025-07-02T12:21:35.614Z - Round actuel: 4, Matches: 10
+[INFO] 2025-07-02T12:21:35.614Z - Rounds similaires trouvés: 0
+[INFO] 2025-07-02T12:21:35.614Z - Tendances: Fort score 46.4%, Victoires domicile 53.6%, Nuls 17.9%
+[WARN] 2025-07-02T12:21:35.615Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:21:35.616Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:21:35.617Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:21:35.618Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:21:35.618Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:21:35.619Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:21:35.620Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:21:35.621Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:21:35.621Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:21:35.622Z - Précision basse (0.0%), augmentation du seuil de confiance
+[INFO] 2025-07-02T12:29:08.642Z - API results réussie
+[INFO] 2025-07-02T12:29:09.335Z - API matches réussie
+[INFO] 2025-07-02T12:29:09.644Z - API ranking réussie
+[ERROR] 2025-07-02T12:29:09.649Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:29:10.138Z - API results réussie
+[INFO] 2025-07-02T12:29:10.139Z - API matches réussie
+[INFO] 2025-07-02T12:29:10.139Z - API ranking réussie
+[ERROR] 2025-07-02T12:29:10.140Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:29:12.074Z - API results réussie
+[INFO] 2025-07-02T12:29:12.075Z - API matches réussie
+[INFO] 2025-07-02T12:29:12.075Z - API ranking réussie
+[ERROR] 2025-07-02T12:29:12.076Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:29:12.463Z - API results réussie
+[INFO] 2025-07-02T12:29:12.464Z - API matches réussie
+[INFO] 2025-07-02T12:29:12.464Z - API ranking réussie
+[ERROR] 2025-07-02T12:29:12.465Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:29:40.552Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-02T12:29:40.576Z - Mode développement actif
+[INFO] 2025-07-02T12:29:40.576Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-02T12:29:40.597Z - Connexion à SQLite établie.
+[INFO] 2025-07-02T12:29:51.371Z - API results réussie
+[INFO] 2025-07-02T12:29:52.126Z - API matches réussie
+[INFO] 2025-07-02T12:29:52.437Z - API ranking réussie
+[ERROR] 2025-07-02T12:29:52.448Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:29:53.144Z - API results réussie
+[INFO] 2025-07-02T12:29:53.145Z - API matches réussie
+[INFO] 2025-07-02T12:29:53.145Z - API ranking réussie
+[ERROR] 2025-07-02T12:29:53.147Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:30:15.929Z - API results réussie
+[INFO] 2025-07-02T12:30:15.930Z - API matches réussie
+[INFO] 2025-07-02T12:30:15.931Z - API ranking réussie
+[ERROR] 2025-07-02T12:30:15.932Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:30:16.191Z - API results réussie
+[INFO] 2025-07-02T12:30:16.191Z - API matches réussie
+[INFO] 2025-07-02T12:30:16.192Z - API ranking réussie
+[ERROR] 2025-07-02T12:30:16.196Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:30:17.628Z - API results réussie
+[INFO] 2025-07-02T12:30:17.629Z - API matches réussie
+[INFO] 2025-07-02T12:30:17.629Z - API ranking réussie
+[ERROR] 2025-07-02T12:30:17.631Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:30:17.940Z - API results réussie
+[INFO] 2025-07-02T12:30:17.940Z - API matches réussie
+[INFO] 2025-07-02T12:30:17.941Z - API ranking réussie
+[ERROR] 2025-07-02T12:30:17.942Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:30:19.206Z - API results réussie
+[INFO] 2025-07-02T12:30:19.206Z - API matches réussie
+[INFO] 2025-07-02T12:30:19.207Z - API ranking réussie
+[ERROR] 2025-07-02T12:30:19.207Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:30:19.491Z - API results réussie
+[INFO] 2025-07-02T12:30:19.493Z - API matches réussie
+[INFO] 2025-07-02T12:30:19.493Z - API ranking réussie
+[ERROR] 2025-07-02T12:30:19.496Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:30:20.741Z - API results réussie
+[INFO] 2025-07-02T12:30:20.742Z - API matches réussie
+[INFO] 2025-07-02T12:30:20.742Z - API ranking réussie
+[ERROR] 2025-07-02T12:30:20.743Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:30:21.057Z - API results réussie
+[INFO] 2025-07-02T12:30:21.058Z - API matches réussie
+[INFO] 2025-07-02T12:30:21.058Z - API ranking réussie
+[ERROR] 2025-07-02T12:30:21.059Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:30:22.308Z - API results réussie
+[INFO] 2025-07-02T12:30:22.309Z - API matches réussie
+[INFO] 2025-07-02T12:30:22.309Z - API ranking réussie
+[ERROR] 2025-07-02T12:30:22.310Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:30:22.652Z - API results réussie
+[INFO] 2025-07-02T12:30:22.653Z - API matches réussie
+[INFO] 2025-07-02T12:30:22.653Z - API ranking réussie
+[ERROR] 2025-07-02T12:30:22.655Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:30:23.867Z - API results réussie
+[INFO] 2025-07-02T12:30:23.868Z - API matches réussie
+[INFO] 2025-07-02T12:30:23.868Z - API ranking réussie
+[ERROR] 2025-07-02T12:30:23.869Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:30:24.138Z - API results réussie
+[INFO] 2025-07-02T12:30:24.138Z - API matches réussie
+[INFO] 2025-07-02T12:30:24.138Z - API ranking réussie
+[ERROR] 2025-07-02T12:30:24.141Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:30:46.014Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-02T12:30:46.020Z - Mode développement actif
+[INFO] 2025-07-02T12:30:46.020Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-02T12:30:46.032Z - Connexion à SQLite établie.
+[INFO] 2025-07-02T12:30:51.832Z - API results réussie
+[INFO] 2025-07-02T12:30:52.505Z - API matches réussie
+[INFO] 2025-07-02T12:30:52.797Z - API ranking réussie
+[ERROR] 2025-07-02T12:30:52.812Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:30:53.362Z - API results réussie
+[INFO] 2025-07-02T12:30:53.363Z - API matches réussie
+[INFO] 2025-07-02T12:30:53.363Z - API ranking réussie
+[ERROR] 2025-07-02T12:30:53.364Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:35:16.412Z - API results réussie
+[INFO] 2025-07-02T12:35:16.412Z - API matches réussie
+[INFO] 2025-07-02T12:35:16.413Z - API ranking réussie
+[ERROR] 2025-07-02T12:35:16.420Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:35:17.605Z - API results réussie
+[INFO] 2025-07-02T12:35:17.606Z - API matches réussie
+[INFO] 2025-07-02T12:35:17.606Z - API ranking réussie
+[ERROR] 2025-07-02T12:35:17.607Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:35:18.575Z - API results réussie
+[INFO] 2025-07-02T12:35:18.575Z - API matches réussie
+[INFO] 2025-07-02T12:35:18.575Z - API ranking réussie
+[ERROR] 2025-07-02T12:35:18.576Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:35:19.530Z - API results réussie
+[INFO] 2025-07-02T12:35:19.531Z - API matches réussie
+[INFO] 2025-07-02T12:35:19.531Z - API ranking réussie
+[ERROR] 2025-07-02T12:35:19.532Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:35:20.540Z - API results réussie
+[INFO] 2025-07-02T12:35:20.540Z - API matches réussie
+[INFO] 2025-07-02T12:35:20.540Z - API ranking réussie
+[ERROR] 2025-07-02T12:35:20.541Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:35:21.575Z - API results réussie
+[INFO] 2025-07-02T12:35:21.576Z - API matches réussie
+[INFO] 2025-07-02T12:35:21.576Z - API ranking réussie
+[ERROR] 2025-07-02T12:35:21.577Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:35:23.382Z - API results réussie
+[INFO] 2025-07-02T12:35:23.382Z - API matches réussie
+[INFO] 2025-07-02T12:35:23.383Z - API ranking réussie
+[ERROR] 2025-07-02T12:35:23.383Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:35:24.319Z - API results réussie
+[INFO] 2025-07-02T12:35:24.319Z - API matches réussie
+[INFO] 2025-07-02T12:35:24.319Z - API ranking réussie
+[ERROR] 2025-07-02T12:35:24.320Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:35:25.503Z - API results réussie
+[INFO] 2025-07-02T12:35:25.504Z - API matches réussie
+[INFO] 2025-07-02T12:35:25.505Z - API ranking réussie
+[ERROR] 2025-07-02T12:35:25.506Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:35:26.149Z - API results réussie
+[INFO] 2025-07-02T12:35:26.152Z - API matches réussie
+[INFO] 2025-07-02T12:35:26.153Z - API ranking réussie
+[ERROR] 2025-07-02T12:35:26.155Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:35:27.941Z - API results réussie
+[INFO] 2025-07-02T12:35:27.941Z - API matches réussie
+[INFO] 2025-07-02T12:35:27.941Z - API ranking réussie
+[ERROR] 2025-07-02T12:35:27.942Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:35:28.276Z - API results réussie
+[INFO] 2025-07-02T12:35:28.279Z - API matches réussie
+[INFO] 2025-07-02T12:35:28.280Z - API ranking réussie
+[ERROR] 2025-07-02T12:35:28.282Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:43:53.275Z - API results réussie
+[INFO] 2025-07-02T12:43:53.986Z - API matches réussie
+[INFO] 2025-07-02T12:43:54.280Z - API ranking réussie
+[ERROR] 2025-07-02T12:43:54.292Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:43:55.209Z - API results réussie
+[INFO] 2025-07-02T12:43:55.210Z - API matches réussie
+[INFO] 2025-07-02T12:43:55.210Z - API ranking réussie
+[ERROR] 2025-07-02T12:43:55.214Z - Erreur prédictions: Cannot read properties of undefined (reading 'homeScore')
+[INFO] 2025-07-02T12:44:23.108Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-02T12:44:23.143Z - Mode développement actif
+[INFO] 2025-07-02T12:44:23.143Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-02T12:44:23.185Z - Connexion à SQLite établie.
+[INFO] 2025-07-02T12:44:28.996Z - API results réussie
+[INFO] 2025-07-02T12:44:29.716Z - API matches réussie
+[INFO] 2025-07-02T12:44:30.017Z - API ranking réussie
+[WARN] 2025-07-02T12:44:30.035Z - Précision basse (0.0%), augmentation du seuil de confiance
+[INFO] 2025-07-02T12:44:30.036Z - Round actuel: 16, Matches: 10
+[INFO] 2025-07-02T12:44:30.037Z - Rounds similaires trouvés: 3
+[INFO] 2025-07-02T12:44:30.038Z - Tendances: Fort score 40.4%, Victoires domicile 51.1%, Nuls 19.1%
+[WARN] 2025-07-02T12:44:30.046Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:44:30.050Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:44:30.052Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:44:30.053Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:44:30.054Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:44:30.056Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:44:30.058Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:44:30.059Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:44:30.061Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:44:30.062Z - Précision basse (0.0%), augmentation du seuil de confiance
+[INFO] 2025-07-02T12:44:30.752Z - API results réussie
+[INFO] 2025-07-02T12:44:30.753Z - API matches réussie
+[INFO] 2025-07-02T12:44:30.753Z - API ranking réussie
+[WARN] 2025-07-02T12:44:30.756Z - Précision basse (0.0%), augmentation du seuil de confiance
+[INFO] 2025-07-02T12:44:30.756Z - Round actuel: 16, Matches: 10
+[INFO] 2025-07-02T12:44:30.757Z - Rounds similaires trouvés: 3
+[INFO] 2025-07-02T12:44:30.757Z - Tendances: Fort score 40.4%, Victoires domicile 51.1%, Nuls 19.1%
+[WARN] 2025-07-02T12:44:30.757Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:44:30.759Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:44:30.760Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:44:30.761Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:44:30.762Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:44:30.763Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:44:30.765Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:44:30.765Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:44:30.766Z - Précision basse (0.0%), augmentation du seuil de confiance
+[WARN] 2025-07-02T12:44:30.767Z - Précision basse (0.0%), augmentation du seuil de confiance
+[INFO] 2025-07-02T14:48:05.428Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-02T15:21:32.641Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-02T15:21:32.687Z - Mode développement actif
+[INFO] 2025-07-02T15:21:32.688Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-02T15:21:32.754Z - Connexion à SQLite établie.
+[WARN] 2025-07-02T15:22:02.197Z - Retour au cache pour https://hg-event-api-prod.sporty-tech.net/api/instantleagues/8035/results?skip=0&take=100
+[INFO] 2025-07-02T15:22:02.199Z - API results réussie
+[WARN] 2025-07-02T15:22:06.408Z - Retour au cache pour https://hg-event-api-prod.sporty-tech.net/api/instantleagues/8035/matches
+[INFO] 2025-07-02T15:22:06.409Z - API matches réussie
+[WARN] 2025-07-02T15:22:09.368Z - Retour au cache pour https://hg-event-api-prod.sporty-tech.net/api/instantleagues/8035/ranking
+[INFO] 2025-07-02T15:22:09.369Z - API ranking réussie
+[ERROR] 2025-07-02T15:22:09.391Z - [f7ff3144] buildTeamFingerprints: Cannot read properties of undefined (reading 'homeScore') {
+  errorId: 'f7ff3144',
+  context: 'buildTeamFingerprints',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'homeScore')\n" +
+    '    at /root/Pr/Predicteur/services/predictionService.js:343:28\n' +
+    '    at Array.filter (<anonymous>)\n' +
+    '    at buildTeamFingerprints (/root/Pr/Predicteur/services/predictionService.js:336:45)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:924:7)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[WARN] 2025-07-02T15:22:09.398Z - Précision basse (0.0%), seuils augmentés
+[INFO] 2025-07-02T15:22:09.402Z - Round actuel: 15, Matches: 10
+[INFO] 2025-07-02T15:22:09.402Z - Rounds similaires trouvés: 2
+[INFO] 2025-07-02T15:22:09.404Z - Tendances: Fort score 33.3%, Victoires domicile 47.9%, Nuls 20.8%
+[ERROR] 2025-07-02T15:22:09.414Z - [65ca6f01] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: '65ca6f01',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Everton', awayTeam: 'Liverpool' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.419Z - [a6332eef] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: 'a6332eef',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.427Z - [74706830] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: '74706830',
+  context: 'predictMatch',
+  metadata: { match: 'Everton vs Liverpool' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.432Z - [f5dd2e1e] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: 'f5dd2e1e',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Ipswich', awayTeam: 'Brighton' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.434Z - [2f9474c6] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: '2f9474c6',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.437Z - [eb57d587] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: 'eb57d587',
+  context: 'predictMatch',
+  metadata: { match: 'Ipswich vs Brighton' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.439Z - [d1dddbc7] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: 'd1dddbc7',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Manchester Red', awayTeam: 'London Reds' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.441Z - [a1de1569] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: 'a1de1569',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.444Z - [18a1b1a9] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: '18a1b1a9',
+  context: 'predictMatch',
+  metadata: { match: 'Manchester Red vs London Reds' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.446Z - [f77ad393] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: 'f77ad393',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Wolverhampton', awayTeam: 'Manchester Blue' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.447Z - [e348aee6] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: 'e348aee6',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.450Z - [71aa55fc] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: '71aa55fc',
+  context: 'predictMatch',
+  metadata: { match: 'Wolverhampton vs Manchester Blue' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.452Z - [7c9cee3a] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: '7c9cee3a',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Southampton', awayTeam: 'London Blues' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.453Z - [a8444159] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: 'a8444159',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.454Z - [ae3002bc] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: 'ae3002bc',
+  context: 'predictMatch',
+  metadata: { match: 'Southampton vs London Blues' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.456Z - [be2341f8] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: 'be2341f8',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Brentford', awayTeam: 'West Ham' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.457Z - [cf3cca10] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: 'cf3cca10',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.458Z - [635983cd] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: '635983cd',
+  context: 'predictMatch',
+  metadata: { match: 'Brentford vs West Ham' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.460Z - [8812f3a5] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: '8812f3a5',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'A. Villa', awayTeam: 'N. Forest' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.461Z - [10e91aba] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: '10e91aba',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.462Z - [dfdf67c6] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: 'dfdf67c6',
+  context: 'predictMatch',
+  metadata: { match: 'A. Villa vs N. Forest' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.464Z - [b21ac6b9] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: 'b21ac6b9',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Leicester', awayTeam: 'C. Palace' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.465Z - [462eec77] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: '462eec77',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.466Z - [4870a8af] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: '4870a8af',
+  context: 'predictMatch',
+  metadata: { match: 'Leicester vs C. Palace' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.468Z - [0ba1582d] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: '0ba1582d',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Newcastle', awayTeam: 'Fulham' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.469Z - [bf6c80ff] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: 'bf6c80ff',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.470Z - [ddc0327b] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: 'ddc0327b',
+  context: 'predictMatch',
+  metadata: { match: 'Newcastle vs Fulham' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.472Z - [f28f4bf3] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: 'f28f4bf3',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Spurs', awayTeam: 'Bournemouth' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.473Z - [be7a696f] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: 'be7a696f',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.475Z - [e9c78509] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: 'e9c78509',
+  context: 'predictMatch',
+  metadata: { match: 'Spurs vs Bournemouth' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[ERROR] 2025-07-02T15:22:09.476Z - [45122815] getPredictions: logger.debug is not a function {
+  errorId: '45122815',
+  context: 'getPredictions',
+  metadata: {},
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:953:26)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[INFO] 2025-07-02T15:22:10.570Z - API results réussie
+[INFO] 2025-07-02T15:22:10.570Z - API matches réussie
+[INFO] 2025-07-02T15:22:10.571Z - API ranking réussie
+[ERROR] 2025-07-02T15:22:10.572Z - [d4e41acb] buildTeamFingerprints: Cannot read properties of undefined (reading 'homeScore') {
+  errorId: 'd4e41acb',
+  context: 'buildTeamFingerprints',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'homeScore')\n" +
+    '    at /root/Pr/Predicteur/services/predictionService.js:343:28\n' +
+    '    at Array.filter (<anonymous>)\n' +
+    '    at buildTeamFingerprints (/root/Pr/Predicteur/services/predictionService.js:336:45)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:924:7)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[WARN] 2025-07-02T15:22:10.573Z - Précision basse (0.0%), seuils augmentés
+[INFO] 2025-07-02T15:22:10.573Z - Round actuel: 15, Matches: 10
+[INFO] 2025-07-02T15:22:10.574Z - Rounds similaires trouvés: 2
+[INFO] 2025-07-02T15:22:10.574Z - Tendances: Fort score 33.3%, Victoires domicile 47.9%, Nuls 20.8%
+[ERROR] 2025-07-02T15:22:10.575Z - [2e74d566] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: '2e74d566',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Everton', awayTeam: 'Liverpool' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.576Z - [626ed388] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: '626ed388',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.577Z - [fefbf3e0] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: 'fefbf3e0',
+  context: 'predictMatch',
+  metadata: { match: 'Everton vs Liverpool' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.578Z - [c82fad7c] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: 'c82fad7c',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Ipswich', awayTeam: 'Brighton' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.579Z - [baeb6e41] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: 'baeb6e41',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.580Z - [ac39fb1f] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: 'ac39fb1f',
+  context: 'predictMatch',
+  metadata: { match: 'Ipswich vs Brighton' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.581Z - [64e43c77] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: '64e43c77',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Manchester Red', awayTeam: 'London Reds' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.582Z - [15cd47da] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: '15cd47da',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.584Z - [6960940c] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: '6960940c',
+  context: 'predictMatch',
+  metadata: { match: 'Manchester Red vs London Reds' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.585Z - [da232684] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: 'da232684',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Wolverhampton', awayTeam: 'Manchester Blue' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.586Z - [c08ec5d4] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: 'c08ec5d4',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.587Z - [6a092b28] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: '6a092b28',
+  context: 'predictMatch',
+  metadata: { match: 'Wolverhampton vs Manchester Blue' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.588Z - [b9df8e0d] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: 'b9df8e0d',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Southampton', awayTeam: 'London Blues' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.589Z - [06b49763] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: '06b49763',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.591Z - [3a94b2aa] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: '3a94b2aa',
+  context: 'predictMatch',
+  metadata: { match: 'Southampton vs London Blues' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.592Z - [ace8eeaa] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: 'ace8eeaa',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Brentford', awayTeam: 'West Ham' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.595Z - [0ca7fce7] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: '0ca7fce7',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.596Z - [8a149007] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: '8a149007',
+  context: 'predictMatch',
+  metadata: { match: 'Brentford vs West Ham' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.597Z - [1d3ca1c3] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: '1d3ca1c3',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'A. Villa', awayTeam: 'N. Forest' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.598Z - [9c160d37] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: '9c160d37',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.599Z - [302f0708] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: '302f0708',
+  context: 'predictMatch',
+  metadata: { match: 'A. Villa vs N. Forest' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.600Z - [646ac9bc] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: '646ac9bc',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Leicester', awayTeam: 'C. Palace' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.601Z - [fc49ef60] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: 'fc49ef60',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.602Z - [f9e80741] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: 'f9e80741',
+  context: 'predictMatch',
+  metadata: { match: 'Leicester vs C. Palace' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.603Z - [6a674079] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: '6a674079',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Newcastle', awayTeam: 'Fulham' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.604Z - [9ec2feaf] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: '9ec2feaf',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.605Z - [4799ce85] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: '4799ce85',
+  context: 'predictMatch',
+  metadata: { match: 'Newcastle vs Fulham' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.606Z - [e97b3f8d] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: 'e97b3f8d',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Spurs', awayTeam: 'Bournemouth' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.607Z - [930225b3] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: '930225b3',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.608Z - [86fcc373] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: '86fcc373',
+  context: 'predictMatch',
+  metadata: { match: 'Spurs vs Bournemouth' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:22:10.609Z - [85a55617] getPredictions: logger.debug is not a function {
+  errorId: '85a55617',
+  context: 'getPredictions',
+  metadata: {},
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:953:26)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[INFO] 2025-07-02T15:23:35.945Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-02T15:23:35.986Z - Mode développement actif
+[INFO] 2025-07-02T15:23:35.986Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-02T15:23:36.041Z - Connexion à SQLite établie.
+[WARN] 2025-07-02T15:23:51.184Z - Retour au cache pour https://hg-event-api-prod.sporty-tech.net/api/instantleagues/8035/results?skip=0&take=100
+[INFO] 2025-07-02T15:23:51.186Z - API results réussie
+[WARN] 2025-07-02T15:23:55.183Z - Retour au cache pour https://hg-event-api-prod.sporty-tech.net/api/instantleagues/8035/matches
+[INFO] 2025-07-02T15:23:55.185Z - API matches réussie
+[WARN] 2025-07-02T15:23:58.132Z - Retour au cache pour https://hg-event-api-prod.sporty-tech.net/api/instantleagues/8035/ranking
+[INFO] 2025-07-02T15:23:58.134Z - API ranking réussie
+[WARN] 2025-07-02T15:23:58.144Z - Précision basse (0.0%), seuils augmentés
+[INFO] 2025-07-02T15:23:58.147Z - Round actuel: 16, Matches: 10
+[INFO] 2025-07-02T15:23:58.147Z - Rounds similaires trouvés: 3
+[INFO] 2025-07-02T15:23:58.148Z - Tendances: Fort score 33.3%, Victoires domicile 47.9%, Nuls 20.8%
+[ERROR] 2025-07-02T15:23:58.154Z - [48f71789] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: '48f71789',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Liverpool', awayTeam: 'Newcastle' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.157Z - [0ac438d9] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: '0ac438d9',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.160Z - [df4b5e0e] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: 'df4b5e0e',
+  context: 'predictMatch',
+  metadata: { match: 'Liverpool vs Newcastle' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.163Z - [0add9876] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: '0add9876',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Fulham', awayTeam: 'Spurs' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.166Z - [8ec56aa5] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: '8ec56aa5',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.167Z - [b29ca162] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: 'b29ca162',
+  context: 'predictMatch',
+  metadata: { match: 'Fulham vs Spurs' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.170Z - [99010977] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: '99010977',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'London Blues', awayTeam: 'Leicester' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.171Z - [d735d0b1] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: 'd735d0b1',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.172Z - [3be9946a] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: '3be9946a',
+  context: 'predictMatch',
+  metadata: { match: 'London Blues vs Leicester' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.174Z - [bae7379e] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: 'bae7379e',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Bournemouth', awayTeam: 'N. Forest' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.175Z - [55e96fe5] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: '55e96fe5',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.176Z - [56d4a175] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: '56d4a175',
+  context: 'predictMatch',
+  metadata: { match: 'Bournemouth vs N. Forest' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.178Z - [a120e16c] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: 'a120e16c',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Brighton', awayTeam: 'Everton' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.179Z - [fbf62160] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: 'fbf62160',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.181Z - [0e9085f8] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: '0e9085f8',
+  context: 'predictMatch',
+  metadata: { match: 'Brighton vs Everton' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.182Z - [8783e6ed] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: '8783e6ed',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Manchester Blue', awayTeam: 'Manchester Red' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.183Z - [f0ac2b4f] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: 'f0ac2b4f',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.183Z - [4427162c] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: '4427162c',
+  context: 'predictMatch',
+  metadata: { match: 'Manchester Blue vs Manchester Red' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.184Z - [8eef132a] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: '8eef132a',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'C. Palace', awayTeam: 'Brentford' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.185Z - [7e38fd24] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: '7e38fd24',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.187Z - [1a579a0e] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: '1a579a0e',
+  context: 'predictMatch',
+  metadata: { match: 'C. Palace vs Brentford' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.188Z - [09f8112a] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: '09f8112a',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'Wolverhampton', awayTeam: 'Ipswich' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.189Z - [16fa34aa] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: '16fa34aa',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.190Z - [1dff1382] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: '1dff1382',
+  context: 'predictMatch',
+  metadata: { match: 'Wolverhampton vs Ipswich' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.190Z - [f3b7c124] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: 'f3b7c124',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'London Reds', awayTeam: 'Southampton' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.191Z - [7e497d4a] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: '7e497d4a',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.192Z - [a422e9f0] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: 'a422e9f0',
+  context: 'predictMatch',
+  metadata: { match: 'London Reds vs Southampton' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.193Z - [4acac384] predictGoalsWithPoisson: logger.debug is not a function {
+  errorId: '4acac384',
+  context: 'predictGoalsWithPoisson',
+  metadata: { homeTeam: 'West Ham', awayTeam: 'A. Villa' },
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at predictGoalsWithPoisson (/root/Pr/Predicteur/services/predictionService.js:488:24)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:805:31)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.194Z - [43ff4f3c] finalPrediction: Cannot read properties of undefined (reading 'split') {
+  errorId: '43ff4f3c',
+  context: 'finalPrediction',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'split')\n" +
+    '    at finalPrediction (/root/Pr/Predicteur/services/predictionService.js:684:60)\n' +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:808:25)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.196Z - [af689314] predictMatch: Cannot read properties of undefined (reading 'toFixed') {
+  errorId: 'af689314',
+  context: 'predictMatch',
+  metadata: { match: 'West Ham vs A. Villa' },
+  stack: "TypeError: Cannot read properties of undefined (reading 'toFixed')\n" +
+    '    at predictMatch (/root/Pr/Predicteur/services/predictionService.js:853:56)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:942:34)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[ERROR] 2025-07-02T15:23:58.198Z - [bcd87873] getPredictions: logger.debug is not a function {
+  errorId: 'bcd87873',
+  context: 'getPredictions',
+  metadata: {},
+  stack: 'TypeError: logger.debug is not a function\n' +
+    '    at Object.end (/root/Pr/Predicteur/services/predictionService.js:136:12)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:953:26)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[INFO] 2025-07-02T15:44:30.758Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-02T15:44:30.797Z - Mode développement actif
+[INFO] 2025-07-02T15:44:30.797Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-02T15:44:30.842Z - Connexion à SQLite établie.
+[INFO] 2025-07-02T15:44:44.759Z - ⏱️ fetch-https://hg-event-api-prod.sporty-tech.net/api/instantleagues/8035/results?skip=0&take=100 took 6453.84ms
+[INFO] 2025-07-02T15:44:44.760Z - API results réussie
+[INFO] 2025-07-02T15:44:45.374Z - ⏱️ fetch-https://hg-event-api-prod.sporty-tech.net/api/instantleagues/8035/matches took 613.30ms
+[INFO] 2025-07-02T15:44:45.375Z - API matches réussie
+[INFO] 2025-07-02T15:44:45.681Z - ⏱️ fetch-https://hg-event-api-prod.sporty-tech.net/api/instantleagues/8035/ranking took 305.72ms
+[INFO] 2025-07-02T15:44:45.684Z - API ranking réussie
+[WARN] 2025-07-02T15:44:45.706Z - Précision basse (0.0%), seuils augmentés
+[INFO] 2025-07-02T15:44:45.709Z - Round actuel: 27, Matches: 10
+[INFO] 2025-07-02T15:44:45.710Z - Rounds similaires trouvés: 5
+[INFO] 2025-07-02T15:44:45.710Z - Tendances: Fort score 33.3%, Victoires domicile 47.9%, Nuls 20.8%
+[INFO] 2025-07-02T15:44:45.715Z - ⏱️ poisson took 2.28ms
+[WARN] 2025-07-02T15:44:45.720Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T15:44:45.721Z - ⏱️ predictMatch took 9.83ms
+[INFO] 2025-07-02T15:44:45.721Z - ⏱️ poisson took 0.29ms
+[WARN] 2025-07-02T15:44:45.722Z - Incohérence prédiction: undefined vs score 2-1
+[INFO] 2025-07-02T15:44:45.723Z - ⏱️ predictMatch took 1.82ms
+[INFO] 2025-07-02T15:44:45.724Z - ⏱️ poisson took 0.40ms
+[WARN] 2025-07-02T15:44:45.724Z - Incohérence prédiction: undefined vs score 2-1
+[INFO] 2025-07-02T15:44:45.725Z - ⏱️ predictMatch took 1.63ms
+[INFO] 2025-07-02T15:44:45.725Z - ⏱️ poisson took 0.33ms
+[WARN] 2025-07-02T15:44:45.726Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T15:44:45.726Z - ⏱️ predictMatch took 1.17ms
+[INFO] 2025-07-02T15:44:45.727Z - ⏱️ poisson took 0.33ms
+[WARN] 2025-07-02T15:44:45.728Z - Incohérence prédiction: undefined vs score 2-0
+[INFO] 2025-07-02T15:44:45.728Z - ⏱️ predictMatch took 1.55ms
+[INFO] 2025-07-02T15:44:45.728Z - ⏱️ poisson took 0.29ms
+[WARN] 2025-07-02T15:44:45.729Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T15:44:45.729Z - ⏱️ predictMatch took 1.23ms
+[INFO] 2025-07-02T15:44:45.730Z - ⏱️ poisson took 0.27ms
+[WARN] 2025-07-02T15:44:45.731Z - Incohérence prédiction: undefined vs score 2-1
+[INFO] 2025-07-02T15:44:45.731Z - ⏱️ predictMatch took 1.58ms
+[INFO] 2025-07-02T15:44:45.731Z - ⏱️ poisson took 0.27ms
+[WARN] 2025-07-02T15:44:45.732Z - Incohérence prédiction: undefined vs score 2-1
+[INFO] 2025-07-02T15:44:45.732Z - ⏱️ predictMatch took 1.00ms
+[INFO] 2025-07-02T15:44:45.733Z - ⏱️ poisson took 0.24ms
+[WARN] 2025-07-02T15:44:45.734Z - Incohérence prédiction: undefined vs score 2-1
+[INFO] 2025-07-02T15:44:45.735Z - ⏱️ predictMatch took 2.27ms
+[INFO] 2025-07-02T15:44:45.735Z - ⏱️ poisson took 0.25ms
+[WARN] 2025-07-02T15:44:45.736Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T15:44:45.736Z - ⏱️ predictMatch took 1.24ms
+[INFO] 2025-07-02T15:44:45.737Z - ⏱️ getPredictions took 7431.98ms
+[INFO] 2025-07-02T15:44:46.764Z - API results réussie
+[INFO] 2025-07-02T15:44:46.764Z - API matches réussie
+[INFO] 2025-07-02T15:44:46.765Z - API ranking réussie
+[WARN] 2025-07-02T15:44:46.768Z - Précision basse (0.0%), seuils augmentés
+[INFO] 2025-07-02T15:44:46.769Z - Round actuel: 27, Matches: 10
+[INFO] 2025-07-02T15:44:46.769Z - Rounds similaires trouvés: 5
+[INFO] 2025-07-02T15:44:46.769Z - Tendances: Fort score 33.3%, Victoires domicile 47.9%, Nuls 20.8%
+[INFO] 2025-07-02T15:44:46.770Z - ⏱️ poisson took 0.20ms
+[WARN] 2025-07-02T15:44:46.770Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T15:44:46.770Z - ⏱️ predictMatch took 0.86ms
+[INFO] 2025-07-02T15:44:46.771Z - ⏱️ poisson took 0.14ms
+[WARN] 2025-07-02T15:44:46.771Z - Incohérence prédiction: undefined vs score 2-1
+[INFO] 2025-07-02T15:44:46.771Z - ⏱️ predictMatch took 0.48ms
+[INFO] 2025-07-02T15:44:46.772Z - ⏱️ poisson took 0.15ms
+[WARN] 2025-07-02T15:44:46.772Z - Incohérence prédiction: undefined vs score 2-1
+[INFO] 2025-07-02T15:44:46.772Z - ⏱️ predictMatch took 0.66ms
+[INFO] 2025-07-02T15:44:46.773Z - ⏱️ poisson took 0.16ms
+[WARN] 2025-07-02T15:44:46.773Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T15:44:46.773Z - ⏱️ predictMatch took 0.81ms
+[INFO] 2025-07-02T15:44:46.774Z - ⏱️ poisson took 0.15ms
+[WARN] 2025-07-02T15:44:46.774Z - Incohérence prédiction: undefined vs score 2-0
+[INFO] 2025-07-02T15:44:46.774Z - ⏱️ predictMatch took 0.65ms
+[INFO] 2025-07-02T15:44:46.774Z - ⏱️ poisson took 0.15ms
+[WARN] 2025-07-02T15:44:46.775Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T15:44:46.775Z - ⏱️ predictMatch took 0.63ms
+[INFO] 2025-07-02T15:44:46.775Z - ⏱️ poisson took 0.19ms
+[WARN] 2025-07-02T15:44:46.775Z - Incohérence prédiction: undefined vs score 2-1
+[INFO] 2025-07-02T15:44:46.776Z - ⏱️ predictMatch took 0.72ms
+[INFO] 2025-07-02T15:44:46.776Z - ⏱️ poisson took 0.16ms
+[WARN] 2025-07-02T15:44:46.776Z - Incohérence prédiction: undefined vs score 2-1
+[INFO] 2025-07-02T15:44:46.777Z - ⏱️ predictMatch took 1.09ms
+[INFO] 2025-07-02T15:44:46.777Z - ⏱️ poisson took 0.17ms
+[WARN] 2025-07-02T15:44:46.778Z - Incohérence prédiction: undefined vs score 2-1
+[INFO] 2025-07-02T15:44:46.778Z - ⏱️ predictMatch took 0.75ms
+[INFO] 2025-07-02T15:44:46.778Z - ⏱️ poisson took 0.18ms
+[WARN] 2025-07-02T15:44:46.779Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T15:44:46.780Z - ⏱️ predictMatch took 1.72ms
+[INFO] 2025-07-02T15:44:46.780Z - ⏱️ getPredictions took 16.24ms
+[INFO] 2025-07-02T16:05:20.782Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-02T16:05:20.832Z - Mode développement actif
+[INFO] 2025-07-02T16:05:20.832Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-02T16:05:20.891Z - Connexion à SQLite établie.
+[INFO] 2025-07-02T16:05:40.417Z - ⏱️ fetch-https://hg-event-api-prod.sporty-tech.net/api/instantleagues/8035/results?skip=0&take=100 took 6686.78ms
+[INFO] 2025-07-02T16:05:40.418Z - API results réussie
+[INFO] 2025-07-02T16:05:41.194Z - ⏱️ fetch-https://hg-event-api-prod.sporty-tech.net/api/instantleagues/8035/matches took 776.38ms
+[INFO] 2025-07-02T16:05:41.195Z - API matches réussie
+[INFO] 2025-07-02T16:05:41.557Z - ⏱️ fetch-https://hg-event-api-prod.sporty-tech.net/api/instantleagues/8035/ranking took 361.30ms
+[INFO] 2025-07-02T16:05:41.558Z - API ranking réussie
+[ERROR] 2025-07-02T16:05:41.588Z - [933eb6b2] buildTeamFingerprints: Cannot read properties of undefined (reading 'homeScore') {
+  errorId: '933eb6b2',
+  context: 'buildTeamFingerprints',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'homeScore')\n" +
+    '    at /root/Pr/Predicteur/services/predictionService.js:394:28\n' +
+    '    at Array.filter (<anonymous>)\n' +
+    '    at buildTeamFingerprints (/root/Pr/Predicteur/services/predictionService.js:387:45)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:1031:7)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[WARN] 2025-07-02T16:05:41.594Z - Précision basse (0.0%), seuils augmentés
+[INFO] 2025-07-02T16:05:41.599Z - Round actuel: 37, Matches: 10
+[INFO] 2025-07-02T16:05:41.600Z - Rounds similaires trouvés: 5
+[INFO] 2025-07-02T16:05:41.600Z - Tendances: Fort score 33.3%, Victoires domicile 47.9%, Nuls 20.8%
+[INFO] 2025-07-02T16:05:41.608Z - ⏱️ poisson took 3.68ms
+[WARN] 2025-07-02T16:05:41.613Z - Incohérence prédiction: undefined vs score 0-0
+[INFO] 2025-07-02T16:05:41.613Z - ⏱️ predictMatch took 11.84ms
+[INFO] 2025-07-02T16:05:41.615Z - ⏱️ poisson took 0.71ms
+[WARN] 2025-07-02T16:05:41.615Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:05:41.616Z - ⏱️ predictMatch took 1.88ms
+[INFO] 2025-07-02T16:05:41.617Z - ⏱️ poisson took 0.51ms
+[WARN] 2025-07-02T16:05:41.617Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:05:41.618Z - ⏱️ predictMatch took 1.90ms
+[INFO] 2025-07-02T16:05:41.619Z - ⏱️ poisson took 0.51ms
+[WARN] 2025-07-02T16:05:41.619Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:05:41.619Z - ⏱️ predictMatch took 1.49ms
+[INFO] 2025-07-02T16:05:41.620Z - ⏱️ poisson took 0.43ms
+[WARN] 2025-07-02T16:05:41.620Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:05:41.621Z - ⏱️ predictMatch took 1.16ms
+[INFO] 2025-07-02T16:05:41.621Z - ⏱️ poisson took 0.43ms
+[WARN] 2025-07-02T16:05:41.622Z - Incohérence prédiction: undefined vs score 0-0
+[INFO] 2025-07-02T16:05:41.622Z - ⏱️ predictMatch took 1.29ms
+[INFO] 2025-07-02T16:05:41.623Z - ⏱️ poisson took 0.45ms
+[WARN] 2025-07-02T16:05:41.623Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:05:41.623Z - ⏱️ predictMatch took 1.20ms
+[INFO] 2025-07-02T16:05:41.624Z - ⏱️ poisson took 0.43ms
+[WARN] 2025-07-02T16:05:41.625Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:05:41.625Z - ⏱️ predictMatch took 1.18ms
+[INFO] 2025-07-02T16:05:41.625Z - ⏱️ poisson took 0.43ms
+[WARN] 2025-07-02T16:05:41.627Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:05:41.627Z - ⏱️ predictMatch took 2.48ms
+[INFO] 2025-07-02T16:05:41.628Z - ⏱️ poisson took 0.42ms
+[WARN] 2025-07-02T16:05:41.629Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:05:41.629Z - ⏱️ predictMatch took 1.16ms
+[INFO] 2025-07-02T16:05:41.629Z - ⏱️ getPredictions took 7901.69ms
+[INFO] 2025-07-02T16:05:42.873Z - API results réussie
+[INFO] 2025-07-02T16:05:42.874Z - API matches réussie
+[INFO] 2025-07-02T16:05:42.874Z - API ranking réussie
+[ERROR] 2025-07-02T16:05:42.878Z - [11ca66ce] buildTeamFingerprints: Cannot read properties of undefined (reading 'homeScore') {
+  errorId: '11ca66ce',
+  context: 'buildTeamFingerprints',
+  metadata: {},
+  stack: "TypeError: Cannot read properties of undefined (reading 'homeScore')\n" +
+    '    at /root/Pr/Predicteur/services/predictionService.js:394:28\n' +
+    '    at Array.filter (<anonymous>)\n' +
+    '    at buildTeamFingerprints (/root/Pr/Predicteur/services/predictionService.js:387:45)\n' +
+    '    at Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:1031:7)\n' +
+    '    at async exports.apiPredict (/root/Pr/Predicteur/controllers/predictionController.js:70:25)'
+}
+[WARN] 2025-07-02T16:05:42.878Z - Précision basse (0.0%), seuils augmentés
+[INFO] 2025-07-02T16:05:42.879Z - Round actuel: 37, Matches: 10
+[INFO] 2025-07-02T16:05:42.879Z - Rounds similaires trouvés: 5
+[INFO] 2025-07-02T16:05:42.880Z - Tendances: Fort score 33.3%, Victoires domicile 47.9%, Nuls 20.8%
+[INFO] 2025-07-02T16:05:42.880Z - ⏱️ poisson took 0.27ms
+[WARN] 2025-07-02T16:05:42.880Z - Incohérence prédiction: undefined vs score 0-0
+[INFO] 2025-07-02T16:05:42.881Z - ⏱️ predictMatch took 0.89ms
+[INFO] 2025-07-02T16:05:42.881Z - ⏱️ poisson took 0.27ms
+[WARN] 2025-07-02T16:05:42.881Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:05:42.882Z - ⏱️ predictMatch took 0.86ms
+[INFO] 2025-07-02T16:05:42.882Z - ⏱️ poisson took 0.30ms
+[WARN] 2025-07-02T16:05:42.882Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:05:42.882Z - ⏱️ predictMatch took 0.72ms
+[INFO] 2025-07-02T16:05:42.883Z - ⏱️ poisson took 0.27ms
+[WARN] 2025-07-02T16:05:42.883Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:05:42.883Z - ⏱️ predictMatch took 0.81ms
+[INFO] 2025-07-02T16:05:42.884Z - ⏱️ poisson took 0.26ms
+[WARN] 2025-07-02T16:05:42.884Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:05:42.884Z - ⏱️ predictMatch took 0.76ms
+[INFO] 2025-07-02T16:05:42.885Z - ⏱️ poisson took 0.27ms
+[WARN] 2025-07-02T16:05:42.885Z - Incohérence prédiction: undefined vs score 0-0
+[INFO] 2025-07-02T16:05:42.885Z - ⏱️ predictMatch took 0.79ms
+[INFO] 2025-07-02T16:05:42.886Z - ⏱️ poisson took 0.27ms
+[WARN] 2025-07-02T16:05:42.886Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:05:42.886Z - ⏱️ predictMatch took 1.00ms
+[INFO] 2025-07-02T16:05:42.887Z - ⏱️ poisson took 0.27ms
+[WARN] 2025-07-02T16:05:42.887Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:05:42.887Z - ⏱️ predictMatch took 0.81ms
+[INFO] 2025-07-02T16:05:42.888Z - ⏱️ poisson took 0.27ms
+[WARN] 2025-07-02T16:05:42.888Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:05:42.888Z - ⏱️ predictMatch took 0.72ms
+[INFO] 2025-07-02T16:05:42.888Z - ⏱️ poisson took 0.27ms
+[WARN] 2025-07-02T16:05:42.889Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:05:42.889Z - ⏱️ predictMatch took 0.83ms
+[INFO] 2025-07-02T16:05:42.889Z - ⏱️ getPredictions took 15.89ms
+[INFO] 2025-07-02T16:07:23.734Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-02T16:07:23.744Z - Mode développement actif
+[INFO] 2025-07-02T16:07:23.744Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-02T16:07:23.756Z - Connexion à SQLite établie.
+[INFO] 2025-07-02T16:22:03.902Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-02T16:22:03.950Z - Mode développement actif
+[INFO] 2025-07-02T16:22:03.951Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-02T16:22:04.024Z - Connexion à SQLite établie.
+[ERROR] 2025-07-02T16:22:40.786Z - [89811d83] fetchData: timeout of 8000ms exceeded {
+  errorId: '89811d83',
+  context: 'fetchData',
+  metadata: {
+    url: 'https://hg-event-api-prod.sporty-tech.net/api/instantleagues/8035/results?skip=0&take=100'
+  },
+  stack: 'AxiosError: timeout of 8000ms exceeded\n' +
+    '    at RedirectableRequest.handleRequestTimeout (/root/Pr/Predicteur/node_modules/axios/dist/node/axios.cjs:3228:16)\n' +
+    '    at RedirectableRequest.emit (node:events:518:28)\n' +
+    '    at Timeout.<anonymous> (/root/Pr/Predicteur/node_modules/follow-redirects/index.js:221:12)\n' +
+    '    at listOnTimeout (node:internal/timers:588:17)\n' +
+    '    at process.processTimers (node:internal/timers:523:7)\n' +
+    '    at Axios.request (/root/Pr/Predicteur/node_modules/axios/dist/node/axios.cjs:4280:41)\n' +
+    '    at runNextTicks (node:internal/process/task_queues:65:5)\n' +
+    '    at listOnTimeout (node:internal/timers:549:9)\n' +
+    '    at process.processTimers (node:internal/timers:523:7)\n' +
+    '    at async fetchWithRetry (/root/Pr/Predicteur/services/predictionService.js:202:24)\n' +
+    '    at async fetchData (/root/Pr/Predicteur/services/predictionService.js:239:19)\n' +
+    '    at async Object.getPredictions (/root/Pr/Predicteur/services/predictionService.js:1028:20)\n' +
+    '    at async exports.predict (/root/Pr/Predicteur/controllers/predictionController.js:39:25)'
+}
+[INFO] 2025-07-02T16:22:40.795Z - Round actuel: 0, Matches: 0
+[INFO] 2025-07-02T16:22:40.795Z - Rounds similaires trouvés: 0
+[INFO] 2025-07-02T16:22:40.796Z - Tendances: Fort score 0.0%, Victoires domicile 0.0%, Nuls 0.0%
+[INFO] 2025-07-02T16:22:40.798Z - ⏱️ getPredictions took 26249.48ms
+[INFO] 2025-07-02T16:22:44.912Z - ⏱️ fetch-https://hg-event-api-prod.sporty-tech.net/api/instantleagues/8035/results?skip=0&take=100 took 2745.42ms
+[INFO] 2025-07-02T16:22:44.914Z - API results réussie
+[INFO] 2025-07-02T16:22:45.630Z - ⏱️ fetch-https://hg-event-api-prod.sporty-tech.net/api/instantleagues/8035/matches took 714.88ms
+[INFO] 2025-07-02T16:22:45.631Z - API matches réussie
+[INFO] 2025-07-02T16:22:45.955Z - ⏱️ fetch-https://hg-event-api-prod.sporty-tech.net/api/instantleagues/8035/ranking took 323.69ms
+[INFO] 2025-07-02T16:22:45.956Z - API ranking réussie
+[WARN] 2025-07-02T16:22:45.975Z - Précision basse (0.0%), seuils augmentés
+[INFO] 2025-07-02T16:22:45.977Z - Round actuel: 6, Matches: 10
+[INFO] 2025-07-02T16:22:45.977Z - Rounds similaires trouvés: 1
+[INFO] 2025-07-02T16:22:45.977Z - Tendances: Fort score 46.9%, Victoires domicile 42.9%, Nuls 20.4%
+[INFO] 2025-07-02T16:22:45.981Z - ⏱️ poisson took 2.13ms
+[WARN] 2025-07-02T16:22:45.985Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:22:45.986Z - ⏱️ predictMatch took 7.98ms
+[INFO] 2025-07-02T16:22:45.986Z - ⏱️ poisson took 0.39ms
+[WARN] 2025-07-02T16:22:45.987Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:22:45.987Z - ⏱️ predictMatch took 1.63ms
+[INFO] 2025-07-02T16:22:45.988Z - ⏱️ poisson took 0.30ms
+[WARN] 2025-07-02T16:22:45.989Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:22:45.989Z - ⏱️ predictMatch took 1.21ms
+[INFO] 2025-07-02T16:22:45.989Z - ⏱️ poisson took 0.32ms
+[WARN] 2025-07-02T16:22:45.990Z - Incohérence prédiction: undefined vs score 2-1
+[INFO] 2025-07-02T16:22:45.990Z - ⏱️ predictMatch took 0.90ms
+[INFO] 2025-07-02T16:22:45.990Z - ⏱️ poisson took 0.28ms
+[WARN] 2025-07-02T16:22:45.991Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:22:45.991Z - ⏱️ predictMatch took 0.82ms
+[INFO] 2025-07-02T16:22:45.991Z - ⏱️ poisson took 0.28ms
+[WARN] 2025-07-02T16:22:45.992Z - Incohérence prédiction: undefined vs score 1-0
+[INFO] 2025-07-02T16:22:45.992Z - ⏱️ predictMatch took 0.89ms
+[INFO] 2025-07-02T16:22:45.992Z - ⏱️ poisson took 0.32ms
+[WARN] 2025-07-02T16:22:45.993Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:22:45.993Z - ⏱️ predictMatch took 1.08ms
+[INFO] 2025-07-02T16:22:45.994Z - ⏱️ poisson took 0.33ms
+[WARN] 2025-07-02T16:22:45.994Z - Incohérence prédiction: undefined vs score 2-1
+[INFO] 2025-07-02T16:22:45.994Z - ⏱️ predictMatch took 1.15ms
+[INFO] 2025-07-02T16:22:45.995Z - ⏱️ poisson took 0.31ms
+[WARN] 2025-07-02T16:22:45.996Z - Incohérence prédiction: undefined vs score 1-1
+[INFO] 2025-07-02T16:22:45.996Z - ⏱️ predictMatch took 1.87ms
+[INFO] 2025-07-02T16:22:45.997Z - ⏱️ poisson took 0.29ms
+[WARN] 2025-07-02T16:22:45.997Z - Incohérence prédiction: undefined vs score 2-1
+[INFO] 2025-07-02T16:22:45.998Z - ⏱️ predictMatch took 1.08ms
+[INFO] 2025-07-02T16:22:45.998Z - ⏱️ getPredictions took 3831.43ms
+[INFO] 2025-07-02T17:30:58.324Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-02T18:33:10.746Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-05T14:36:01.017Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-05T14:36:01.100Z - Mode développement actif
+[INFO] 2025-07-05T14:36:01.101Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-05T14:36:01.152Z - Connexion à SQLite établie.
+[INFO] 2025-07-05T14:36:36.270Z - API results réussie
+[INFO] 2025-07-05T14:36:37.007Z - API matches réussie
+[INFO] 2025-07-05T14:36:37.339Z - API ranking réussie
+[INFO] 2025-07-05T14:36:37.355Z - Prédiction par 'Score exact': 5 buts (confiance: 26.35%)
+[INFO] 2025-07-05T14:36:37.363Z - Prédiction par 'Score exact': 3 buts (confiance: 23.13%)
+[INFO] 2025-07-05T14:36:37.366Z - Prédiction par 'Score exact': 4 buts (confiance: 23.56%)
+[INFO] 2025-07-05T14:36:37.368Z - Prédiction par 'Score exact': 4 buts (confiance: 24.55%)
+[INFO] 2025-07-05T14:36:37.371Z - Prédiction par 'Score exact': 2 buts (confiance: 23.77%)
+[INFO] 2025-07-05T14:36:37.373Z - Prédiction par 'Score exact': 2 buts (confiance: 24.40%)
+[INFO] 2025-07-05T14:36:37.376Z - Prédiction par 'Score exact': 4 buts (confiance: 23.67%)
+[INFO] 2025-07-05T14:36:37.378Z - Prédiction par 'Score exact': 3 buts (confiance: 25.81%)
+[INFO] 2025-07-05T14:36:37.381Z - Prédiction par 'Score exact': 4 buts (confiance: 23.46%)
+[INFO] 2025-07-05T14:36:37.384Z - Prédiction par 'Score exact': 4 buts (confiance: 24.49%)
+[INFO] 2025-07-05T14:36:39.255Z - API results réussie
+[INFO] 2025-07-05T14:36:39.902Z - API matches réussie
+[INFO] 2025-07-05T14:36:40.221Z - API ranking réussie
+[INFO] 2025-07-05T14:36:40.223Z - Prédiction par 'Score exact': 5 buts (confiance: 26.35%)
+[INFO] 2025-07-05T14:36:40.225Z - Prédiction par 'Score exact': 3 buts (confiance: 23.13%)
+[INFO] 2025-07-05T14:36:40.229Z - Prédiction par 'Score exact': 4 buts (confiance: 23.56%)
+[INFO] 2025-07-05T14:36:40.231Z - Prédiction par 'Score exact': 4 buts (confiance: 24.55%)
+[INFO] 2025-07-05T14:36:40.234Z - Prédiction par 'Score exact': 2 buts (confiance: 23.77%)
+[INFO] 2025-07-05T14:36:40.235Z - Prédiction par 'Score exact': 2 buts (confiance: 24.40%)
+[INFO] 2025-07-05T14:36:40.236Z - Prédiction par 'Score exact': 4 buts (confiance: 23.67%)
+[INFO] 2025-07-05T14:36:40.237Z - Prédiction par 'Score exact': 3 buts (confiance: 25.81%)
+[INFO] 2025-07-05T14:36:40.238Z - Prédiction par 'Score exact': 4 buts (confiance: 23.46%)
+[INFO] 2025-07-05T14:36:40.239Z - Prédiction par 'Score exact': 4 buts (confiance: 24.49%)
+[INFO] 2025-07-05T14:56:20.439Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-05T14:56:20.521Z - Mode développement actif
+[INFO] 2025-07-05T14:56:20.521Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-05T14:56:20.602Z - Connexion à SQLite établie.
+[INFO] 2025-07-05T14:56:38.406Z - API results réussie
+[INFO] 2025-07-05T14:56:39.106Z - API matches réussie
+[INFO] 2025-07-05T14:56:39.424Z - API ranking réussie
+[INFO] 2025-07-05T14:56:40.462Z - API results réussie
+[INFO] 2025-07-05T14:56:40.982Z - API matches réussie
+[INFO] 2025-07-05T14:56:41.291Z - API ranking réussie
+[INFO] 2025-07-05T15:00:13.232Z - API results réussie
+[INFO] 2025-07-05T15:00:13.709Z - API matches réussie
+[INFO] 2025-07-05T15:00:14.059Z - API ranking réussie
+[INFO] 2025-07-05T15:16:13.881Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-05T15:16:13.898Z - Mode développement actif
+[INFO] 2025-07-05T15:16:13.898Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-05T15:16:13.915Z - Connexion à SQLite établie.
+[INFO] 2025-07-05T15:19:35.608Z - API results réussie
+[INFO] 2025-07-05T15:19:36.318Z - API matches réussie
+[INFO] 2025-07-05T15:19:36.613Z - API ranking réussie
+[INFO] 2025-07-05T15:19:37.715Z - API results réussie
+[INFO] 2025-07-05T15:19:38.432Z - API matches réussie
+[INFO] 2025-07-05T15:19:38.724Z - API ranking réussie
+[INFO] 2025-07-05T15:23:12.476Z - API results réussie
+[INFO] 2025-07-05T15:23:13.189Z - API matches réussie
+[INFO] 2025-07-05T15:23:13.474Z - API ranking réussie
+[INFO] 2025-07-05T15:25:09.094Z - API results réussie
+[INFO] 2025-07-05T15:25:09.789Z - API matches réussie
+[INFO] 2025-07-05T15:25:10.112Z - API ranking réussie
+[INFO] 2025-07-05T17:14:58.186Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-05T19:35:00.391Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-06T06:49:37.220Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-06T09:33:34.621Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-06T10:10:40.552Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-06T10:10:40.589Z - Mode développement actif
+[INFO] 2025-07-06T10:10:40.589Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-06T10:10:40.636Z - Connexion à SQLite établie.
+[INFO] 2025-07-06T10:10:50.953Z - API results réussie
+[INFO] 2025-07-06T10:10:51.603Z - API matches réussie
+[INFO] 2025-07-06T10:10:51.937Z - API ranking réussie
+[INFO] 2025-07-06T11:32:15.694Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-06T18:30:16.154Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-07T04:46:14.965Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-07T07:42:38.176Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-07T08:45:00.079Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-07T12:40:41.053Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-07T12:40:41.088Z - Mode développement actif
+[INFO] 2025-07-07T12:40:41.089Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-07T12:40:41.151Z - Connexion à SQLite établie.
+[INFO] 2025-07-07T12:41:04.823Z - API results réussie
+[INFO] 2025-07-07T12:41:05.430Z - API matches réussie
+[INFO] 2025-07-07T12:41:05.719Z - API ranking réussie
+[INFO] 2025-07-07T12:42:05.705Z - API results réussie
+[INFO] 2025-07-07T12:42:06.391Z - API matches réussie
+[INFO] 2025-07-07T12:42:06.700Z - API ranking réussie
+[INFO] 2025-07-07T12:42:07.864Z - API results réussie
+[INFO] 2025-07-07T12:42:08.521Z - API matches réussie
+[INFO] 2025-07-07T12:42:08.826Z - API ranking réussie
+[INFO] 2025-07-07T12:44:10.609Z - API results réussie
+[INFO] 2025-07-07T12:44:11.272Z - API matches réussie
+[INFO] 2025-07-07T12:44:11.604Z - API ranking réussie
+[INFO] 2025-07-07T12:52:21.470Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-07T12:52:21.492Z - Mode développement actif
+[INFO] 2025-07-07T12:52:21.492Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-07T12:52:21.515Z - Connexion à SQLite établie.
+[INFO] 2025-07-07T12:53:36.259Z - API results réussie
+[INFO] 2025-07-07T12:53:36.908Z - API matches réussie
+[INFO] 2025-07-07T12:53:37.212Z - API ranking réussie
+[INFO] 2025-07-07T12:55:16.102Z - API results réussie
+[INFO] 2025-07-07T12:55:16.744Z - API matches réussie
+[INFO] 2025-07-07T12:55:17.045Z - API ranking réussie
+[INFO] 2025-07-07T13:00:24.823Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-07T13:00:24.871Z - Mode développement actif
+[INFO] 2025-07-07T13:00:24.872Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-07T13:00:24.924Z - Connexion à SQLite établie.
+[ERROR] 2025-07-07T13:00:56.636Z - Erreur API results: timeout of 10000ms exceeded
+[ERROR] 2025-07-07T13:01:06.662Z - Erreur API matches: timeout of 10000ms exceeded
+[INFO] 2025-07-07T13:01:13.827Z - API ranking réussie
+[INFO] 2025-07-07T13:02:51.773Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-07T13:02:51.813Z - Mode développement actif
+[INFO] 2025-07-07T13:02:51.814Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-07T13:02:51.876Z - Connexion à SQLite établie.
+[INFO] 2025-07-07T13:03:09.663Z - API results réussie
+[INFO] 2025-07-07T13:03:10.346Z - API matches réussie
+[INFO] 2025-07-07T13:03:10.706Z - API ranking réussie
+[INFO] 2025-07-07T13:03:12.199Z - API results réussie
+[INFO] 2025-07-07T13:03:12.862Z - API matches réussie
+[INFO] 2025-07-07T13:03:13.162Z - API ranking réussie
+[INFO] 2025-07-07T13:05:16.323Z - API results réussie
+[INFO] 2025-07-07T13:05:16.965Z - API matches réussie
+[INFO] 2025-07-07T13:05:17.283Z - API ranking réussie
+[INFO] 2025-07-07T14:51:02.904Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-07T16:05:16.776Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-07T16:22:39.097Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-07T16:22:39.116Z - Mode développement actif
+[INFO] 2025-07-07T16:22:39.116Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-07T16:22:39.135Z - Connexion à SQLite établie.
+[INFO] 2025-07-07T16:23:38.908Z - API results réussie
+[INFO] 2025-07-07T16:23:39.588Z - API matches réussie
+[INFO] 2025-07-07T16:23:39.902Z - API ranking réussie
+[INFO] 2025-07-07T16:23:42.383Z - API results réussie
+[INFO] 2025-07-07T16:23:43.069Z - API matches réussie
+[INFO] 2025-07-07T16:23:43.353Z - API ranking réussie
+[INFO] 2025-07-07T16:43:52.969Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-07T16:43:53.027Z - Mode développement actif
+[INFO] 2025-07-07T16:43:53.028Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-07T16:43:53.112Z - Connexion à SQLite établie.
+[INFO] 2025-07-07T16:44:26.034Z - API results réussie
+[INFO] 2025-07-07T16:44:26.688Z - API matches réussie
+[INFO] 2025-07-07T16:44:26.995Z - API ranking réussie
+[INFO] 2025-07-07T16:44:28.297Z - API results réussie
+[INFO] 2025-07-07T16:44:28.934Z - API matches réussie
+[INFO] 2025-07-07T16:44:29.255Z - API ranking réussie
+[INFO] 2025-07-07T17:14:36.601Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-07T17:14:36.636Z - Mode développement actif
+[INFO] 2025-07-07T17:14:36.637Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-07T17:14:36.691Z - Connexion à SQLite établie.
+[INFO] 2025-07-07T17:14:52.328Z - API results réussie
+[INFO] 2025-07-07T17:14:52.993Z - API matches réussie
+[INFO] 2025-07-07T17:14:53.306Z - API ranking réussie
+[INFO] 2025-07-07T17:30:37.644Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-07T17:30:37.658Z - Mode développement actif
+[INFO] 2025-07-07T17:30:37.658Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-07T17:30:37.672Z - Connexion à SQLite établie.
+[INFO] 2025-07-07T17:30:57.338Z - API results réussie
+[INFO] 2025-07-07T17:30:58.003Z - API matches réussie
+[INFO] 2025-07-07T17:30:58.326Z - API ranking réussie
+[INFO] 2025-07-07T17:30:59.325Z - API results réussie
+[INFO] 2025-07-07T17:30:59.961Z - API matches réussie
+[INFO] 2025-07-07T17:31:00.260Z - API ranking réussie
+[INFO] 2025-07-07T18:32:22.838Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-07T20:23:02.657Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-08T03:22:15.510Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-08T06:11:52.231Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-08T07:50:16.118Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-08T08:50:16.120Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-08T10:09:15.797Z - [Session] [session-file-store] Deleting expired sessions
+[INFO] 2025-07-08T10:57:46.740Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-08T10:57:46.759Z - Mode développement actif
+[INFO] 2025-07-08T10:57:46.759Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-08T10:57:46.779Z - Connexion à SQLite établie.
+[ERROR] 2025-07-08T10:58:29.937Z - Erreur API results: timeout of 10000ms exceeded
+[INFO] 2025-07-08T10:58:36.221Z - API matches réussie
+[INFO] 2025-07-08T10:58:36.518Z - API ranking réussie
+[INFO] 2025-07-08T10:58:38.091Z - API results réussie
+[INFO] 2025-07-08T10:58:38.779Z - API matches réussie
+[INFO] 2025-07-08T10:58:39.085Z - API ranking réussie
+[INFO] 2025-07-08T11:01:29.212Z - API results réussie
+[INFO] 2025-07-08T11:01:29.920Z - API matches réussie
+[INFO] 2025-07-08T11:01:30.260Z - API ranking réussie
+[INFO] 2025-07-08T11:11:29.417Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-08T11:11:29.461Z - Mode développement actif
+[INFO] 2025-07-08T11:11:29.462Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-08T11:11:29.507Z - Connexion à SQLite établie.
+[INFO] 2025-07-08T11:11:48.206Z - API results réussie
+[INFO] 2025-07-08T11:11:48.857Z - API matches réussie
+[INFO] 2025-07-08T11:11:49.158Z - API ranking réussie
+[INFO] 2025-07-08T11:12:04.877Z - API results réussie
+[INFO] 2025-07-08T11:12:05.546Z - API matches réussie
+[INFO] 2025-07-08T11:12:05.915Z - API ranking réussie
+[INFO] 2025-07-08T11:13:18.271Z - API results réussie
+[INFO] 2025-07-08T11:13:18.923Z - API matches réussie
+[INFO] 2025-07-08T11:13:19.283Z - API ranking réussie
+[INFO] 2025-07-08T11:14:46.530Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-08T11:14:46.594Z - Mode développement actif
+[INFO] 2025-07-08T11:14:46.595Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-08T11:14:46.647Z - Connexion à SQLite établie.
+[INFO] 2025-07-08T11:14:53.124Z - API results réussie
+[INFO] 2025-07-08T11:14:53.819Z - API matches réussie
+[INFO] 2025-07-08T11:14:54.169Z - API ranking réussie
+[INFO] 2025-07-08T11:15:13.137Z - API results réussie
+[INFO] 2025-07-08T11:15:13.835Z - API matches réussie
+[INFO] 2025-07-08T11:15:14.171Z - API ranking réussie
+[INFO] 2025-07-08T11:15:37.614Z - API results réussie
+[INFO] 2025-07-08T11:15:38.488Z - API matches réussie
+[INFO] 2025-07-08T11:15:38.853Z - API ranking réussie
+[INFO] 2025-07-08T11:16:16.087Z - API results réussie
+[INFO] 2025-07-08T11:16:16.796Z - API matches réussie
+[INFO] 2025-07-08T11:16:17.168Z - API ranking réussie
+[INFO] 2025-07-08T11:16:38.166Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-08T11:16:38.208Z - Mode développement actif
+[INFO] 2025-07-08T11:16:38.209Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-08T11:16:38.259Z - Connexion à SQLite établie.
+[INFO] 2025-07-08T11:16:48.903Z - API results réussie
+[INFO] 2025-07-08T11:16:49.600Z - API matches réussie
+[INFO] 2025-07-08T11:16:49.934Z - API ranking réussie
+[INFO] 2025-07-08T11:17:41.742Z - API results réussie
+[INFO] 2025-07-08T11:17:42.462Z - API matches réussie
+[INFO] 2025-07-08T11:17:42.840Z - API ranking réussie
+[INFO] 2025-07-08T11:18:00.000Z - API results réussie
+[INFO] 2025-07-08T11:18:00.638Z - API matches réussie
+[INFO] 2025-07-08T11:18:00.971Z - API ranking réussie
+[INFO] 2025-07-08T11:26:27.334Z - API results réussie
+[INFO] 2025-07-08T11:26:28.059Z - API matches réussie
+[INFO] 2025-07-08T11:26:28.393Z - API ranking réussie
+[INFO] 2025-07-08T11:26:29.403Z - API results réussie
+[INFO] 2025-07-08T11:26:29.901Z - API matches réussie
+[INFO] 2025-07-08T11:26:30.212Z - API ranking réussie
+[INFO] 2025-07-08T11:27:40.981Z - API results réussie
+[INFO] 2025-07-08T11:27:41.651Z - API matches réussie
+[INFO] 2025-07-08T11:27:41.973Z - API ranking réussie

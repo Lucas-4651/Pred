@@ -2275,3 +2275,18 @@
 [INFO] 2025-07-08T11:27:40.981Z - API results réussie
 [INFO] 2025-07-08T11:27:41.651Z - API matches réussie
 [INFO] 2025-07-08T11:27:41.973Z - API ranking réussie
+[INFO] 2025-07-22T16:30:02.261Z - Serveur démarré sur le port 3000
+[INFO] 2025-07-22T16:30:02.268Z - Mode développement actif
+[INFO] 2025-07-22T16:30:02.268Z - Utilisateur test: testadmin / testpassword
+[INFO] 2025-07-22T16:30:08.179Z - Connexion à SQLite établie.
+[INFO] 2025-07-22T16:30:11.402Z - Utilisateur test créé (testadmin / testpassword)
+[INFO] 2025-07-22T16:32:29.126Z - [Session] [session-file-store] will retry, error on last attempt: Error: ENOENT: no such file or directory, open '/root/MAJ/Pred/sessions/MM5_AuF0neiOx9SAyrUuEmEbw3Vba46l.json'
+[INFO] 2025-07-22T16:32:32.392Z - API results réussie
+[INFO] 2025-07-22T16:32:33.076Z - API matches réussie
+[INFO] 2025-07-22T16:32:33.397Z - API ranking réussie
+[INFO] 2025-07-22T16:34:46.553Z - API results réussie
+[INFO] 2025-07-22T16:34:47.340Z - API matches réussie
+[INFO] 2025-07-22T16:34:47.658Z - API ranking réussie
+[INFO] 2025-07-22T16:34:58.543Z - API results réussie
+[INFO] 2025-07-22T16:34:59.188Z - API matches réussie
+[INFO] 2025-07-22T16:34:59.511Z - API ranking réussie

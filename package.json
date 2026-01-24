@@ -1,7 +1,7 @@
 {
   "name": "bet-predictor",
   "version": "1.0.0",
-  "description": "Site de prédictions football",
+  "description": "Site de prédictions De jeux Virtuel ",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"

@@ -3,7 +3,7 @@ process.removeAllListeners('warning');
 require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
-const FileStore = require('session-file-store')(session); // Solution alternative fiable
+const FileStore = require('session-file-store')(session);
 const path = require('path');
 const passport = require('passport');
 require('./config/passport');
@@ -13,19 +13,30 @@ const flash = require('express-flash');
 const logger = require('./middlewares/logger');
 const adminController = require('./controllers/adminController');
 const User = require('./models/User');
+const Download = require('./models/Download');
+const sequelize = require('./config/database');
 
 const app = express();
 
-// Configuration de SQLite
-const sequelize = require('./config/database');
+/* ===============================
+   CONNEXION DATABASE + INIT
+================================ */
 
-// Tester la connexion et synchroniser les modèles
-sequelize.authenticate()
-  .then(() => {
-    logger.info('Connexion à SQLite établie.');
-    return sequelize.sync();
-  })
-  .then(async () => {
+(async () => {
+  try {
+
+    await sequelize.authenticate();
+    logger.info('Connexion à Psql neon établie.');
+
+    await sequelize.sync();
+
+    // Création du compteur download si absent
+    await Download.findOrCreate({
+      where: { id: 1 },
+      defaults: { count: 0 }
+    });
+
+    // Création user test en dev
     if (process.env.NODE_ENV === 'development') {
       const userCount = await User.count();
       if (userCount === 0) {
@@ -33,58 +44,64 @@ sequelize.authenticate()
           username: 'Lucas',
           password: 'Lucas2K24'
         });
-        logger.info('Utilisateur test créé (testadmin / testpassword)');
+        logger.info('Utilisateur test créé');
       }
     }
-  })
-  .catch(err => {
-    logger.error('Erreur SQLite: ' + err);
-  });
 
-// Middlewares
-app.use(helmet());
+  } catch (err) {
+    logger.error('Erreur Psql: ' + err);
+  }
+})();
+
+/* ===============================
+   MIDDLEWARES
+================================ */
+
+app.use(helmet({ contentSecurityPolicy: false }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
-// SOLUTION FONCTIONNELLE : Configuration du store de session avec fichiers
+/* ===============================
+   SESSION CONFIG
+================================ */
+
 const sessionStore = new FileStore({
-  path: path.join(__dirname, 'sessions'), // Dossier où stocker les sessions
-  ttl: 24 * 60 * 60, // Durée de vie en secondes (24h)
+  path: path.join(__dirname, 'sessions'),
+  ttl: 24 * 60 * 60,
   retries: 1,
-  logFn: (message) => logger.info(`[Session] ${message}`) // Log des opérations sur les sessions
+  logFn: (message) => logger.info(`[Session] ${message}`)
 });
 
-// Configuration de session
 app.use(session({
-  store: sessionStore, // Utilisation du store fichier
+  store: sessionStore,
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: { 
     secure: process.env.NODE_ENV === 'production',
     httpOnly: true,
-    maxAge: 24 * 60 * 60 * 1000 // 24h
+    maxAge: 24 * 60 * 60 * 1000
   }
 }));
 
-// Flash messages
 app.use(flash());
 
-// Initialisation de Passport
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Middleware pour passer les variables aux vues
 app.use((req, res, next) => {
   res.locals.user = req.user || null;
   res.locals.messages = req.flash();
-  res.locals.copyright = "Lucas46Modder Madagascar 2025";
+  res.locals.copyright = "Lucas46Modder Madagascar 2026";
   next();
 });
 
-// Limitation de débit
+/* ===============================
+   RATE LIMIT
+================================ */
+
 const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
@@ -92,20 +109,25 @@ const apiLimiter = rateLimit({
 });
 app.use('/api/', apiLimiter);
 
-// Protection contre les tentatives de login répétées
 const loginLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 5, // 5 tentatives max
-  message: 'Trop de tentatives de connexion, veuillez réessayer plus tard.'
+  windowMs: 15 * 60 * 1000,
+  max: 5,
+  message: 'Trop de tentatives de connexion depuis cette IP.'
 });
 app.use('/admin/login', loginLimiter);
 
-// Routes
+/* ===============================
+   ROUTES
+================================ */
+
 app.use('/', require('./routes/web'));
 app.use('/api', require('./routes/api'));
 app.use('/admin', require('./routes/admin'));
 
-// Middleware d'erreur
+/* ===============================
+   ERROR HANDLER
+================================ */
+
 app.use((err, req, res, next) => {
   logger.error(err.stack);
   res.status(500).render('error', { 
@@ -114,22 +136,32 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Démarrage du serveur
+/* ===============================
+   SERVER START
+================================ */
+
 const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
   logger.info(`Serveur démarré sur le port ${PORT}`);
   
-  // Avertissement en développement
   if (process.env.NODE_ENV === 'development') {
     logger.info('Mode développement actif');
-    logger.info('Utilisateur test: testadmin / testpassword');
+    logger.info('Utilisateur test');
   }
 });
 
-// Planifier la vérification quotidienne des clés expirées
+/* ===============================
+   DAILY CRON
+================================ */
+
 setInterval(async () => {
-  const revokedCount = await adminController.revokeExpiredKeys();
-  if (revokedCount > 0) {
-    logger.info(`${revokedCount} clés API expirées ont été révoquées`);
+  try {
+    const revokedCount = await adminController.revokeExpiredKeys();
+    if (revokedCount > 0) {
+      logger.info(`${revokedCount} clés API expirées ont été révoquées`);
+    }
+  } catch (err) {
+    logger.error('Erreur revokeExpiredKeys: ' + err);
   }
-}, 24 * 60 * 60 * 1000); // Tous les jours
+}, 24 * 60 * 60 * 1000);

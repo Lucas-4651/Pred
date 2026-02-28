@@ -4,9 +4,9 @@ const Tip = require('../models/Tip');
 const logger = require('../middlewares/logger');
 
 // controllers/predictionController.js
-const Tip = require('../models/Tip');
+
 const sequelize = require('../config/database');
-const logger = require('../middlewares/logger');
+
 
 exports.predict = async (req, res) => {
   try {

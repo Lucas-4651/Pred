@@ -29,7 +29,7 @@ exports.apiKeyAuth = async (req, res, next) => {
     if (!keyRecord) {
       return res.status(401).json({ 
         error: 'Clé API invalide ou désactivée',
-        hint: 'Les clés sont au format: MotChiffre (ex: SuperPrediction25)',
+        hint: 'Les clés sont au format',
         solution: 'Veuillez vérifier votre clé ou contacter le support'
       });
     }

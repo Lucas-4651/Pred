@@ -1,239 +1,323 @@
-// public/js/script.js (mis à jour pour afficher la confiance)
-// Fonction pour afficher les erreurs
+// ==================== CONFIG ====================
+const API_BASE = '/api';
+const STORAGE_KEY = 'vmg_api_key';
+const APP_VERSION = '2.0';
+
+// Éléments DOM
+const keyAccessCard = document.getElementById('keyAccessCard');
+const predictionsContainer = document.getElementById('predictionsContainer');
+const fabContainer = document.getElementById('fabContainer');
+const apiKeyInput = document.getElementById('apiKeyInput');
+const unlockBtn = document.getElementById('unlockBtn');
+const refreshBtn = document.getElementById('refreshBtn');
+const helpBtn = document.getElementById('helpBtn');
+const closeHelp = document.getElementById('closeHelp');
+const helpPanel = document.getElementById('helpPanel');
+const overlay = document.getElementById('overlay');
+const predictionsList = document.getElementById('predictionsList');
+const keyError = document.getElementById('keyError');
+const toast = document.getElementById('toastMessage');
+
+// ==================== UTILITAIRES ====================
+function showToast(message, type = 'success', duration = 3000) {
+    toast.textContent = message;
+    toast.className = `toast-notification ${type === 'error' ? 'error' : ''}`;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), duration);
+}
+
 function showError(message) {
-    const keyError = document.getElementById('keyError');
     keyError.textContent = message;
     keyError.classList.add('shake');
-    setTimeout(() => {
-        keyError.classList.remove('shake');
-    }, 500);
+    setTimeout(() => keyError.classList.remove('shake'), 500);
+    showToast(message, 'error');
 }
 
-// Fonction pour mettre à jour les prédictions
-function updatePredictions(predictions) {
-    const container = document.getElementById('predictionsList');
-    if (!container) return;
+function setLoading(btn, isLoading) {
+    if (isLoading) {
+        btn.dataset.originalHtml = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+        btn.disabled = true;
+    } else {
+        btn.innerHTML = btn.dataset.originalHtml || '<i class="fas fa-lock-open"></i>';
+        btn.disabled = false;
+    }
+}
+
+// ==================== GESTION DU PANEL D'AIDE ====================
+function openHelpPanel() {
+    helpPanel.classList.add('open');
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeHelpPanel() {
+    helpPanel.classList.remove('open');
+    overlay.classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+// ==================== API ====================
+async function fetchPredictions() {
+    const apiKey = localStorage.getItem(STORAGE_KEY);
+    if (!apiKey) throw new Error('Aucune clé API');
+
+    const response = await fetch(`${API_BASE}/predictions`, {
+        headers: { 'X-API-Key': apiKey }
+    });
     
-    container.innerHTML = '';
+    if (response.status === 401) {
+        localStorage.removeItem(STORAGE_KEY);
+        throw new Error('Clé API invalide');
+    }
     
-    if (!predictions || predictions.length === 0) {
-        container.innerHTML = `
-            <div class="alert alert-warning text-center">
-                <i class="fas fa-exclamation-circle me-2"></i>
-                Aucune prédiction disponible pour le moment
-                <div class="loading-dots mt-2">
-                    <span>.</span><span>.</span><span>.</span>
-                </div>
+    if (!response.ok) throw new Error('Erreur de connexion');
+    
+    const data = await response.json();
+    return data.predictions || [];
+}
+
+// ==================== RENDU DES PRÉDICTIONS ====================
+function renderPredictions(predictions) {
+    if (!predictions?.length) {
+        predictionsList.innerHTML = `
+            <div class="no-predictions-animation text-center py-4">
+                <i class="fas fa-futbol fa-2x mb-3 opacity-75"></i>
+                <h5 class="mb-2">Aucune prédiction</h5>
+                <p class="small text-light opacity-75 mb-3">
+                Les prochains matchs arrivent bientôt...
+                </p>
+                <button class="btn btn-outline-light btn-sm" onclick="location.reload()">
+                    <i class="fas fa-redo-alt me-1"></i> Réessayer
+                </button>
             </div>
         `;
         return;
     }
+
+    predictionsList.innerHTML = '';
     
-    // Animation delay
-    let delay = 0;
-    
-    predictions.forEach(pred => {
+    predictions.forEach((pred, index) => {
         const card = document.createElement('div');
-        card.className = 'card mb-4 shadow prediction-card';
-        card.style.animation = `slideUp 0.5s ease-out ${delay}ms forwards`;
-        card.style.opacity = '0';
+        card.className = 'prediction-card';
+        card.style.animationDelay = `${index * 0.1}s`;
         
-        // Déterminer la couleur de la confiance
-        let confidenceColor = 'bg-primary';
-        if (pred.confidence >= 75) confidenceColor = 'bg-success';
-        else if (pred.confidence <= 50) confidenceColor = 'bg-warning';
+        // Couleur de confiance
+        let confClass = 'bg-primary';
+        let confText = 'Moyenne';
+        if (pred.confidence >= 75) {
+            confClass = 'bg-success';
+            confText = 'Haute';
+        } else if (pred.confidence <= 50) {
+            confClass = 'bg-warning text-dark';
+            confText = 'Faible';
+        }
+        
+        // Couleur des barres de forme
+        const homeFormClass = pred.home_form < 40 ? 'low' : (pred.home_form > 70 ? 'high' : '');
+        const awayFormClass = pred.away_form < 40 ? 'low' : (pred.away_form > 70 ? 'high' : '');
+        
+        const homeForm = pred.home_form || 50;
+        const awayForm = pred.away_form || 50;
+        const topScores = pred.top_scores || [];
+        
+        // Top scores en ligne
+        const scoresLine = topScores.length > 0 
+            ? topScores.slice(0, 3).map(s => `${s.score} (${(s.prob*100).toFixed(0)}%)`).join(' • ')
+            : '';
+        
+        // Date formatée
+        const dateStr = pred.match_date 
+            ? new Date(pred.match_date).toLocaleDateString('fr-FR', { 
+                day: '2-digit', 
+                month: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit'
+              })
+            : 'Date inconnue';
         
         card.innerHTML = `
-            <div class="card-header">
-                <h5>${pred.match}</h5>
-                <div class="d-flex justify-content-between align-items-center mt-2">
-                    <span class="badge bg-dark">${pred.competition || 'Championnat Virtuel'}</span>
-                    <span class="badge bg-secondary">${pred.date || 'Match Actuel'}</span>
-                </div>
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h6 class="mb-0">${pred.match}</h6>
+                <span class="badge bg-dark">${dateStr}</span>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <p><strong>Score final:</strong> <span class="badge badge-success">${pred.final_result}</span></p>
-                        <p><strong>Nombre de buts:</strong> <span class="badge badge-info">${pred.goals}</span></p>
-                        <p><strong>Mi-temps:</strong> <span class="badge badge-warning">${pred.half_time}</span></p>
-                    </div>
-                    <div class="col-md-6">
-                        <p><strong>Forme domicile:</strong> ${(pred.home_form * 100).toFixed(0)}%</p>
-                        <p><strong>Forme extérieur:</strong> ${(pred.away_form * 100).toFixed(0)}%</p>
-                        <p><strong>Cotes 1X2:</strong> ${pred.odds_1x2}</p>
-                        <p><strong>Cotes mi-temps:</strong> ${pred.odds_ht}</p>
+                <!-- Ligne 1 : Résultat -->
+                <div class="info-line">
+                    <span class="info-label">Résultat :</span>
+                    <span class="badge bg-success">${pred.prediction}</span>
+                    <span class="badge ${confClass}">${confText} (${pred.confidence}%)</span>
+                </div>
+                
+                <!-- Ligne 2 : Buts et score -->
+                <div class="info-line">
+                    <span class="info-label">Buts :</span>
+                    <span class="badge bg-info">⚽ ${pred.goals} total</span>
+                    <span class="badge bg-primary">🎯 ${pred.exact_score || 'N/A'}</span>
+                    <span class="badge bg-warning">🕒 ${pred.half_time}</span>
+                </div>
+                
+                <!-- Ligne 3 : Top scores -->
+                ${scoresLine ? `
+                <div class="info-line">
+                    <span class="info-label">Top scores :</span>
+                    <span class="text-muted">${scoresLine}</span>
+                </div>
+                ` : ''}
+                
+                <!-- Ligne 4 : Formes -->
+                <div class="info-line">
+                    <span class="info-label">Forme :</span>
+                    <div style="flex: 1;">
+                        <div class="d-flex align-items-center gap-2 mb-1">
+                            <span style="min-width: 60px;">Domicile</span>
+                            <div class="progress flex-grow-1">
+                                <div class="progress-bar ${homeFormClass}" style="width: ${homeForm}%;"></div>
+                            </div>
+                            <span class="fw-bold" style="min-width: 35px;">${homeForm}%</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <span style="min-width: 60px;">Extérieur</span>
+                            <div class="progress flex-grow-1">
+                                <div class="progress-bar ${awayFormClass}" style="width: ${awayForm}%;"></div>
+                            </div>
+                            <span class="fw-bold" style="min-width: 35px;">${awayForm}%</span>
+                        </div>
                     </div>
                 </div>
-                <div class="mt-3 d-flex justify-content-between">
-                    <span class="badge ${confidenceColor}">Confiance: ${pred.confidence}%</span>
-                    <span class="badge bg-info">Modèle: Hybride v2.0</span>
+                
+                <!-- Ligne 5 : Cotes -->
+                <div class="cotes-line">
+                    <span><i class="fas fa-chart-simple"></i> ${pred.odds_1x2}</span>
+                    <span><i class="far fa-clock"></i> ${pred.odds_ht}</span>
                 </div>
             </div>
         `;
-        container.appendChild(card);
-        delay += 100;
+        
+        predictionsList.appendChild(card);
     });
 }
 
-// Fonction pour charger les prédictions
-async function loadPredictions() {
+// ==================== ANIMATION DE CHARGEMENT ====================
+function showLoadingAnimation() {
+    predictionsList.innerHTML = `
+        <div class="text-center py-5">
+            <div class="spinner-border text-light" style="width: 3rem; height: 3rem;" role="status">
+                <span class="visually-hidden">Chargement...</span>
+            </div>
+            <p class="mt-3 text-white-50">Analyse des matchs en cours...</p>
+        </div>
+    `;
+}
+
+// ==================== CHARGEMENT ====================
+async function loadPredictions(showLoading = true) {
     try {
-        const apiKey = localStorage.getItem('apiKey') || '';
-        const response = await fetch('/api/predict', {
-            headers: {
-                'X-API-Key': apiKey
-            }
-        });
-        
-        if (response.status === 401) {
-            throw new Error('Clé API invalide. Veuillez vérifier et réessayer.');
+        if (showLoading) {
+            showLoadingAnimation();
         }
         
-        if (!response.ok) {
-            throw new Error('Erreur de connexion au serveur');
-        }
+        const predictions = await fetchPredictions();
+        renderPredictions(predictions);
         
-        const predictions = await response.json();
-        updatePredictions(predictions);
-        return predictions;
     } catch (error) {
-        console.error('Erreur lors du chargement des prédictions:', error);
-        const keyAccessCard = document.querySelector('.key-access-card');
-        const predictionsContainer = document.getElementById('predictionsContainer');
+        console.error(error);
         
         if (error.message.includes('Clé API invalide')) {
+            // Retour à l'écran de connexion
             keyAccessCard.classList.remove('d-none');
-            keyAccessCard.style.opacity = '1';
-            keyAccessCard.style.transform = 'translateY(0)';
             predictionsContainer.classList.add('d-none');
+            fabContainer.style.display = 'none';
             showError(error.message);
-        }
-        throw error;
-    }
-}
-
-// Gestionnaire principal
-function unlockBtnHandler() {
-    if (!document.getElementById('unlockBtn') || !document.getElementById('apiKeyInput')) {
-        console.error('Éléments requis non trouvés');
-        return;
-    }
-    
-    const unlockBtn = document.getElementById('unlockBtn');
-    const apiKeyInput = document.getElementById('apiKeyInput');
-    const keyAccessCard = document.querySelector('.key-access-card');
-    const predictionsContainer = document.getElementById('predictionsContainer');
-    
-    unlockBtn.addEventListener('click', async function() {
-        const apiKey = apiKeyInput.value.trim();
-        
-        if (!apiKey) {
-            showError('Veuillez entrer votre clé API');
-            return;
-        }
-        
-        unlockBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Vérification...';
-        unlockBtn.disabled = true;
-        
-        const unlockEffect = document.createElement('div');
-        unlockEffect.className = 'unlock-effect';
-        document.body.appendChild(unlockEffect);
-        
-        try {
-            const response = await fetch('/api/predict', {
-                headers: {
-                    'X-API-Key': apiKey
-                }
-            });
-            
-            if (response.status === 401) {
-                throw new Error('Clé API invalide. Veuillez vérifier et réessayer.');
-            }
-            
-            if (!response.ok) {
-                throw new Error('Erreur de connexion au serveur');
-            }
-            
-            const predictions = await response.json();
-            localStorage.setItem('apiKey', apiKey);
-            
-            setTimeout(() => {
-                keyAccessCard.style.opacity = '0';
-                keyAccessCard.style.transform = 'translateY(-50px)';
-                
-                setTimeout(() => {
-                    keyAccessCard.classList.add('d-none');
-                    predictionsContainer.classList.remove('d-none');
-                    const tipsSection = document.querySelector('.tips-section');
-                    if (tipsSection) {
-                        tipsSection.style.animation = 'slideUp 0.8s ease-out';
-                    }
-                    updatePredictions(predictions);
-                }, 500);
-            }, 1000);
-            
-        } catch (error) {
-            showError(error.message);
-            unlockBtn.innerHTML = '<i class="fas fa-lock-open"></i> Déverrouiller';
-            unlockBtn.disabled = false;
-        } finally {
-            setTimeout(() => {
-                if (unlockEffect.parentNode) {
-                    unlockEffect.parentNode.removeChild(unlockEffect);
-                }
-            }, 1500);
-        }
-    });
-    
-    const refreshBtn = document.getElementById('refreshBtn');
-    if (refreshBtn) {
-        refreshBtn.addEventListener('click', function() {
-            refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Chargement...';
-            refreshBtn.disabled = true;
-            
-            const predictionsList = document.getElementById('predictionsList');
-            if (predictionsList) {
-                predictionsList.style.opacity = '0.5';
-                predictionsList.style.transition = 'opacity 0.3s';
-            }
-            
-            loadPredictions().then(() => {
-                if (predictionsList) predictionsList.style.opacity = '1';
-            }).catch(() => {}).finally(() => {
-                refreshBtn.innerHTML = '<i class="fas fa-sync-alt me-1"></i>Prochaines prédictions';
-                refreshBtn.disabled = false;
-            });
-        });
-    }
-    
-    const savedKey = localStorage.getItem('apiKey');
-    if (savedKey) {
-        apiKeyInput.value = savedKey;
-    }
-    
-    if (localStorage.getItem('apiKey')) {
-        keyAccessCard.classList.add('d-none');
-        predictionsContainer.classList.remove('d-none');
-        
-        const container = document.getElementById('predictionsList');
-        if (container) {
-            container.innerHTML = `
-                <div class="text-center py-4">
-                    <div class="spinner-border text-primary" role="status">
-                        <span class="visually-hidden">Chargement...</span>
-                    </div>
-                    <p class="mt-3 text-white">Chargement des prédictions...</p>
+        } else {
+            predictionsList.innerHTML = `
+                <div class="alert alert-danger">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    ${error.message}
                 </div>
             `;
         }
-        
-        loadPredictions().catch(() => {
-            keyAccessCard.classList.remove('d-none');
-            predictionsContainer.classList.add('d-none');
-        });
     }
 }
 
-// Initialisation
-document.addEventListener('DOMContentLoaded', unlockBtnHandler);
+// ==================== CONNEXION ====================
+async function handleUnlock() {
+    const apiKey = apiKeyInput.value.trim();
+    if (!apiKey) {
+        showError('Veuillez entrer votre clé API');
+        return;
+    }
+    
+    setLoading(unlockBtn, true);
+    
+    try {
+        const response = await fetch(`${API_BASE}/predict`, {
+            headers: { 'X-API-Key': apiKey }
+        });
+        
+        if (response.status === 401) throw new Error('Clé API invalide');
+        if (!response.ok) throw new Error('Erreur serveur');
+        
+        localStorage.setItem(STORAGE_KEY, apiKey);
+        
+        // Transition
+        keyAccessCard.style.transition = 'opacity 0.5s, transform 0.5s';
+        keyAccessCard.style.opacity = '0';
+        keyAccessCard.style.transform = 'translateY(-30px)';
+        
+        setTimeout(() => {
+            keyAccessCard.classList.add('d-none');
+            predictionsContainer.classList.remove('d-none');
+            fabContainer.style.display = 'flex';
+            predictionsContainer.style.opacity = '0';
+            
+            setTimeout(() => {
+                predictionsContainer.style.opacity = '1';
+                loadPredictions(true);
+            }, 100);
+        }, 500);
+        
+    } catch (error) {
+        showError(error.message);
+        setLoading(unlockBtn, false);
+    }
+}
+
+// ==================== RAFRAÎCHIR ====================
+function handleRefresh() {
+    refreshBtn.style.transform = 'rotate(360deg)';
+    setTimeout(() => {
+        refreshBtn.style.transform = '';
+    }, 500);
+    
+    loadPredictions(true);
+    showToast('Prédictions mises à jour', 'success');
+}
+
+// ==================== INIT ====================
+document.addEventListener('DOMContentLoaded', () => {
+    // Écouteurs
+    unlockBtn.addEventListener('click', handleUnlock);
+    refreshBtn.addEventListener('click', handleRefresh);
+    helpBtn.addEventListener('click', openHelpPanel);
+    closeHelp.addEventListener('click', closeHelpPanel);
+    overlay.addEventListener('click', closeHelpPanel);
+    
+    // Fermeture avec Echap
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && helpPanel.classList.contains('open')) {
+            closeHelpPanel();
+        }
+    });
+    
+    apiKeyInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') handleUnlock();
+    });
+    
+    // Auto-connexion
+    const savedKey = localStorage.getItem(STORAGE_KEY);
+    if (savedKey) {
+        apiKeyInput.value = savedKey;
+        setTimeout(() => unlockBtn.click(), 100);
+    }
+});

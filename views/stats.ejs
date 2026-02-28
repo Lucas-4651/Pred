@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Prédictions - Dashboard</title>
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-800);
+            line-height: 1.5;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--gray-200);
+        }
+        
+        .header-left h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gray-900);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .header-info {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-top: 8px;
+        }
+        
+        .header-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background: var(--gray-200);
+            color: var(--gray-700);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--gray-300);
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid var(--gray-200);
+            transition: transform 0.2s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .stat-card h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-600);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .stat-value {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+        
+        .stat-value.total { color: var(--primary); }
+        .stat-value.correct { color: var(--success); }
+        .stat-value.accuracy { color: var(--warning); }
+        
+        .stat-trend {
+            font-size: 14px;
+            color: var(--gray-500);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .stat-trend.up { color: var(--success); }
+        .stat-trend.down { color: var(--danger); }
+        
+        /* Auto-Analysis Section */
+        .auto-analysis {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid var(--gray-200);
+        }
+        
+        .auto-analysis h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .auto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .auto-card {
+            background: var(--gray-50);
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+        
+        .auto-card.blue { border-color: var(--primary); }
+        .auto-card.green { border-color: var(--success); }
+        .auto-card.amber { border-color: var(--warning); }
+        
+        .auto-label {
+            font-size: 13px;
+            color: var(--gray-600);
+            margin-bottom: 8px;
+        }
+        
+        .auto-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+        
+        .countdown {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        /* Tables */
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid var(--gray-200);
+        }
+        
+        .section h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            border-radius: 8px;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+        
+        .data-table thead {
+            background: var(--gray-50);
+        }
+        
+        .data-table th {
+            padding: 16px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--gray-200);
+        }
+        
+        .data-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--gray-200);
+            vertical-align: middle;
+        }
+        
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .data-table tr:hover {
+            background: var(--gray-50);
+        }
+        
+        /* Badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        
+        .badge.prediction-1 { 
+            background: #dbeafe; 
+            color: #1e40af; 
+        }
+        
+        .badge.prediction-X { 
+            background: #fef3c7; 
+            color: #92400e; 
+        }
+        
+        .badge.prediction-2 { 
+            background: #d1fae5; 
+            color: #065f46; 
+        }
+        
+        .badge.success { 
+            background: #d1fae5; 
+            color: #065f46; 
+        }
+        
+        .badge.error { 
+            background: #fee2e2; 
+            color: #991b1b; 
+        }
+        
+        /* Forms */
+        .update-form {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .select-minimal, .input-minimal {
+            padding: 8px 12px;
+            border: 1px solid var(--gray-300);
+            border-radius: 6px;
+            font-size: 14px;
+            background: white;
+            color: var(--gray-800);
+            min-width: 80px;
+        }
+        
+        .select-minimal:focus, .input-minimal:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+        
+        /* Performance Charts */
+        .performance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .performance-card {
+            background: var(--gray-50);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .performance-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--gray-700);
+        }
+        
+        .performance-bar {
+            height: 8px;
+            background: var(--gray-200);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+        
+        .performance-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+        
+        .performance-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+        
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--gray-500);
+        }
+        
+        .empty-state-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+        
+        .empty-state h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--gray-700);
+        }
+        
+        /* Alerts */
+        .alert {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 16px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            z-index: 1000;
+            animation: slideIn 0.3s ease-out;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            max-width: 400px;
+        }
+        
+        .alert.success { 
+            background: var(--success); 
+            color: white; 
+        }
+        
+        .alert.error { 
+            background: var(--danger); 
+            color: white; 
+        }
+        
+        .alert.warning { 
+            background: var(--warning); 
+            color: white; 
+        }
+        
+        .alert.info { 
+            background: var(--primary); 
+            color: white; 
+        }
+        
+        @keyframes slideIn {
+            from { 
+                transform: translateX(100%); 
+                opacity: 0; 
+            }
+            to { 
+                transform: translateX(0); 
+                opacity: 1; 
+            }
+        }
+        
+        @keyframes slideOut {
+            from { 
+                transform: translateX(0); 
+                opacity: 1; 
+            }
+            to { 
+                transform: translateX(100%); 
+                opacity: 0; 
+            }
+        }
+        
+        /* Live Indicator */
+        .live-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--success);
+            background: rgba(16, 185, 129, 0.1);
+            padding: 4px 8px;
+            border-radius: 12px;
+        }
+        
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-200);
+            text-align: center;
+            color: var(--gray-500);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+            
+            .header-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .auto-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .update-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .select-minimal, .input-minimal {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <h1>📊 Analytics Prédictions</h1>
+                <div class="header-info">
+                    <span>
+                        <span class="live-indicator">
+                            <span class="live-dot"></span>
+                            LIVE
+                        </span>
+                    </span>
+                    <span>👤 Connecté: <strong><%= user ? user.username : 'Invité' %></strong></span>
+                    <span>📈 Total: <strong><%= totalEntries %> prédictions</strong></span>
+                    <span>🕐 Dernière mise à jour: <span id="lastUpdateTime"><%= new Date().toLocaleTimeString() %></span></span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="/" class="btn btn-secondary">
+                    ← Retour aux prédictions
+                </a>
+                <a href="/admin" class="btn btn-primary">
+                    ⚙️ Administration
+                </a>
+            </div>
+        </div>
+        
+        <!-- Stats Overview -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>📋 Matchs Analysés</h3>
+                <div class="stat-value total"><%= stats.total || 0 %></div>
+                <div class="stat-trend">
+                    <span>Résultats enregistrés</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <h3>✅ Prédictions Correctes</h3>
+                <div class="stat-value correct"><%= stats.correct || 0 %></div>
+                <div class="stat-trend">
+                    <% if (stats.accuracy && stats.accuracy >= 60) { %>
+                        <span class="trend up">↑ Excellente performance</span>
+                    <% } else if (stats.accuracy && stats.accuracy >= 50) { %>
+                        <span class="trend up">↑ Performance moyenne</span>
+                    <% } else { %>
+                        <span class="trend down">↓ À améliorer</span>
+                    <% } %>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <h3>🎯 Taux de Précision</h3>
+                <div class="stat-value accuracy"><%= stats.accuracy || '0' %>%</div>
+                <div class="stat-trend">
+                    <% if (stats.accuracy && stats.accuracy >= 70) { %>
+                        <span class="trend up">🎯 Objectif 80% proche!</span>
+                    <% } else if (stats.accuracy && stats.accuracy >= 60) { %>
+                        <span class="trend up">📈 Bonne progression</span>
+                    <% } else { %>
+                        <span class="trend down">🎯 Objectif: 80%</span>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Auto-Analysis Section -->
+        <div class="auto-analysis">
+            <h2>🤖 Système d'Auto-Analyse</h2>
+            
+            <div class="auto-grid">
+                <div class="auto-card blue">
+                    <div class="auto-label">⏰ Prochaine analyse</div>
+                    <div class="auto-value" id="nextAnalysis">2 min</div>
+                </div>
+                
+                <div class="auto-card green">
+                    <div class="auto-label">🔄 Dernière analyse</div>
+                    <div class="auto-value" id="lastAnalysis">À l'instant</div>
+                </div>
+                
+                <div class="auto-card amber">
+                    <div class="auto-label">⏳ Prédictions en attente</div>
+                    <div class="auto-value" id="pendingCount"><%= pendingMatches ? pendingMatches.length : 0 %></div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <button onclick="triggerManualAnalysis()" class="btn btn-primary">
+                    🔄 Lancer une analyse manuelle
+                </button>
+                
+                <div class="countdown" style="margin-top: 15px;">
+                    ⏱️ Prochaine analyse auto dans <span id="countdown">120</span> secondes
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pending Matches -->
+        <div class="section">
+            <h2>📝 Matchs à Compléter</h2>
+            
+            <% if (pendingMatches && pendingMatches.length > 0) { %>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Match</th>
+                                <th>Prédiction</th>
+                                <th>Confiance</th>
+                                <th>Cotes</th>
+                                <th>Score Prédit</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% pendingMatches.forEach(match => { %>
+                            <tr>
+                                <td style="font-weight: 600;"><%= match.match %></td>
+                                <td>
+                                    <span class="badge prediction-<%= match.prediction %>">
+                                        <%= match.prediction %>
+                                    </span>
+                                </td>
+                                <td>
+                                    <%= match.confidence %>%
+                                    <% if (match.confidence >= 80) { %>
+                                        <span style="color: var(--success); font-size: 12px;"> 🚀</span>
+                                    <% } else if (match.confidence < 60) { %>
+                                        <span style="color: var(--danger); font-size: 12px;"> ⚠️</span>
+                                    <% } %>
+                                </td>
+                                <td style="font-family: monospace;"><%= match.odds_1x2 %></td>
+                                <td><%= match.exact_score_pred %></td>
+                                <td>
+                                    <form class="update-form" onsubmit="return updateResult(event, '<%= match.match_id %>')">
+                                        <select name="actualResult" class="select-minimal" required>
+                                            <option value="">Résultat</option>
+                                            <option value="1">1 (🏠)</option>
+                                            <option value="X">X (🤝)</option>
+                                            <option value="2">2 (✈️)</option>
+                                        </select>
+                                        <input type="text" name="actualScore" class="input-minimal" placeholder="Score" style="width: 100px;">
+                                        <button type="submit" class="btn btn-primary btn-small">✓ Valider</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            <% } else { %>
+                <div class="empty-state">
+                    <div class="empty-state-icon">✅</div>
+                    <h3>Tous les matchs sont analysés</h3>
+                    <p>Les nouvelles prédictions apparaîtront ici automatiquement.</p>
+                    <p style="margin-top: 10px; font-size: 14px; color: var(--gray-400);">
+                        <em>L'auto-analyse se déclenche toutes les 2 minutes</em>
+                    </p>
+                </div>
+            <% } %>
+        </div>
+        
+        <!-- Completed Matches -->
+        <% if (recentMatches && recentMatches.length > 0) { %>
+        <div class="section">
+            <h2>📊 Historique des Matchs (<%= recentMatches.length %>)</h2>
+            
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Match</th>
+                            <th>Prédiction</th>
+                            <th>Résultat</th>
+                            <th>Score</th>
+                            <th>Confiance</th>
+                            <th>Statut</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% recentMatches.forEach(match => { %>
+                        <tr>
+                            <td><%= match.match %></td>
+                            <td>
+                                <span class="badge prediction-<%= match.prediction %>">
+                                    <%= match.prediction %>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="badge prediction-<%= match.actual_result %>">
+                                    <%= match.actual_result %>
+                                </span>
+                            </td>
+                            <td>
+                                <%= match.exact_score_pred %>
+                                <% if (match.actual_score) { %>
+                                    <span style="color: var(--gray-500); font-size: 13px;">
+                                        → <%= match.actual_score %>
+                                    </span>
+                                <% } %>
+                            </td>
+                            <td>
+                                <%= match.confidence %>%
+                                <% if (match.confidence >= 80) { %>
+                                    <span style="color: var(--success);"> 🚀</span>
+                                <% } else if (match.confidence < 60) { %>
+                                    <span style="color: var(--warning);"> ⚠️</span>
+                                <% } %>
+                            </td>
+                            <td>
+                                <% if (match.is_correct === true) { %>
+                                    <span class="badge success">✓ Correct</span>
+                                <% } else { %>
+                                    <span class="badge error">✗ Incorrect</span>
+                                <% } %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <% } %>
+        
+        <!-- Performance Analysis -->
+        <% if (stats.by_prediction && Object.keys(stats.by_prediction).length > 0) { %>
+        <div class="section">
+            <h2>📈 Analyse de Performance</h2>
+            
+            <div class="performance-grid">
+                <% Object.entries(stats.by_prediction).forEach(([type, data]) => { %>
+                <div class="performance-card">
+                    <h3>Prédiction <%= type %></h3>
+                    <div class="performance-bar">
+                        <div class="performance-fill" 
+                             style="width: <%= data.accuracy %>%;
+                                    background: <%= type === '1' ? '#3b82f6' : type === 'X' ? '#f59e0b' : '#10b981' %>;">
+                        </div>
+                    </div>
+                    <div class="performance-label">
+                        <span>Précision</span>
+                        <span style="font-weight: 600; color: <%= data.accuracy >= 70 ? 'var(--success)' : data.accuracy >= 50 ? 'var(--warning)' : 'var(--danger)' %>;">
+                            <%= data.accuracy %>%
+                        </span>
+                    </div>
+                    <div style="font-size: 14px; color: var(--gray-500); margin-top: 8px;">
+                        <%= data.correct %> correctes sur <%= data.total %> matchs
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+            
+            <% if (stats.accuracy && stats.accuracy < 80) { %>
+            <div style="margin-top: 20px; padding: 16px; background: rgba(245, 158, 11, 0.1); border-radius: 8px; border-left: 4px solid var(--warning);">
+                <div style="font-weight: 600; color: var(--warning); margin-bottom: 8px;">💡 Recommandation</div>
+                <div style="color: var(--gray-700);">
+                    Pour atteindre 80% de précision, concentrez-vous sur les prédictions 
+                    <% if (stats.by_prediction['2'] && stats.by_prediction['2'].accuracy > stats.by_prediction['1'].accuracy) { %>
+                        <strong>"2"</strong> (actuellement <%= stats.by_prediction['2'].accuracy %>% de réussite).
+                    <% } else if (stats.by_prediction['1'] && stats.by_prediction['1'].accuracy > stats.by_prediction['2'].accuracy) { %>
+                        <strong>"1"</strong> (actuellement <%= stats.by_prediction['1'].accuracy %>% de réussite).
+                    <% } else { %>
+                        avec haute confiance (≥80%).
+                    <% } %>
+                </div>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div>© 2025 Prédictions Analytics - Système auto-optimisé H24</div>
+            <div style="font-size: 12px; margin-top: 5px; color: var(--gray-400);">
+                Cycle: 80s/match • Auto-analyse: 2min • Objectif: 80% précision
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    // Configuration
+    let countdown = 120; // 2 minutes
+    let analysisInProgress = false;
+    
+    // Éléments DOM
+    const elements = {
+        countdown: document.getElementById('countdown'),
+        nextAnalysis: document.getElementById('nextAnalysis'),
+        lastAnalysis: document.getElementById('lastAnalysis'),
+        pendingCount: document.getElementById('pendingCount'),
+        lastUpdateTime: document.getElementById('lastUpdateTime')
+    };
+    
+    // Gestion du compte à rebours
+    function updateCountdown() {
+        if (elements.countdown) {
+            elements.countdown.textContent = countdown;
+        }
+        
+        if (elements.nextAnalysis) {
+            const minutes = Math.floor(countdown / 60);
+            const seconds = countdown % 60;
+            elements.nextAnalysis.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        if (countdown > 0) {
+            countdown--;
+            setTimeout(updateCountdown, 1000);
+        } else {
+            // Reset pour prochaine analyse
+            countdown = 120;
+            setTimeout(updateCountdown, 1000);
+        }
+    }
+    
+    // Mettre à jour l'heure de dernière mise à jour
+    function updateLastUpdateTime() {
+        if (elements.lastUpdateTime) {
+            elements.lastUpdateTime.textContent = new Date().toLocaleTimeString();
+        }
+    }
+    
+    // Fonction pour déclencher une analyse manuelle
+    async function triggerManualAnalysis() {
+        if (analysisInProgress) {
+            showAlert('⚠️ Une analyse est déjà en cours', 'warning');
+            return;
+        }
+        
+        analysisInProgress = true;
+        const originalText = event?.target?.textContent;
+        
+        if (event?.target) {
+            event.target.innerHTML = '⏳ Analyse en cours...';
+            event.target.disabled = true;
+        }
+        
+        try {
+            const response = await fetch('/stats/trigger-analysis', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showAlert('✅ Analyse lancée avec succès!', 'success');
+                
+                // Mettre à jour l'interface
+                if (elements.lastAnalysis) {
+                    elements.lastAnalysis.textContent = 'À l\'instant';
+                }
+                
+                if (elements.pendingCount && result.result) {
+                    elements.pendingCount.textContent = result.result.pending || result.result.noMatch || 0;
+                }
+                
+                updateLastUpdateTime();
+                
+                // Rafraîchir après 3 secondes
+                setTimeout(() => {
+                    location.reload();
+                }, 3000);
+                
+            } else {
+                showAlert('❌ Erreur: ' + (result.error || 'Analyse échouée'), 'error');
+                if (event?.target) {
+                    event.target.innerHTML = originalText;
+                    event.target.disabled = false;
+                }
+            }
+            
+        } catch (error) {
+            showAlert('❌ Erreur réseau: ' + error.message, 'error');
+            if (event?.target) {
+                event.target.innerHTML = originalText;
+                event.target.disabled = false;
+            }
+        } finally {
+            analysisInProgress = false;
+        }
+    }
+    
+    // Fonction pour mettre à jour un résultat (formulaire manuel)
+    async function updateResult(event, matchId) {
+        event.preventDefault();
+        
+        const form = event.target;
+        const actualResult = form.querySelector('[name="actualResult"]').value;
+        const actualScore = form.querySelector('[name="actualScore"]').value;
+        
+        if (!actualResult) {
+            showAlert('⚠️ Sélectionnez un résultat (1, X ou 2)', 'warning');
+            return false;
+        }
+        
+        // Désactiver le formulaire
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = '⏳...';
+        submitBtn.disabled = true;
+        
+        try {
+            const response = await fetch('/stats/update', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    matchId: matchId,
+                    actualResult: actualResult,
+                    actualScore: actualScore || ''
+                })
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                // Feedback visuel
+                const row = form.closest('tr');
+                row.style.backgroundColor = 'rgba(16, 185, 129, 0.1)';
+                row.style.transition = 'background-color 0.3s';
+                
+                showAlert(`✅ ${result.match}: ${result.prediction} → ${result.actualResult} ${result.isCorrect ? '✓' : '✗'}`, 
+                         result.isCorrect ? 'success' : 'error');
+                
+                // Rafraîchir après 1 seconde
+                setTimeout(() => {
+                    location.reload();
+                }, 1000);
+                
+            } else {
+                showAlert('❌ Erreur: ' + (result.error || 'Mise à jour échouée'), 'error');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+            
+        } catch (error) {
+            showAlert('❌ Erreur réseau: ' + error.message, 'error');
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+        
+        return false;
+    }
+    
+    // Fonction pour afficher des alertes
+    function showAlert(message, type = 'info') {
+        // Supprimer les alertes existantes
+        const existingAlerts = document.querySelectorAll('.alert');
+        existingAlerts.forEach(alert => {
+            alert.style.animation = 'slideOut 0.3s ease-out';
+            setTimeout(() => alert.remove(), 300);
+        });
+        
+        // Créer la nouvelle alerte
+        const alert = document.createElement('div');
+        alert.className = `alert ${type}`;
+        alert.textContent = message;
+        document.body.appendChild(alert);
+        
+        // Supprimer après 5 secondes
+        setTimeout(() => {
+            alert.style.animation = 'slideOut 0.3s ease-out';
+            setTimeout(() => alert.remove(), 300);
+        }, 5000);
+    }
+    
+    // Charger les données auto
+    async function loadAutoStats() {
+        try {
+            const response = await fetch('/stats/auto-data');
+            const data = await response.json();
+            
+            if (data.success) {
+                // Mettre à jour les compteurs
+                if (elements.pendingCount && data.data?.stats?.pending !== undefined) {
+                    elements.pendingCount.textContent = data.data.stats.pending;
+                }
+                
+                // Mettre à jour l'heure
+                updateLastUpdateTime();
+            }
+        } catch (error) {
+            // Silencieux en cas d'erreur
+            console.debug('Auto-stats non disponibles:', error.message);
+        }
+    }
+    
+    // Initialisation
+    document.addEventListener('DOMContentLoaded', function() {
+        // Démarrer le compte à rebours
+        updateCountdown();
+        
+        // Charger les stats auto
+        loadAutoStats();
+        
+        // Rafraîchir auto toutes les 30 secondes
+        setInterval(loadAutoStats, 30000);
+        
+        // Mettre à jour l'heure toutes les minutes
+        setInterval(updateLastUpdateTime, 60000);
+        
+        // Auto-focus sur le premier select
+        const firstSelect = document.querySelector('select[name="actualResult"]');
+        if (firstSelect) firstSelect.focus();
+        
+        // Raccourci clavier: Ctrl+Enter pour valider les formulaires
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                const activeForm = document.activeElement.closest('form');
+                if (activeForm) activeForm.requestSubmit();
+            }
+        });
+        
+        console.log('📊 Dashboard analytics chargé avec succès');
+    });
+    </script>
+</body>
+</html>

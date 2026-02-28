@@ -18,7 +18,7 @@
             <i class="fas fa-lightbulb"></i> Astuces
           </a>
         </li>
-        <% if (user) { %>
+        <% if (locals.user) { %> <!-- Modifier cette ligne -->
           <li class="nav-item">
             <a class="nav-link" href="/admin">
               <i class="fas fa-cog"></i> Admin

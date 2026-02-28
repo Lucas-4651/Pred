@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VirtualMG - Télécharger</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    animation: fadeIn 1s ease;
+}
+.logo { font-size:50px; margin-bottom:20px; }
+h1 { font-size:28px; margin-bottom:10px; }
+p { opacity:0.8; margin-bottom:30px; }
+.btn {
+    display:inline-block;
+    padding:15px 35px;
+    font-size:18px;
+    font-weight:600;
+    background: linear-gradient(45deg, #00c853, #64dd17);
+    border-radius:50px;
+    text-decoration:none;
+    color:white;
+    transition:0.3s ease;
+    box-shadow:0 10px 25px rgba(0,200,83,0.4);
+    cursor:pointer;
+}
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow:0 15px 35px rgba(0,200,83,0.6);
+}
+.footer {
+    margin-top:30px;
+    font-size:13px;
+    opacity:0.6;
+}
+@keyframes fadeIn {
+    from { opacity:0; transform:translateY(20px);}
+    to { opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="logo">📱</div>
+    <h1>VirtualMG</h1>
+    <p>L'expérience mobile nouvelle génération</p>
+
+    <a href="/download/apk" class="btn" id="btnDownload">
+       Télécharger l'APK
+    </a>
+
+    <div class="footer">
+        Version 1.0 • <%= fileSize %> MB • <span id="downloadCount"><%= downloadCount %></span> téléchargements
+    </div>
+</div>
+
+<script>
+const btn = document.getElementById('btnDownload');
+const counter = document.getElementById('downloadCount');
+
+btn.addEventListener('click', async (e) => {
+    e.preventDefault();
+
+    btn.disabled = true;
+    btn.innerText = "Téléchargement en cours...";
+    counter.innerText = parseInt(counter.innerText) + 1;
+
+    // Envoi d'une requête POST pour déclencher l'incrément + download
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = '/download/apk';
+    document.body.appendChild(form);
+    form.submit();
+    form.remove();
+
+    setTimeout(() => {
+        btn.disabled = false;
+        btn.innerText = "Télécharger l'APK";
+    }, 3000);
+});
+</script>
+
+</body>
+</html>

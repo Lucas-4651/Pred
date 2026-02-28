@@ -10,7 +10,6 @@ router.get('/logout', adminController.logout);
 
 // Dashboard
 router.get('/', ensureAuthenticated, adminController.dashboard);
-
 // Tips management
 router.post('/tips', ensureAuthenticated, adminController.createTip);
 router.post('/tips/:id', ensureAuthenticated, adminController.updateTip);

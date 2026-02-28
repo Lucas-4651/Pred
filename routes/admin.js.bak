@@ -9,7 +9,7 @@ router.post('/login', adminController.login);
 router.get('/logout', adminController.logout);
 
 // Dashboard
-router.get('/', ensureAuthenticated, adminController.dashboard); // CORRECTION ICI
+router.get('/', ensureAuthenticated, adminController.dashboard);
 
 // Tips management
 router.post('/tips', ensureAuthenticated, adminController.createTip);

@@ -1,0 +1,34 @@
+<h2>📥 Paiements en attente</h2>
+
+<table border="1" cellpadding="10">
+  <tr>
+    <th>Utilisateur</th>
+    <th>Méthode</th>
+    <th>Montant</th>
+    <th>Référence</th>
+    <th>Date</th>
+    <th>Actions</th>
+  </tr>
+
+  <% payments.forEach(payment => { %>
+    <tr>
+      <td><%= payment.User.username %></td>
+      <td><%= payment.method %></td>
+      <td><%= payment.amount %> Ar</td>
+      <td><%= payment.transactionRef %></td>
+      <td><%= payment.createdAt.toLocaleString() %></td>
+      <td>
+        <form action="/admin/payments/<%= payment.id %>/approve" method="POST" style="display:inline;">
+          <button type="submit">✅ Approuver</button>
+        </form>
+        <form action="/admin/payments/<%= payment.id %>/reject" method="POST" style="display:inline;">
+          <button type="submit">❌ Refuser</button>
+        </form>
+      </td>
+    </tr>
+  <% }) %>
+</table>
+
+<% if (payments.length === 0) { %>
+  <p>Aucun paiement en attente 🎉</p>
+<% } %>

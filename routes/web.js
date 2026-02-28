@@ -7,7 +7,7 @@ const path = require('path');
 const Download = require('../models/Download');
 
 // Routes publiques
-router.get('/', predictionController.predict);
+router.get('/', predictionController.index);
 router.get('/tips', tipController.showTips);
 
 // GET page download : affiche seulement

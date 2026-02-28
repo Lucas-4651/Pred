@@ -7,16 +7,7 @@ const path = require('path');
 const Download = require('../models/Download');
 
 // Routes publiques
-router.get('/', async (req, res) => {
-    const userAgent = req.headers['user-agent'] || '';
-    const isApp = /VirtualMGApp/i.test(userAgent); // détecte ton WebView
-    const tips = await getTipsSomehow();
-
-    res.render('home', {
-        tips,
-        showDownloadModal: !isApp // vrai seulement pour navigateur classique
-    });
-});
+router.get('/', predictionController.predict);
 router.get('/tips', tipController.showTips);
 
 // GET page download : affiche seulement

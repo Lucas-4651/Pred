@@ -38751,3 +38751,7 @@
 [INFO] 2026-02-28T16:03:56.301Z - Mode développement actif
 [INFO] 2026-02-28T16:03:56.302Z - Utilisateur test
 [INFO] 2026-02-28T16:04:01.678Z - Connexion à Psql neon établie.
+[INFO] 2026-02-28T16:31:13.396Z - Serveur démarré sur le port 3000
+[INFO] 2026-02-28T16:31:13.461Z - Mode développement actif
+[INFO] 2026-02-28T16:31:13.462Z - Utilisateur test
+[INFO] 2026-02-28T16:31:19.967Z - Connexion à Psql neon établie.

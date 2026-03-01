@@ -39490,3 +39490,7 @@
   samples: 30
 }
 [INFO] 2026-03-01T16:01:26.278Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T16:25:13.445Z - Serveur démarré sur le port 3000
+[INFO] 2026-03-01T16:25:13.534Z - Mode développement actif
+[INFO] 2026-03-01T16:25:13.535Z - Utilisateur test
+[INFO] 2026-03-01T16:25:19.309Z - Connexion à Psql neon établie.

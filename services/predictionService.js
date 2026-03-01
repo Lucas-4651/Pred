@@ -25,7 +25,7 @@ const config = {
   cache: {
     api:         60,
     h2h:         14400,
-    learning:    86400,
+    learning:    40000,
     patterns:    7200,
     intermediate:300
   },
@@ -41,13 +41,13 @@ const config = {
     }
   },
   db: {
-    batchSize: 100,
+    batchSize: 300,
     saveDelay: 3000
   },
   vfl: {
-    homeWinRateTarget:          0.45,
-    drawRateTarget:             0.27,
-    awayWinRateTarget:          0.28,
+    homeWinRateTarget:          0.42,
+    drawRateTarget:             0.25,
+    awayWinRateTarget:          0.33,
     avgGoalsTarget:             2.5,
     adaptationRate:             0.1,
     homeAdvantageMin:           0.15,
@@ -81,7 +81,7 @@ const CONSTANTS = {
   MAX_CONFIDENCE:      95,
   DEFAULT_ELO:         1600,
   MAX_GOALS_PREDICTION: 6,
-  MIN_GOALS_PREDICTION: 1
+  MIN_GOALS_PREDICTION: 0
 };
 
 const FALLBACK_PREDICTION = {

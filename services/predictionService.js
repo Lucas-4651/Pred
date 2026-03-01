@@ -45,9 +45,9 @@ const config = {
     saveDelay: 3000
   },
   vfl: {
-    homeWinRateTarget:          0.42,
-    drawRateTarget:             0.25,
-    awayWinRateTarget:          0.33,
+    homeWinRateTarget:          0.44,
+    drawRateTarget:             0.26,
+    awayWinRateTarget:          0.30,
     avgGoalsTarget:             2.5,
     adaptationRate:             0.1,
     homeAdvantageMin:           0.15,
@@ -347,9 +347,9 @@ class BiasCorrector {
     const n = this.stats.count;
 
     this.correction = {
-      home: (this.stats.homeWin.actual / n) / ((this.stats.homeWin.predicted / n) || 0.45),
-      draw: (this.stats.draw.actual    / n) / ((this.stats.draw.predicted    / n) || 0.27),
-      away: (this.stats.awayWin.actual / n) / ((this.stats.awayWin.predicted / n) || 0.28)
+      home: (this.stats.homeWin.actual / n) / ((this.stats.homeWin.predicted / n) || 0.44),
+      draw: (this.stats.draw.actual    / n) / ((this.stats.draw.predicted    / n) || 0.26),
+      away: (this.stats.awayWin.actual / n) / ((this.stats.awayWin.predicted / n) || 0.30)
     };
 
     this.correction = normalizeTrio(this.correction);
@@ -2236,7 +2236,6 @@ async function predictMatch(match, data) {
     logger.warn('predictMatch: paramètres invalides');
     return null;
   }
-
   try {
     if (!validateMatch(match)) return null;
 

@@ -39494,3 +39494,332 @@
 [INFO] 2026-03-01T16:25:13.534Z - Mode développement actif
 [INFO] 2026-03-01T16:25:13.535Z - Utilisateur test
 [INFO] 2026-03-01T16:25:19.309Z - Connexion à Psql neon établie.
+[INFO] 2026-03-01T16:36:44.916Z - Serveur démarré sur le port 3000
+[INFO] 2026-03-01T16:36:44.978Z - Mode développement actif
+[INFO] 2026-03-01T16:36:44.978Z - Utilisateur test
+[INFO] 2026-03-01T16:36:51.516Z - Connexion à Psql neon établie.
+[INFO] 2026-03-01T16:37:10.949Z - [Session] [session-file-store] will retry, error on last attempt: Error: ENOENT: no such file or directory, open '/root/Pred/sessions/xdbUUinsLGakwlGymUj77n4H4o9csDZG.json'
+[WARN] 2026-03-01T16:37:12.131Z - ⚠️  API [results] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[WARN] 2026-03-01T16:37:12.710Z - ⚠️  API [results] tentative 2/5 échouée (ETIMEDOUT) → retry dans 400ms
+[INFO] 2026-03-01T16:37:13.529Z - 🎯 Round à prédire : 35 — 10 matchs
+[DEBUG] 2026-03-01T16:37:14.153Z - Goals: raw=4.05 reduc=0.75 surp=0.97 final=4
+[DEBUG] 2026-03-01T16:37:14.167Z - Goals: raw=4.05 reduc=0.75 surp=0.97 final=4
+[DEBUG] 2026-03-01T16:37:14.174Z - Goals: raw=4.05 reduc=0.75 surp=1.05 final=4
+[DEBUG] 2026-03-01T16:37:14.179Z - Goals: raw=4.05 reduc=0.75 surp=1.00 final=4
+[DEBUG] 2026-03-01T16:37:14.185Z - Goals: raw=4.05 reduc=0.75 surp=1.05 final=4
+[DEBUG] 2026-03-01T16:37:14.189Z - Goals: raw=4.05 reduc=0.75 surp=0.97 final=4
+[DEBUG] 2026-03-01T16:37:14.192Z - Goals: raw=4.05 reduc=0.75 surp=0.97 final=4
+[DEBUG] 2026-03-01T16:37:14.196Z - Goals: raw=4.05 reduc=0.75 surp=1.05 final=5
+[DEBUG] 2026-03-01T16:37:14.199Z - Goals: raw=4.05 reduc=0.75 surp=1.00 final=4
+[DEBUG] 2026-03-01T16:37:14.210Z - Goals: raw=4.05 reduc=0.75 surp=1.10 final=4
+[DEBUG] 2026-03-01T16:37:14.225Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T16:37:14.226Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T16:37:14.227Z - Match incertain (70%) → confiance réduite
+[DEBUG] 2026-03-01T16:37:14.230Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T16:37:14.231Z - Match incertain (60%) → confiance réduite
+[INFO] 2026-03-01T16:37:14.252Z - ✅ 10 prédictions VFL en 2560ms {
+  accuracy: '0%',
+  draw: '0%',
+  goalAcc: '0%',
+  within1: '0%',
+  bias: 0,
+  samples: 0
+}
+[INFO] 2026-03-01T16:37:43.811Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T16:38:02.960Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T16:38:19.554Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T16:38:29.520Z - Ratings VFL sauvegardés
+[WARN] 2026-03-01T16:38:32.203Z - ⚠️  API [ranking] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[WARN] 2026-03-01T16:38:32.229Z - ⚠️  API [results] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[WARN] 2026-03-01T16:38:32.726Z - ⚠️  API [ranking] tentative 2/5 échouée (ETIMEDOUT) → retry dans 400ms
+[WARN] 2026-03-01T16:38:32.836Z - ⚠️  API [results] tentative 2/5 échouée (ETIMEDOUT) → retry dans 400ms
+[WARN] 2026-03-01T16:38:33.558Z - ⚠️  API [results] tentative 3/5 échouée (ETIMEDOUT) → retry dans 800ms
+[INFO] 2026-03-01T16:38:35.540Z - 🎯 Round à prédire : 36 — 10 matchs
+[DEBUG] 2026-03-01T16:38:35.552Z - Goals: raw=0.76 reduc=0.9 surp=1.05 final=1
+[DEBUG] 2026-03-01T16:38:35.564Z - Goals: raw=6.09 reduc=0.65 surp=1.05 final=6
+[DEBUG] 2026-03-01T16:38:35.568Z - Goals: raw=3.83 reduc=0.75 surp=1.05 final=3
+[DEBUG] 2026-03-01T16:38:35.571Z - Goals: raw=3.80 reduc=0.75 surp=1.10 final=3
+[DEBUG] 2026-03-01T16:38:35.574Z - Goals: raw=5.25 reduc=0.65 surp=0.92 final=4
+[DEBUG] 2026-03-01T16:38:35.585Z - Goals: raw=3.33 reduc=0.8 surp=1.00 final=3
+[DEBUG] 2026-03-01T16:38:35.588Z - Goals: raw=3.80 reduc=0.75 surp=1.00 final=3
+[DEBUG] 2026-03-01T16:38:35.591Z - Goals: raw=4.29 reduc=0.7 surp=1.00 final=4
+[DEBUG] 2026-03-01T16:38:35.594Z - Goals: raw=4.16 reduc=0.75 surp=1.10 final=3
+[DEBUG] 2026-03-01T16:38:35.597Z - Goals: raw=6.45 reduc=0.65 surp=1.05 final=6
+[DEBUG] 2026-03-01T16:38:35.601Z - Match incertain (70%) → confiance réduite
+[DEBUG] 2026-03-01T16:38:35.602Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T16:38:35.603Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T16:38:35.604Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T16:38:35.605Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T16:38:35.607Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T16:38:35.607Z - Match incertain (60%) → confiance réduite
+[INFO] 2026-03-01T16:38:35.613Z - ✅ 10 prédictions VFL en 3730ms {
+  accuracy: '100%',
+  draw: '0%',
+  goalAcc: '0%',
+  within1: '0%',
+  bias: 2,
+  samples: 1
+}
+[DEBUG] 2026-03-01T16:38:41.315Z - Impossible de charger /round/11: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T16:38:42.191Z - Impossible de charger /round/10: Cache max keys amount exceeded
+[INFO] 2026-03-01T16:38:43.281Z - Ratings VFL sauvegardés
+[DEBUG] 2026-03-01T16:38:43.344Z - Impossible de charger /round/9: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T16:38:44.217Z - Impossible de charger /round/8: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T16:38:44.794Z - Impossible de charger /round/10: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T16:38:45.024Z - Impossible de charger /round/7: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T16:38:45.296Z - Impossible de charger /round/9: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T16:38:45.768Z - Impossible de charger /round/8: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T16:38:45.887Z - Impossible de charger /round/6: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T16:38:46.308Z - Impossible de charger /round/7: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T16:38:47.176Z - Impossible de charger /round/5: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T16:38:47.485Z - Impossible de charger /round/6: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T16:38:47.972Z - Impossible de charger /round/4: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T16:38:48.115Z - Impossible de charger /round/5: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T16:38:49.117Z - Impossible de charger /round/3: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T16:38:49.152Z - Impossible de charger /round/4: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T16:38:49.900Z - Impossible de charger /round/3: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T16:38:50.105Z - Impossible de charger /round/2: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T16:38:50.624Z - Impossible de charger /round/2: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T16:38:50.762Z - Impossible de charger /round/1: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T16:38:51.551Z - Impossible de charger /round/1: Cache max keys amount exceeded
+[WARN] 2026-03-01T16:39:07.250Z - ⚠️  API [ranking] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[WARN] 2026-03-01T16:39:07.271Z - ⚠️  API [results] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[INFO] 2026-03-01T16:39:08.835Z - 🎯 Round à prédire : 36 — 10 matchs
+[DEBUG] 2026-03-01T16:39:08.845Z - Goals: raw=0.63 reduc=0.9 surp=1.05 final=1
+[DEBUG] 2026-03-01T16:39:08.848Z - Goals: raw=7.00 reduc=0.65 surp=1.05 final=6
+[DEBUG] 2026-03-01T16:39:08.850Z - Goals: raw=4.09 reduc=0.75 surp=1.05 final=4
+[DEBUG] 2026-03-01T16:39:08.853Z - Goals: raw=3.80 reduc=0.75 surp=1.10 final=3
+[DEBUG] 2026-03-01T16:39:08.855Z - Goals: raw=7.00 reduc=0.65 surp=0.92 final=6
+[DEBUG] 2026-03-01T16:39:08.858Z - Goals: raw=2.99 reduc=0.8 surp=1.00 final=2
+[DEBUG] 2026-03-01T16:39:08.861Z - Goals: raw=3.84 reduc=0.75 surp=1.00 final=3
+[DEBUG] 2026-03-01T16:39:08.863Z - Goals: raw=4.14 reduc=0.75 surp=1.00 final=4
+[DEBUG] 2026-03-01T16:39:08.865Z - Goals: raw=4.27 reduc=0.7 surp=1.10 final=3
+[DEBUG] 2026-03-01T16:39:08.868Z - Goals: raw=6.93 reduc=0.65 surp=1.05 final=6
+[DEBUG] 2026-03-01T16:39:08.870Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T16:39:08.870Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T16:39:08.871Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T16:39:08.872Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T16:39:08.873Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T16:39:08.874Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T16:39:08.875Z - Match incertain (60%) → confiance réduite
+[INFO] 2026-03-01T16:39:08.878Z - ✅ 10 prédictions VFL en 1984ms {
+  accuracy: '25%',
+  draw: '50%',
+  goalAcc: '0%',
+  within1: '50%',
+  bias: 1.5,
+  samples: 4
+}
+[INFO] 2026-03-01T18:25:13.171Z - Serveur démarré sur le port 3000
+[INFO] 2026-03-01T18:25:13.266Z - Mode développement actif
+[INFO] 2026-03-01T18:25:13.266Z - Utilisateur test
+[INFO] 2026-03-01T18:25:19.209Z - Connexion à Psql neon établie.
+[WARN] 2026-03-01T18:25:58.582Z - ⚠️  API [matches] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[INFO] 2026-03-01T18:26:00.118Z - 🎯 Round à prédire : 10 — 10 matchs
+[ERROR] 2026-03-01T18:26:00.150Z - Erreur globale getPredictions: ReferenceError: biasCorrector is not defined
+    at predictMatch (/root/Pred/services/predictionService.js:2240:3)
+    at /root/Pred/services/predictionService.js:2640:21
+    at Array.map (<anonymous>)
+    at Object.getPredictions (/root/Pred/services/predictionService.js:2640:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.index (/root/Pred/controllers/predictionController.js:22:25)
+[INFO] 2026-03-01T18:26:00.641Z - État VFL chargé { accuracy: '44%', goalAccuracy: '17%', predictions: 153 }
+[INFO] 2026-03-01T18:26:01.176Z - 20 ratings VFL chargés
+[INFO] 2026-03-01T18:26:04.023Z - 🎯 Round à prédire : 11 — 10 matchs
+[INFO] 2026-03-01T18:26:04.026Z - 🔄 Nouveau round détecté: 10 → 11
+[ERROR] 2026-03-01T18:26:04.030Z - Erreur globale getPredictions: ReferenceError: biasCorrector is not defined
+    at predictMatch (/root/Pred/services/predictionService.js:2240:3)
+    at /root/Pred/services/predictionService.js:2640:21
+    at Array.map (<anonymous>)
+    at Object.getPredictions (/root/Pred/services/predictionService.js:2640:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.apiPredict (/root/Pred/controllers/predictionController.js:87:25)
+[ERROR] 2026-03-01T18:26:05.612Z - Erreur globale getPredictions: ReferenceError: biasCorrector is not defined
+    at predictMatch (/root/Pred/services/predictionService.js:2240:3)
+    at /root/Pred/services/predictionService.js:2640:21
+    at Array.map (<anonymous>)
+    at Object.getPredictions (/root/Pred/services/predictionService.js:2640:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /root/Pred/routes/api.js:14:25
+[INFO] 2026-03-01T18:26:07.730Z - Ratings VFL sauvegardés
+[ERROR] 2026-03-01T18:26:08.795Z - Erreur globale getPredictions: ReferenceError: biasCorrector is not defined
+    at predictMatch (/root/Pred/services/predictionService.js:2240:3)
+    at /root/Pred/services/predictionService.js:2640:21
+    at Array.map (<anonymous>)
+    at Object.getPredictions (/root/Pred/services/predictionService.js:2640:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /root/Pred/routes/api.js:14:25
+[INFO] 2026-03-01T18:26:10.073Z - Poids modèles ajustés { elo: '0.369', poisson: '0.309', market: '0.191', h2h: '0.131' }
+[INFO] 2026-03-01T18:26:11.360Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T18:26:13.556Z - État VFL sauvegardé
+[INFO] 2026-03-01T18:26:14.885Z - Ratings VFL sauvegardés
+[WARN] 2026-03-01T18:26:15.430Z - ⚠️  API [round_7] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[WARN] 2026-03-01T18:26:15.723Z - ⚠️  API [round_7] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[WARN] 2026-03-01T18:26:16.240Z - ⚠️  API [round_7] tentative 2/5 échouée (ETIMEDOUT) → retry dans 400ms
+[INFO] 2026-03-01T18:26:17.702Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T18:26:18.626Z - État VFL sauvegardé
+[INFO] 2026-03-01T18:26:20.991Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T18:26:21.384Z - Poids modèles ajustés { elo: '0.371', poisson: '0.293', market: '0.198', h2h: '0.139' }
+[WARN] 2026-03-01T18:26:21.388Z - ⚠️ Rupture de régime — acc30=77% vs prev30=3% — reset partiel
+[INFO] 2026-03-01T18:26:22.764Z - Ratings VFL sauvegardés
+[WARN] 2026-03-01T18:26:22.976Z - ⚠️  API [round_6] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[WARN] 2026-03-01T18:26:23.095Z - ⚠️  API [round_6] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[WARN] 2026-03-01T18:26:23.180Z - ⚠️  API [round_6] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[WARN] 2026-03-01T18:26:23.629Z - ⚠️  API [round_6] tentative 2/5 échouée (ETIMEDOUT) → retry dans 400ms
+[INFO] 2026-03-01T18:26:24.691Z - État VFL sauvegardé
+[INFO] 2026-03-01T18:26:26.071Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T18:26:28.786Z - Ratings VFL sauvegardés
+[WARN] 2026-03-01T18:26:29.366Z - ⚠️  API [round_5] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[INFO] 2026-03-01T18:26:31.029Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T18:26:32.506Z - État VFL sauvegardé
+[INFO] 2026-03-01T18:26:37.611Z - Poids modèles ajustés { elo: '0.373', poisson: '0.313', market: '0.193', h2h: '0.122' }
+[WARN] 2026-03-01T18:26:37.615Z - ⚠️ Rupture de régime — acc30=0% vs prev30=37% — reset partiel
+[INFO] 2026-03-01T18:26:40.915Z - État VFL sauvegardé
+[INFO] 2026-03-01T18:26:40.928Z - Ratings VFL sauvegardés
+[WARN] 2026-03-01T18:26:41.920Z - ⚠️  API [round_3] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[WARN] 2026-03-01T18:26:42.001Z - ⚠️  API [round_3] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[WARN] 2026-03-01T18:26:42.050Z - ⚠️  API [round_3] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[INFO] 2026-03-01T18:26:45.196Z - État VFL sauvegardé
+[INFO] 2026-03-01T18:26:45.335Z - Ratings VFL sauvegardés
+[WARN] 2026-03-01T18:26:49.124Z - ⚠️  API [round_2] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[WARN] 2026-03-01T18:26:49.769Z - ⚠️  API [round_2] tentative 2/5 échouée (ETIMEDOUT) → retry dans 400ms
+[INFO] 2026-03-01T18:26:53.207Z - Poids modèles ajustés { elo: '0.381', poisson: '0.324', market: '0.166', h2h: '0.129' }
+[WARN] 2026-03-01T18:26:56.045Z - ⚠️  API [round_1] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[WARN] 2026-03-01T18:26:56.066Z - ⚠️  API [round_1] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[WARN] 2026-03-01T18:26:56.422Z - ⚠️  API [round_1] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[INFO] 2026-03-01T18:26:56.972Z - État VFL sauvegardé
+[WARN] 2026-03-01T18:26:57.029Z - ⚠️  API [round_1] tentative 2/5 échouée (ETIMEDOUT) → retry dans 400ms
+[WARN] 2026-03-01T18:26:57.038Z - ⚠️  API [round_1] tentative 2/5 échouée (ETIMEDOUT) → retry dans 400ms
+[INFO] 2026-03-01T18:26:58.227Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T18:27:03.898Z - État VFL sauvegardé
+[INFO] 2026-03-01T18:27:07.156Z - Ratings VFL sauvegardés
+[WARN] 2026-03-01T18:28:14.063Z - ⚠️  API [results] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[INFO] 2026-03-01T18:28:15.335Z - 🎯 Round à prédire : 12 — 10 matchs
+[ERROR] 2026-03-01T18:28:15.342Z - Erreur globale getPredictions: ReferenceError: biasCorrector is not defined
+    at predictMatch (/root/Pred/services/predictionService.js:2240:3)
+    at /root/Pred/services/predictionService.js:2640:21
+    at Array.map (<anonymous>)
+    at Object.getPredictions (/root/Pred/services/predictionService.js:2640:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /root/Pred/routes/api.js:14:25
+[ERROR] 2026-03-01T18:28:18.456Z - Erreur globale getPredictions: ReferenceError: biasCorrector is not defined
+    at predictMatch (/root/Pred/services/predictionService.js:2240:3)
+    at /root/Pred/services/predictionService.js:2640:21
+    at Array.map (<anonymous>)
+    at Object.getPredictions (/root/Pred/services/predictionService.js:2640:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /root/Pred/routes/api.js:14:25
+[INFO] 2026-03-01T18:28:21.291Z - Poids modèles ajustés { elo: '0.383', poisson: '0.317', market: '0.173', h2h: '0.127' }
+[INFO] 2026-03-01T18:28:24.275Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T18:28:24.611Z - État VFL sauvegardé
+[ERROR] 2026-03-01T18:28:41.606Z - Erreur globale getPredictions: ReferenceError: biasCorrector is not defined
+    at predictMatch (/root/Pred/services/predictionService.js:2240:3)
+    at /root/Pred/services/predictionService.js:2640:21
+    at Array.map (<anonymous>)
+    at Object.getPredictions (/root/Pred/services/predictionService.js:2640:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /root/Pred/routes/api.js:14:25
+[ERROR] 2026-03-01T18:28:43.676Z - Erreur globale getPredictions: ReferenceError: biasCorrector is not defined
+    at predictMatch (/root/Pred/services/predictionService.js:2240:3)
+    at /root/Pred/services/predictionService.js:2640:21
+    at Array.map (<anonymous>)
+    at Object.getPredictions (/root/Pred/services/predictionService.js:2640:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /root/Pred/routes/api.js:14:25
+[ERROR] 2026-03-01T18:28:45.813Z - Erreur globale getPredictions: ReferenceError: biasCorrector is not defined
+    at predictMatch (/root/Pred/services/predictionService.js:2240:3)
+    at /root/Pred/services/predictionService.js:2640:21
+    at Array.map (<anonymous>)
+    at Object.getPredictions (/root/Pred/services/predictionService.js:2640:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.index (/root/Pred/controllers/predictionController.js:22:25)
+[ERROR] 2026-03-01T18:28:47.803Z - Erreur globale getPredictions: ReferenceError: biasCorrector is not defined
+    at predictMatch (/root/Pred/services/predictionService.js:2240:3)
+    at /root/Pred/services/predictionService.js:2640:21
+    at Array.map (<anonymous>)
+    at Object.getPredictions (/root/Pred/services/predictionService.js:2640:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.apiPredict (/root/Pred/controllers/predictionController.js:87:25)
+[ERROR] 2026-03-01T18:28:49.276Z - Erreur globale getPredictions: ReferenceError: biasCorrector is not defined
+    at predictMatch (/root/Pred/services/predictionService.js:2240:3)
+    at /root/Pred/services/predictionService.js:2640:21
+    at Array.map (<anonymous>)
+    at Object.getPredictions (/root/Pred/services/predictionService.js:2640:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /root/Pred/routes/api.js:14:25
+[INFO] 2026-03-01T18:30:20.269Z - Serveur démarré sur le port 3000
+[INFO] 2026-03-01T18:30:20.300Z - Mode développement actif
+[INFO] 2026-03-01T18:30:20.300Z - Utilisateur test
+[INFO] 2026-03-01T18:30:27.227Z - Connexion à Psql neon établie.
+[INFO] 2026-03-01T18:30:32.574Z - 🎯 Round à prédire : 13 — 10 matchs
+[INFO] 2026-03-01T18:30:32.899Z - État VFL chargé { accuracy: '39%', goalAccuracy: '23%', predictions: 600 }
+[INFO] 2026-03-01T18:30:33.173Z - 20 ratings VFL chargés
+[DEBUG] 2026-03-01T18:30:33.215Z - Goals: raw=3.82 reduc=0.75 surp=1.00 final=4
+[DEBUG] 2026-03-01T18:30:33.226Z - Goals: raw=3.54 reduc=0.75 surp=1.10 final=3
+[DEBUG] 2026-03-01T18:30:33.232Z - Goals: raw=3.55 reduc=0.75 surp=1.00 final=3
+[DEBUG] 2026-03-01T18:30:33.236Z - Goals: raw=3.72 reduc=0.75 surp=1.00 final=3
+[DEBUG] 2026-03-01T18:30:33.242Z - Goals: raw=3.54 reduc=0.75 surp=1.00 final=4
+[DEBUG] 2026-03-01T18:30:33.245Z - Goals: raw=3.60 reduc=0.75 surp=1.00 final=3
+[DEBUG] 2026-03-01T18:30:33.248Z - Goals: raw=3.83 reduc=0.75 surp=1.10 final=3
+[DEBUG] 2026-03-01T18:30:33.252Z - Goals: raw=3.56 reduc=0.75 surp=0.92 final=3
+[DEBUG] 2026-03-01T18:30:33.257Z - Goals: raw=3.28 reduc=0.8 surp=1.00 final=3
+[DEBUG] 2026-03-01T18:30:33.262Z - Goals: raw=3.80 reduc=0.75 surp=1.00 final=4
+[DEBUG] 2026-03-01T18:30:33.280Z - Match incertain (90%) → confiance réduite
+[DEBUG] 2026-03-01T18:30:33.281Z - Match incertain (70%) → confiance réduite
+[INFO] 2026-03-01T18:30:33.295Z - ✅ 10 prédictions VFL en 2252ms {
+  accuracy: '0%',
+  draw: '0%',
+  goalAcc: '0%',
+  within1: '0%',
+  bias: 0,
+  samples: 0
+}
+[INFO] 2026-03-01T18:30:45.700Z - Ratings VFL sauvegardés
+[DEBUG] 2026-03-01T18:30:51.068Z - Goals: raw=4.24 reduc=0.7 surp=1.00 final=5
+[DEBUG] 2026-03-01T18:30:51.073Z - Goals: raw=2.70 reduc=0.85 surp=1.10 final=2
+[DEBUG] 2026-03-01T18:30:51.076Z - Goals: raw=3.07 reduc=0.8 surp=1.00 final=2
+[DEBUG] 2026-03-01T18:30:51.080Z - Goals: raw=3.20 reduc=0.8 surp=1.00 final=3
+[DEBUG] 2026-03-01T18:30:51.082Z - Goals: raw=3.82 reduc=0.75 surp=1.00 final=4
+[DEBUG] 2026-03-01T18:30:51.085Z - Goals: raw=4.39 reduc=0.7 surp=1.00 final=4
+[DEBUG] 2026-03-01T18:30:51.087Z - Goals: raw=3.70 reduc=0.75 surp=1.10 final=3
+[DEBUG] 2026-03-01T18:30:51.089Z - Goals: raw=4.17 reduc=0.75 surp=0.92 final=4
+[DEBUG] 2026-03-01T18:30:51.091Z - Goals: raw=2.81 reduc=0.8 surp=1.00 final=2
+[DEBUG] 2026-03-01T18:30:51.093Z - Goals: raw=3.28 reduc=0.8 surp=1.00 final=4
+[DEBUG] 2026-03-01T18:30:51.094Z - Match incertain (70%) → confiance réduite
+[DEBUG] 2026-03-01T18:30:51.098Z - Match incertain (70%) → confiance réduite
+[INFO] 2026-03-01T18:30:51.108Z - ✅ 10 prédictions VFL en 50ms {
+  accuracy: '46%',
+  draw: '38%',
+  goalAcc: '31%',
+  within1: '46%',
+  bias: 0.8,
+  samples: 13
+}
+[INFO] 2026-03-01T18:30:53.045Z - Ratings VFL sauvegardés
+[WARN] 2026-03-01T18:30:55.425Z - ⚠️  API [round_7] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[INFO] 2026-03-01T18:30:57.369Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T18:31:00.595Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T18:31:03.881Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T18:31:07.234Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T18:31:07.979Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T18:31:22.365Z - 🎯 Round à prédire : 13 — 10 matchs
+[DEBUG] 2026-03-01T18:31:22.369Z - Goals: raw=7.00 reduc=0.65 surp=1.00 final=6
+[DEBUG] 2026-03-01T18:31:22.372Z - Goals: raw=1.82 reduc=0.9 surp=1.10 final=3
+[DEBUG] 2026-03-01T18:31:22.375Z - Goals: raw=2.27 reduc=0.85 surp=1.00 final=4
+[DEBUG] 2026-03-01T18:31:22.377Z - Goals: raw=1.59 reduc=0.9 surp=1.00 final=3
+[DEBUG] 2026-03-01T18:31:22.379Z - Goals: raw=3.22 reduc=0.8 surp=1.00 final=4
+[DEBUG] 2026-03-01T18:31:22.393Z - Goals: raw=3.68 reduc=0.75 surp=1.00 final=5
+[DEBUG] 2026-03-01T18:31:22.395Z - Goals: raw=3.82 reduc=0.75 surp=1.10 final=5
+[DEBUG] 2026-03-01T18:31:22.397Z - Goals: raw=3.78 reduc=0.75 surp=0.92 final=3
+[DEBUG] 2026-03-01T18:31:22.399Z - Goals: raw=2.52 reduc=0.85 surp=1.00 final=4
+[DEBUG] 2026-03-01T18:31:22.402Z - Goals: raw=2.57 reduc=0.85 surp=1.00 final=4
+[DEBUG] 2026-03-01T18:31:22.405Z - Match incertain (90%) → confiance réduite
+[INFO] 2026-03-01T18:31:22.412Z - ✅ 10 prédictions VFL en 1001ms {
+  accuracy: '35%',
+  draw: '53%',
+  goalAcc: '24%',
+  within1: '35%',
+  bias: -0.1,
+  samples: 17
+}
+[INFO] 2026-03-01T18:31:24.055Z - Ratings VFL sauvegardés

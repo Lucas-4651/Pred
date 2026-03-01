@@ -38839,3 +38839,654 @@
   bias: 0,
   samples: 0
 }
+[INFO] 2026-02-28T19:22:34.698Z - Serveur démarré sur le port 3000
+[INFO] 2026-02-28T19:22:34.782Z - Mode développement actif
+[INFO] 2026-02-28T19:22:34.782Z - Utilisateur test
+[INFO] 2026-02-28T19:22:41.082Z - Connexion à Psql neon établie.
+[INFO] 2026-02-28T19:23:14.629Z - État VFL chargé { accuracy: '49%', goalAccuracy: '17%', predictions: 550 }
+[INFO] 2026-02-28T19:23:15.139Z - 20 ratings VFL chargés
+[DEBUG] 2026-02-28T19:23:15.184Z - Goals: raw=3.87 reduc=0.8 surp=1.10 final=4
+[DEBUG] 2026-02-28T19:23:15.193Z - Goals: raw=3.26 reduc=0.85 surp=1.10 final=3
+[DEBUG] 2026-02-28T19:23:15.204Z - Goals: raw=3.82 reduc=0.8 surp=1.10 final=3
+[DEBUG] 2026-02-28T19:23:15.206Z - Goals: raw=3.70 reduc=0.8 surp=1.10 final=3
+[DEBUG] 2026-02-28T19:23:15.211Z - Goals: raw=3.65 reduc=0.8 surp=0.99 final=3
+[DEBUG] 2026-02-28T19:23:15.214Z - Goals: raw=3.60 reduc=0.8 surp=1.10 final=3
+[DEBUG] 2026-02-28T19:23:15.216Z - Goals: raw=3.76 reduc=0.8 surp=1.10 final=3
+[DEBUG] 2026-02-28T19:23:15.219Z - Goals: raw=3.98 reduc=0.8 surp=1.00 final=3
+[DEBUG] 2026-02-28T19:23:15.222Z - Goals: raw=4.12 reduc=0.8 surp=0.99 final=4
+[DEBUG] 2026-02-28T19:23:15.228Z - Goals: raw=3.62 reduc=0.8 surp=0.99 final=3
+[DEBUG] 2026-02-28T19:23:15.236Z - Match incertain (70%) → confiance réduite
+[DEBUG] 2026-02-28T19:23:15.239Z - Match incertain (90%) → confiance réduite
+[DEBUG] 2026-02-28T19:23:15.240Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-02-28T19:23:15.241Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-02-28T19:23:15.242Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-02-28T19:23:15.244Z - Match incertain (60%) → confiance réduite
+[INFO] 2026-02-28T19:23:15.252Z - ✅ 10 prédictions VFL en 2300ms {
+  accuracy: '0%',
+  draw: '0%',
+  goalAcc: '0%',
+  within1: '0%',
+  bias: 0,
+  samples: 0
+}
+[INFO] 2026-02-28T19:23:23.961Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T19:23:31.335Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T19:23:37.143Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T19:23:42.763Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T19:23:46.003Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T19:23:46.516Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T19:23:56.785Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T19:24:01.354Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T19:24:07.729Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T19:24:13.847Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T19:24:17.538Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T19:24:24.179Z - Poids modèles ajustés { elo: '0.381', poisson: '0.323', market: '0.187', h2h: '0.108' }
+[WARN] 2026-02-28T19:24:24.183Z - ⚠️ Rupture de régime — acc30=70% vs prev30=33% — reset partiel
+[INFO] 2026-02-28T19:24:27.504Z - État VFL sauvegardé
+[INFO] 2026-02-28T19:24:29.243Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T19:24:37.740Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T19:24:43.336Z - Ratings VFL sauvegardés
+[WARN] 2026-02-28T19:25:11.954Z - API matches indisponible, utilisation du fallback
+[WARN] 2026-02-28T19:25:12.767Z - Aucun match trouvé
+[WARN] 2026-02-28T19:25:15.231Z - Aucun match trouvé
+[WARN] 2026-02-28T19:27:53.490Z - API matches indisponible, utilisation du fallback
+[WARN] 2026-02-28T19:27:54.340Z - Aucun match trouvé
+[WARN] 2026-02-28T19:27:56.934Z - Aucun match trouvé
+[WARN] 2026-02-28T19:27:58.676Z - Aucun match trouvé
+[INFO] 2026-02-28T19:28:01.479Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T19:28:01.678Z - État VFL sauvegardé
+[INFO] 2026-02-28T19:28:04.743Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T19:28:05.021Z - Ratings VFL sauvegardés
+[WARN] 2026-02-28T19:29:01.059Z - API results indisponible, utilisation du fallback
+[WARN] 2026-02-28T19:29:01.077Z - API matches indisponible, utilisation du fallback
+[WARN] 2026-02-28T19:29:01.087Z - API ranking indisponible, utilisation du fallback
+[WARN] 2026-02-28T19:29:01.087Z - Aucun match trouvé
+[WARN] 2026-02-28T19:29:03.097Z - Aucun match trouvé
+[WARN] 2026-02-28T19:29:04.539Z - Aucun match trouvé
+[INFO] 2026-02-28T19:45:41.121Z - Serveur démarré sur le port 3000
+[INFO] 2026-02-28T19:45:41.206Z - Mode développement actif
+[INFO] 2026-02-28T19:45:41.207Z - Utilisateur test
+[INFO] 2026-02-28T19:45:47.140Z - Connexion à Psql neon établie.
+[INFO] 2026-02-28T19:46:51.807Z - État VFL chargé { accuracy: '49%', goalAccuracy: '26%', predictions: 664 }
+[INFO] 2026-02-28T19:46:52.075Z - 20 ratings VFL chargés
+[DEBUG] 2026-02-28T19:46:52.107Z - Goals: raw=3.69 reduc=0.8 surp=1.20 final=3
+[DEBUG] 2026-02-28T19:46:52.114Z - Goals: raw=3.45 reduc=0.85 surp=1.20 final=3
+[DEBUG] 2026-02-28T19:46:52.119Z - Goals: raw=3.64 reduc=0.8 surp=1.20 final=3
+[DEBUG] 2026-02-28T19:46:52.121Z - Goals: raw=3.74 reduc=0.8 surp=1.20 final=3
+[DEBUG] 2026-02-28T19:46:52.125Z - Goals: raw=3.82 reduc=0.8 surp=1.20 final=3
+[DEBUG] 2026-02-28T19:46:52.127Z - Goals: raw=3.72 reduc=0.8 surp=1.00 final=3
+[DEBUG] 2026-02-28T19:46:52.130Z - Goals: raw=3.77 reduc=0.8 surp=1.20 final=3
+[DEBUG] 2026-02-28T19:46:52.140Z - Goals: raw=3.95 reduc=0.8 surp=1.00 final=4
+[DEBUG] 2026-02-28T19:46:52.143Z - Goals: raw=3.81 reduc=0.8 surp=1.20 final=4
+[DEBUG] 2026-02-28T19:46:52.147Z - Goals: raw=3.81 reduc=0.8 surp=1.20 final=4
+[DEBUG] 2026-02-28T19:46:52.159Z - Match incertain (70%) → confiance réduite
+[DEBUG] 2026-02-28T19:46:52.165Z - Match incertain (90%) → confiance réduite
+[DEBUG] 2026-02-28T19:46:52.168Z - Match incertain (70%) → confiance réduite
+[INFO] 2026-02-28T19:46:52.178Z - ✅ 10 prédictions VFL en 2184ms {
+  accuracy: '0%',
+  draw: '0%',
+  goalAcc: '0%',
+  within1: '0%',
+  bias: 0,
+  samples: 0
+}
+[WARN] 2026-02-28T19:47:40.997Z - API ranking indisponible, utilisation du fallback
+[WARN] 2026-02-28T19:47:41.008Z - API matches indisponible, utilisation du fallback
+[WARN] 2026-02-28T19:47:41.455Z - Aucun match trouvé
+[WARN] 2026-02-28T19:47:43.618Z - Aucun match trouvé
+[INFO] 2026-02-28T19:49:39.070Z - Serveur démarré sur le port 3000
+[INFO] 2026-02-28T19:49:39.145Z - Mode développement actif
+[INFO] 2026-02-28T19:49:39.145Z - Utilisateur test
+[INFO] 2026-02-28T19:49:45.697Z - Connexion à Psql neon établie.
+[WARN] 2026-02-28T19:49:55.993Z - Aucun match trouvé
+[INFO] 2026-02-28T19:49:56.315Z - État VFL chargé { accuracy: '49%', goalAccuracy: '26%', predictions: 664 }
+[INFO] 2026-02-28T19:49:56.588Z - 20 ratings VFL chargés
+[INFO] 2026-02-28T19:50:01.103Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T19:50:09.444Z - Ratings VFL sauvegardés
+[WARN] 2026-02-28T19:50:20.591Z - API matches indisponible, utilisation du fallback
+[WARN] 2026-02-28T19:50:21.245Z - Aucun match trouvé
+[WARN] 2026-02-28T19:50:27.692Z - Aucun match trouvé
+[WARN] 2026-02-28T19:50:30.025Z - Aucun match trouvé
+[WARN] 2026-02-28T19:50:31.424Z - Aucun match trouvé
+[INFO] 2026-02-28T19:56:37.672Z - Serveur démarré sur le port 3000
+[INFO] 2026-02-28T19:56:37.741Z - Mode développement actif
+[INFO] 2026-02-28T19:56:37.742Z - Utilisateur test
+[INFO] 2026-02-28T19:56:43.492Z - Connexion à Psql neon établie.
+[WARN] 2026-02-28T19:56:56.731Z - Aucun match trouvé
+[INFO] 2026-02-28T19:56:57.094Z - État VFL chargé { accuracy: '49%', goalAccuracy: '26%', predictions: 664 }
+[INFO] 2026-02-28T19:56:57.369Z - 20 ratings VFL chargés
+[INFO] 2026-02-28T19:57:04.911Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T19:57:13.615Z - Ratings VFL sauvegardés
+[WARN] 2026-02-28T19:58:02.487Z - API matches indisponible, utilisation du fallback
+[WARN] 2026-02-28T19:58:03.084Z - Aucun match trouvé
+[WARN] 2026-02-28T19:58:04.931Z - Aucun match trouvé
+[WARN] 2026-02-28T19:58:07.554Z - Aucun match trouvé
+[WARN] 2026-02-28T19:58:09.622Z - Aucun match trouvé
+[WARN] 2026-02-28T19:58:11.097Z - Aucun match trouvé
+[WARN] 2026-02-28T19:58:13.359Z - Aucun match trouvé
+[WARN] 2026-02-28T19:58:15.338Z - Aucun match trouvé
+[INFO] 2026-02-28T19:58:21.478Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:27:19.875Z - Serveur démarré sur le port 3000
+[INFO] 2026-02-28T23:27:19.959Z - Mode développement actif
+[INFO] 2026-02-28T23:27:19.960Z - Utilisateur test
+[INFO] 2026-02-28T23:27:26.376Z - Connexion à Psql neon établie.
+[INFO] 2026-02-28T23:27:51.781Z - 🎯 Prédiction ciblée round 34 (actuel: 33) — 10 matchs
+[INFO] 2026-02-28T23:27:52.089Z - État VFL chargé { accuracy: '46%', goalAccuracy: '35%', predictions: 800 }
+[INFO] 2026-02-28T23:27:52.616Z - 20 ratings VFL chargés
+[DEBUG] 2026-02-28T23:27:52.660Z - Goals: raw=3.55 reduc=0.8 surp=1.10 final=3
+[DEBUG] 2026-02-28T23:27:52.669Z - Goals: raw=3.78 reduc=0.8 surp=1.10 final=4
+[DEBUG] 2026-02-28T23:27:52.674Z - Goals: raw=3.83 reduc=0.8 surp=1.10 final=4
+[DEBUG] 2026-02-28T23:27:52.676Z - Goals: raw=3.56 reduc=0.8 surp=0.99 final=3
+[DEBUG] 2026-02-28T23:27:52.681Z - Goals: raw=3.48 reduc=0.85 surp=1.10 final=3
+[DEBUG] 2026-02-28T23:27:52.688Z - Goals: raw=3.89 reduc=0.8 surp=1.10 final=3
+[DEBUG] 2026-02-28T23:27:52.692Z - Goals: raw=3.71 reduc=0.8 surp=0.99 final=3
+[DEBUG] 2026-02-28T23:27:52.695Z - Goals: raw=3.86 reduc=0.8 surp=1.32 final=4
+[DEBUG] 2026-02-28T23:27:52.698Z - Goals: raw=3.88 reduc=0.8 surp=1.10 final=4
+[DEBUG] 2026-02-28T23:27:52.705Z - Goals: raw=3.89 reduc=0.8 surp=1.10 final=4
+[DEBUG] 2026-02-28T23:27:52.715Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-02-28T23:27:52.718Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-02-28T23:27:52.719Z - Match incertain (70%) → confiance réduite
+[DEBUG] 2026-02-28T23:27:52.721Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-02-28T23:27:52.725Z - Match incertain (60%) → confiance réduite
+[INFO] 2026-02-28T23:27:52.734Z - ✅ 10 prédictions VFL en 2719ms {
+  accuracy: '0%',
+  draw: '0%',
+  goalAcc: '0%',
+  within1: '0%',
+  bias: 0,
+  samples: 0
+}
+[INFO] 2026-02-28T23:28:04.339Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:28:59.171Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:29:16.400Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:29:24.095Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:29:27.993Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:29:44.096Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:29:51.089Z - État VFL sauvegardé
+[INFO] 2026-02-28T23:30:01.156Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:30:04.431Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:30:07.457Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:30:10.500Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:30:12.787Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:30:16.868Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:30:20.441Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:30:22.145Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:30:27.517Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:30:39.513Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:30:50.827Z - 🎯 Prédiction ciblée round 35 (actuel: 34) — 10 matchs
+[DEBUG] 2026-02-28T23:30:50.837Z - Goals: raw=2.50 reduc=0.9 surp=1.10 final=2
+[DEBUG] 2026-02-28T23:30:50.847Z - Goals: raw=2.50 reduc=0.9 surp=1.10 final=2
+[DEBUG] 2026-02-28T23:30:50.850Z - Goals: raw=2.50 reduc=0.9 surp=1.32 final=2
+[DEBUG] 2026-02-28T23:30:50.852Z - Goals: raw=2.50 reduc=0.9 surp=0.99 final=2
+[DEBUG] 2026-02-28T23:30:50.856Z - Goals: raw=2.50 reduc=0.9 surp=1.10 final=3
+[DEBUG] 2026-02-28T23:30:50.859Z - Goals: raw=2.50 reduc=0.9 surp=1.10 final=2
+[DEBUG] 2026-02-28T23:30:50.869Z - Goals: raw=2.50 reduc=0.9 surp=1.10 final=2
+[DEBUG] 2026-02-28T23:30:50.872Z - Goals: raw=2.50 reduc=0.9 surp=1.10 final=3
+[DEBUG] 2026-02-28T23:30:50.874Z - Goals: raw=2.50 reduc=0.9 surp=1.10 final=3
+[DEBUG] 2026-02-28T23:30:50.876Z - Goals: raw=2.50 reduc=0.9 surp=1.10 final=2
+[DEBUG] 2026-02-28T23:30:50.878Z - Match incertain (70%) → confiance réduite
+[INFO] 2026-02-28T23:30:50.884Z - ✅ 10 prédictions VFL en 1850ms {
+  accuracy: '60%',
+  draw: '13%',
+  goalAcc: '24%',
+  within1: '63%',
+  bias: 0,
+  samples: 80
+}
+[INFO] 2026-02-28T23:33:13.147Z - 🎯 Prédiction ciblée round 37 (actuel: 36) — 10 matchs
+[DEBUG] 2026-02-28T23:33:13.156Z - Goals: raw=2.50 reduc=0.9 surp=1.10 final=3
+[DEBUG] 2026-02-28T23:33:13.158Z - Goals: raw=2.50 reduc=0.9 surp=0.99 final=2
+[DEBUG] 2026-02-28T23:33:13.160Z - Goals: raw=2.50 reduc=0.9 surp=0.99 final=2
+[DEBUG] 2026-02-28T23:33:13.162Z - Goals: raw=2.50 reduc=0.9 surp=0.99 final=2
+[DEBUG] 2026-02-28T23:33:13.172Z - Goals: raw=2.50 reduc=0.9 surp=1.10 final=2
+[DEBUG] 2026-02-28T23:33:13.175Z - Goals: raw=2.50 reduc=0.9 surp=1.10 final=2
+[DEBUG] 2026-02-28T23:33:13.177Z - Goals: raw=2.50 reduc=0.9 surp=1.10 final=2
+[DEBUG] 2026-02-28T23:33:13.179Z - Goals: raw=2.50 reduc=0.9 surp=1.10 final=2
+[DEBUG] 2026-02-28T23:33:13.181Z - Goals: raw=2.50 reduc=0.9 surp=1.10 final=3
+[DEBUG] 2026-02-28T23:33:13.184Z - Goals: raw=2.50 reduc=0.9 surp=1.10 final=2
+[DEBUG] 2026-02-28T23:33:13.186Z - Match incertain (70%) → confiance réduite
+[DEBUG] 2026-02-28T23:33:13.186Z - Match incertain (70%) → confiance réduite
+[INFO] 2026-02-28T23:33:13.192Z - ✅ 10 prédictions VFL en 1805ms {
+  accuracy: '60%',
+  draw: '13%',
+  goalAcc: '24%',
+  within1: '63%',
+  bias: 0,
+  samples: 80
+}
+[INFO] 2026-02-28T23:33:19.467Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:33:26.851Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:36:31.948Z - Serveur démarré sur le port 3000
+[INFO] 2026-02-28T23:36:31.961Z - Mode développement actif
+[INFO] 2026-02-28T23:36:31.962Z - Utilisateur test
+[INFO] 2026-02-28T23:36:37.473Z - Connexion à Psql neon établie.
+[INFO] 2026-02-28T23:36:52.576Z - État VFL chargé { accuracy: '48%', goalAccuracy: '25%', predictions: 852 }
+[INFO] 2026-02-28T23:36:52.865Z - 20 ratings VFL chargés
+[DEBUG] 2026-02-28T23:36:52.890Z - Goals: raw=4.03 reduc=0.8 surp=1.10 final=4
+[DEBUG] 2026-02-28T23:36:52.900Z - Goals: raw=3.54 reduc=0.8 surp=1.10 final=3
+[DEBUG] 2026-02-28T23:36:52.907Z - Goals: raw=3.57 reduc=0.8 surp=0.99 final=3
+[DEBUG] 2026-02-28T23:36:52.910Z - Goals: raw=3.77 reduc=0.8 surp=0.99 final=3
+[DEBUG] 2026-02-28T23:36:52.915Z - Goals: raw=3.73 reduc=0.8 surp=0.99 final=3
+[DEBUG] 2026-02-28T23:36:52.919Z - Goals: raw=3.73 reduc=0.8 surp=0.99 final=3
+[DEBUG] 2026-02-28T23:36:52.922Z - Goals: raw=3.96 reduc=0.8 surp=1.10 final=4
+[DEBUG] 2026-02-28T23:36:52.925Z - Goals: raw=3.58 reduc=0.8 surp=1.10 final=3
+[DEBUG] 2026-02-28T23:36:52.928Z - Goals: raw=3.75 reduc=0.8 surp=1.10 final=3
+[DEBUG] 2026-02-28T23:36:52.936Z - Goals: raw=3.84 reduc=0.8 surp=0.90 final=3
+[DEBUG] 2026-02-28T23:36:52.944Z - Match incertain (70%) → confiance réduite
+[DEBUG] 2026-02-28T23:36:52.948Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-02-28T23:36:52.949Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-02-28T23:36:52.952Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-02-28T23:36:52.953Z - Match incertain (60%) → confiance réduite
+[INFO] 2026-02-28T23:36:52.964Z - ✅ 10 prédictions VFL en 2100ms {
+  accuracy: '0%',
+  draw: '0%',
+  goalAcc: '0%',
+  within1: '0%',
+  bias: 0,
+  samples: 0
+}
+[INFO] 2026-02-28T23:37:16.238Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:37:25.684Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:37:42.027Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:37:45.048Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:37:47.373Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:37:50.281Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:37:53.444Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:37:55.270Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:37:57.632Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:37:58.688Z - Ratings VFL sauvegardés
+[WARN] 2026-02-28T23:38:30.352Z - API matches indisponible, utilisation du fallback
+[WARN] 2026-02-28T23:38:30.362Z - API ranking indisponible, utilisation du fallback
+[INFO] 2026-02-28T23:38:30.898Z - Ratings VFL sauvegardés
+[WARN] 2026-02-28T23:38:30.905Z - Aucun match trouvé
+[INFO] 2026-02-28T23:38:40.283Z - Ratings VFL sauvegardés
+[INFO] 2026-02-28T23:38:46.082Z - Ratings VFL sauvegardés
+[WARN] 2026-02-28T23:39:14.478Z - API matches indisponible, utilisation du fallback
+[WARN] 2026-02-28T23:39:15.058Z - Aucun match trouvé
+[WARN] 2026-02-28T23:39:23.511Z - Aucun match trouvé
+[WARN] 2026-02-28T23:39:25.516Z - Aucun match trouvé
+[WARN] 2026-02-28T23:39:27.136Z - Aucun match trouvé
+[DEBUG] 2026-02-28T23:40:11.386Z - Goals: raw=4.38 reduc=0.75 surp=1.00 final=5
+[DEBUG] 2026-02-28T23:40:11.389Z - Goals: raw=4.17 reduc=0.8 surp=1.00 final=5
+[DEBUG] 2026-02-28T23:40:11.390Z - Goals: raw=7.00 reduc=0.7 surp=1.00 final=6
+[DEBUG] 2026-02-28T23:40:11.392Z - Goals: raw=2.67 reduc=0.9 surp=1.00 final=3
+[DEBUG] 2026-02-28T23:40:11.393Z - Goals: raw=1.46 reduc=0.95 surp=1.00 final=2
+[DEBUG] 2026-02-28T23:40:11.396Z - Goals: raw=4.15 reduc=0.8 surp=1.00 final=5
+[DEBUG] 2026-02-28T23:40:11.397Z - Goals: raw=2.22 reduc=0.9 surp=1.00 final=3
+[DEBUG] 2026-02-28T23:40:11.399Z - Goals: raw=4.79 reduc=0.75 surp=1.00 final=5
+[DEBUG] 2026-02-28T23:40:11.400Z - Goals: raw=2.07 reduc=0.9 surp=1.00 final=3
+[DEBUG] 2026-02-28T23:40:11.402Z - Goals: raw=3.12 reduc=0.85 surp=1.00 final=4
+[DEBUG] 2026-02-28T23:40:11.403Z - Match incertain (90%) → confiance réduite
+[DEBUG] 2026-02-28T23:40:11.413Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-02-28T23:40:11.415Z - Match incertain (60%) → confiance réduite
+[INFO] 2026-02-28T23:40:11.419Z - ✅ 10 prédictions VFL en 1330ms {
+  accuracy: '48%',
+  draw: '40%',
+  goalAcc: '24%',
+  within1: '52%',
+  bias: -1.1,
+  samples: 25
+}
+[DEBUG] 2026-02-28T23:42:24.883Z - Goals: raw=7.00 reduc=0.7 surp=0.90 final=6
+[DEBUG] 2026-02-28T23:42:24.886Z - Goals: raw=1.65 reduc=0.95 surp=0.90 final=2
+[DEBUG] 2026-02-28T23:42:24.888Z - Goals: raw=6.32 reduc=0.7 surp=1.00 final=6
+[DEBUG] 2026-02-28T23:42:24.890Z - Goals: raw=1.57 reduc=0.95 surp=1.20 final=2
+[DEBUG] 2026-02-28T23:42:24.892Z - Goals: raw=5.07 reduc=0.7 surp=0.90 final=5
+[DEBUG] 2026-02-28T23:42:24.894Z - Goals: raw=1.05 reduc=0.95 surp=1.20 final=2
+[DEBUG] 2026-02-28T23:42:24.903Z - Goals: raw=1.35 reduc=0.95 surp=1.00 final=3
+[DEBUG] 2026-02-28T23:42:24.904Z - Goals: raw=4.64 reduc=0.75 surp=1.20 final=5
+[DEBUG] 2026-02-28T23:42:24.906Z - Goals: raw=4.32 reduc=0.75 surp=1.20 final=5
+[DEBUG] 2026-02-28T23:42:24.907Z - Goals: raw=1.46 reduc=0.95 surp=1.00 final=2
+[DEBUG] 2026-02-28T23:42:24.908Z - Match incertain (90%) → confiance réduite
+[DEBUG] 2026-02-28T23:42:24.909Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-02-28T23:42:24.910Z - Match incertain (90%) → confiance réduite
+[DEBUG] 2026-02-28T23:42:24.911Z - Match incertain (70%) → confiance réduite
+[INFO] 2026-02-28T23:42:24.914Z - ✅ 10 prédictions VFL en 1248ms {
+  accuracy: '48%',
+  draw: '40%',
+  goalAcc: '24%',
+  within1: '52%',
+  bias: -1.1,
+  samples: 25
+}
+[WARN] 2026-02-28T23:45:18.190Z - API matches indisponible, utilisation du fallback
+[WARN] 2026-02-28T23:45:18.202Z - API ranking indisponible, utilisation du fallback
+[WARN] 2026-02-28T23:45:18.726Z - Aucun match trouvé
+[WARN] 2026-02-28T23:45:22.911Z - Aucun match trouvé
+[WARN] 2026-02-28T23:45:44.658Z - Aucun match trouvé
+[WARN] 2026-02-28T23:45:46.732Z - Aucun match trouvé
+[WARN] 2026-02-28T23:45:49.088Z - Aucun match trouvé
+[WARN] 2026-02-28T23:45:50.493Z - Aucun match trouvé
+[INFO] 2026-03-01T14:42:02.189Z - Serveur démarré sur le port 3000
+[INFO] 2026-03-01T14:42:02.278Z - Mode développement actif
+[INFO] 2026-03-01T14:42:02.278Z - Utilisateur test
+[INFO] 2026-03-01T14:42:08.214Z - Connexion à Psql neon établie.
+[INFO] 2026-03-01T14:42:45.582Z - 🎯 Round à prédire : 17 — 10 matchs
+[INFO] 2026-03-01T14:42:45.910Z - État VFL chargé { accuracy: '46%', goalAccuracy: '20%', predictions: 1125 }
+[INFO] 2026-03-01T14:42:46.466Z - 20 ratings VFL chargés
+[DEBUG] 2026-03-01T14:42:46.514Z - Goals: raw=3.75 reduc=0.8 surp=1.00 final=3
+[DEBUG] 2026-03-01T14:42:46.524Z - Goals: raw=3.81 reduc=0.8 surp=0.90 final=3
+[DEBUG] 2026-03-01T14:42:46.529Z - Goals: raw=3.95 reduc=0.8 surp=1.00 final=4
+[DEBUG] 2026-03-01T14:42:46.532Z - Goals: raw=3.81 reduc=0.8 surp=0.90 final=3
+[DEBUG] 2026-03-01T14:42:46.545Z - Goals: raw=3.94 reduc=0.8 surp=0.90 final=3
+[DEBUG] 2026-03-01T14:42:46.548Z - Goals: raw=3.67 reduc=0.8 surp=0.90 final=3
+[DEBUG] 2026-03-01T14:42:46.551Z - Goals: raw=3.89 reduc=0.8 surp=1.20 final=3
+[DEBUG] 2026-03-01T14:42:46.555Z - Goals: raw=3.57 reduc=0.8 surp=1.20 final=3
+[DEBUG] 2026-03-01T14:42:46.560Z - Goals: raw=3.68 reduc=0.8 surp=1.20 final=3
+[DEBUG] 2026-03-01T14:42:46.565Z - Goals: raw=3.77 reduc=0.8 surp=1.20 final=4
+[INFO] 2026-03-01T14:42:46.596Z - ✅ 10 prédictions VFL en 2375ms {
+  accuracy: '0%',
+  draw: '0%',
+  goalAcc: '0%',
+  within1: '0%',
+  bias: 0,
+  samples: 0
+}
+[INFO] 2026-03-01T14:42:55.578Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:42:59.711Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:43:02.775Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:43:03.334Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:43:06.380Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:43:14.848Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:43:22.372Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:43:26.197Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:43:30.971Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:43:35.488Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:43:38.748Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:43:49.463Z - Ratings VFL sauvegardés
+[WARN] 2026-03-01T14:45:08.012Z - API matches indisponible, utilisation du fallback
+[WARN] 2026-03-01T14:45:08.031Z - API ranking indisponible, utilisation du fallback
+[WARN] 2026-03-01T14:45:08.044Z - API results indisponible, utilisation du fallback
+[WARN] 2026-03-01T14:45:08.044Z - Aucun round avec matchs disponible dans /matches
+[WARN] 2026-03-01T14:45:08.045Z - Aucun match trouvé
+[WARN] 2026-03-01T14:45:10.785Z - API results indisponible, utilisation du fallback
+[INFO] 2026-03-01T14:45:11.770Z - 🎯 Round à prédire : 19 — 10 matchs
+[DEBUG] 2026-03-01T14:45:11.779Z - Goals: raw=4.22 reduc=0.75 surp=1.20 final=4
+[DEBUG] 2026-03-01T14:45:11.783Z - Goals: raw=2.58 reduc=0.9 surp=0.90 final=2
+[DEBUG] 2026-03-01T14:45:11.785Z - Goals: raw=2.45 reduc=0.9 surp=1.20 final=2
+[DEBUG] 2026-03-01T14:45:11.793Z - Goals: raw=4.50 reduc=0.75 surp=1.00 final=5
+[DEBUG] 2026-03-01T14:45:11.796Z - Goals: raw=2.28 reduc=0.9 surp=0.90 final=2
+[DEBUG] 2026-03-01T14:45:11.798Z - Goals: raw=3.97 reduc=0.8 surp=1.00 final=3
+[DEBUG] 2026-03-01T14:45:11.800Z - Goals: raw=4.32 reduc=0.75 surp=1.00 final=4
+[DEBUG] 2026-03-01T14:45:11.802Z - Goals: raw=1.51 reduc=0.95 surp=1.20 final=1
+[DEBUG] 2026-03-01T14:45:11.803Z - Goals: raw=3.93 reduc=0.8 surp=1.00 final=4
+[DEBUG] 2026-03-01T14:45:11.805Z - Goals: raw=2.21 reduc=0.9 surp=1.20 final=2
+[DEBUG] 2026-03-01T14:45:11.807Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T14:45:11.814Z - Match incertain (70%) → confiance réduite
+[INFO] 2026-03-01T14:45:11.820Z - ✅ 10 prédictions VFL en 1403ms {
+  accuracy: '54%',
+  draw: '15%',
+  goalAcc: '31%',
+  within1: '46%',
+  bias: 0.7,
+  samples: 13
+}
+[WARN] 2026-03-01T14:47:28.768Z - API ranking indisponible, utilisation du fallback
+[WARN] 2026-03-01T14:47:28.776Z - API results indisponible, utilisation du fallback
+[INFO] 2026-03-01T14:47:29.720Z - 🎯 Round à prédire : 20 — 10 matchs
+[DEBUG] 2026-03-01T14:47:29.723Z - Goals: raw=3.23 reduc=0.85 surp=1.00 final=3
+[DEBUG] 2026-03-01T14:47:29.726Z - Goals: raw=3.72 reduc=0.8 surp=1.00 final=3
+[DEBUG] 2026-03-01T14:47:29.728Z - Goals: raw=2.69 reduc=0.9 surp=1.00 final=2
+[DEBUG] 2026-03-01T14:47:29.729Z - Goals: raw=2.07 reduc=0.9 surp=1.00 final=2
+[DEBUG] 2026-03-01T14:47:29.731Z - Goals: raw=2.51 reduc=0.9 surp=1.00 final=2
+[DEBUG] 2026-03-01T14:47:29.732Z - Goals: raw=1.83 reduc=0.95 surp=1.00 final=2
+[DEBUG] 2026-03-01T14:47:29.734Z - Goals: raw=2.53 reduc=0.9 surp=1.00 final=2
+[DEBUG] 2026-03-01T14:47:29.735Z - Goals: raw=4.37 reduc=0.75 surp=1.00 final=4
+[DEBUG] 2026-03-01T14:47:29.736Z - Goals: raw=4.40 reduc=0.75 surp=1.00 final=4
+[DEBUG] 2026-03-01T14:47:29.737Z - Goals: raw=5.22 reduc=0.7 surp=1.00 final=5
+[DEBUG] 2026-03-01T14:47:29.739Z - Match incertain (60%) → confiance réduite
+[INFO] 2026-03-01T14:47:29.745Z - ✅ 10 prédictions VFL en 1360ms {
+  accuracy: '54%',
+  draw: '15%',
+  goalAcc: '31%',
+  within1: '46%',
+  bias: 0.7,
+  samples: 13
+}
+[WARN] 2026-03-01T14:50:08.338Z - API matches indisponible, utilisation du fallback
+[WARN] 2026-03-01T14:50:09.184Z - Aucun round avec matchs disponible dans /matches
+[WARN] 2026-03-01T14:50:09.185Z - Aucun match trouvé
+[INFO] 2026-03-01T14:50:13.384Z - 🎯 Round à prédire : 21 — 10 matchs
+[DEBUG] 2026-03-01T14:50:13.398Z - Goals: raw=3.00 reduc=0.85 surp=1.10 final=3
+[DEBUG] 2026-03-01T14:50:13.401Z - Goals: raw=2.97 reduc=0.85 surp=0.90 final=2
+[DEBUG] 2026-03-01T14:50:13.404Z - Goals: raw=2.58 reduc=0.9 surp=1.10 final=2
+[DEBUG] 2026-03-01T14:50:13.407Z - Goals: raw=3.41 reduc=0.85 surp=0.99 final=3
+[DEBUG] 2026-03-01T14:50:13.409Z - Goals: raw=2.76 reduc=0.9 surp=1.10 final=2
+[DEBUG] 2026-03-01T14:50:13.412Z - Goals: raw=2.67 reduc=0.9 surp=1.10 final=2
+[DEBUG] 2026-03-01T14:50:13.414Z - Goals: raw=4.98 reduc=0.75 surp=1.32 final=4
+[DEBUG] 2026-03-01T14:50:13.423Z - Goals: raw=2.51 reduc=0.9 surp=1.10 final=2
+[DEBUG] 2026-03-01T14:50:13.426Z - Goals: raw=2.02 reduc=0.9 surp=1.10 final=2
+[DEBUG] 2026-03-01T14:50:13.428Z - Goals: raw=5.02 reduc=0.7 surp=1.10 final=5
+[DEBUG] 2026-03-01T14:50:13.430Z - Match incertain (90%) → confiance réduite
+[DEBUG] 2026-03-01T14:50:13.431Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T14:50:13.432Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T14:50:13.433Z - Match incertain (70%) → confiance réduite
+[DEBUG] 2026-03-01T14:50:13.433Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T14:50:13.434Z - Match incertain (90%) → confiance réduite
+[DEBUG] 2026-03-01T14:50:13.435Z - Match incertain (70%) → confiance réduite
+[INFO] 2026-03-01T14:50:13.440Z - ✅ 10 prédictions VFL en 1118ms {
+  accuracy: '54%',
+  draw: '15%',
+  goalAcc: '31%',
+  within1: '46%',
+  bias: 0.7,
+  samples: 13
+}
+[INFO] 2026-03-01T14:50:18.647Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:50:26.284Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:56:56.492Z - Serveur démarré sur le port 3000
+[INFO] 2026-03-01T14:56:56.507Z - Mode développement actif
+[INFO] 2026-03-01T14:56:56.508Z - Utilisateur test
+[INFO] 2026-03-01T14:57:02.623Z - Connexion à Psql neon établie.
+[WARN] 2026-03-01T14:57:12.379Z - ⚠️  API [ranking] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[INFO] 2026-03-01T14:57:13.490Z - 🎯 Round à prédire : 25 — 10 matchs
+[INFO] 2026-03-01T14:57:13.800Z - État VFL chargé { accuracy: '46%', goalAccuracy: '20%', predictions: 1125 }
+[INFO] 2026-03-01T14:57:14.097Z - 20 ratings VFL chargés
+[DEBUG] 2026-03-01T14:57:14.135Z - Goals: raw=3.64 reduc=0.8 surp=0.99 final=3
+[DEBUG] 2026-03-01T14:57:14.146Z - Goals: raw=3.62 reduc=0.8 surp=1.10 final=3
+[DEBUG] 2026-03-01T14:57:14.152Z - Goals: raw=4.03 reduc=0.8 surp=1.10 final=5
+[DEBUG] 2026-03-01T14:57:14.154Z - Goals: raw=3.76 reduc=0.8 surp=0.99 final=3
+[DEBUG] 2026-03-01T14:57:14.161Z - Goals: raw=3.58 reduc=0.8 surp=1.10 final=3
+[DEBUG] 2026-03-01T14:57:14.165Z - Goals: raw=3.58 reduc=0.8 surp=1.32 final=3
+[DEBUG] 2026-03-01T14:57:14.168Z - Goals: raw=3.85 reduc=0.8 surp=1.32 final=4
+[DEBUG] 2026-03-01T14:57:14.171Z - Goals: raw=3.70 reduc=0.8 surp=1.10 final=3
+[DEBUG] 2026-03-01T14:57:14.176Z - Goals: raw=4.03 reduc=0.8 surp=1.10 final=5
+[DEBUG] 2026-03-01T14:57:14.184Z - Goals: raw=4.14 reduc=0.8 surp=1.32 final=4
+[DEBUG] 2026-03-01T14:57:14.196Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T14:57:14.200Z - Match incertain (90%) → confiance réduite
+[DEBUG] 2026-03-01T14:57:14.202Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T14:57:14.202Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T14:57:14.205Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T14:57:14.206Z - Match incertain (60%) → confiance réduite
+[INFO] 2026-03-01T14:57:14.215Z - ✅ 10 prédictions VFL en 2303ms {
+  accuracy: '0%',
+  draw: '0%',
+  goalAcc: '0%',
+  within1: '0%',
+  bias: 0,
+  samples: 0
+}
+[INFO] 2026-03-01T14:57:26.004Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:57:34.850Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:57:37.889Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:57:49.082Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:57:52.882Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:58:09.637Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:58:15.886Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:58:23.962Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:58:37.059Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:58:41.377Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T14:58:52.481Z - Ratings VFL sauvegardés
+[WARN] 2026-03-01T15:00:16.177Z - ⚠️  API [ranking] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[WARN] 2026-03-01T15:00:16.702Z - ⚠️  API [ranking] tentative 2/5 échouée (ETIMEDOUT) → retry dans 400ms
+[INFO] 2026-03-01T15:00:17.423Z - 🎯 Round à prédire : 26 — 10 matchs
+[DEBUG] 2026-03-01T15:00:17.436Z - Goals: raw=6.51 reduc=0.7 surp=1.10 final=6
+[DEBUG] 2026-03-01T15:00:17.440Z - Goals: raw=1.70 reduc=0.95 surp=0.99 final=2
+[DEBUG] 2026-03-01T15:00:17.443Z - Goals: raw=3.16 reduc=0.85 surp=1.10 final=4
+[DEBUG] 2026-03-01T15:00:17.446Z - Goals: raw=2.56 reduc=0.9 surp=0.99 final=3
+[DEBUG] 2026-03-01T15:00:17.449Z - Goals: raw=6.14 reduc=0.7 surp=1.10 final=6
+[DEBUG] 2026-03-01T15:00:17.459Z - Goals: raw=1.50 reduc=0.95 surp=0.99 final=2
+[DEBUG] 2026-03-01T15:00:17.462Z - Goals: raw=2.59 reduc=0.9 surp=1.32 final=3
+[DEBUG] 2026-03-01T15:00:17.465Z - Goals: raw=1.23 reduc=0.95 surp=1.10 final=2
+[DEBUG] 2026-03-01T15:00:17.467Z - Goals: raw=1.58 reduc=0.95 surp=0.99 final=3
+[DEBUG] 2026-03-01T15:00:17.470Z - Goals: raw=4.51 reduc=0.75 surp=1.10 final=5
+[DEBUG] 2026-03-01T15:00:17.471Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T15:00:17.475Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T15:00:17.476Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T15:00:17.478Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T15:00:17.480Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T15:00:17.482Z - Match incertain (60%) → confiance réduite
+[INFO] 2026-03-01T15:00:17.488Z - ✅ 10 prédictions VFL en 1674ms {
+  accuracy: '42%',
+  draw: '25%',
+  goalAcc: '25%',
+  within1: '63%',
+  bias: -0,
+  samples: 24
+}
+[INFO] 2026-03-01T15:00:23.723Z - État VFL sauvegardé
+[WARN] 2026-03-01T15:21:08.192Z - ⚠️  API [results] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[INFO] 2026-03-01T15:21:09.543Z - 🎯 Round à prédire : 37 — 10 matchs
+[DEBUG] 2026-03-01T15:21:09.549Z - Goals: raw=1.11 reduc=0.95 surp=1.10 final=2
+[DEBUG] 2026-03-01T15:21:09.552Z - Goals: raw=7.00 reduc=0.7 surp=0.99 final=6
+[DEBUG] 2026-03-01T15:21:09.555Z - Goals: raw=2.24 reduc=0.9 surp=1.10 final=4
+[DEBUG] 2026-03-01T15:21:09.570Z - Goals: raw=2.87 reduc=0.85 surp=0.99 final=3
+[DEBUG] 2026-03-01T15:21:09.574Z - Goals: raw=4.25 reduc=0.75 surp=1.10 final=5
+[DEBUG] 2026-03-01T15:21:09.577Z - Goals: raw=4.34 reduc=0.75 surp=0.99 final=4
+[DEBUG] 2026-03-01T15:21:09.580Z - Goals: raw=2.33 reduc=0.9 surp=1.20 final=3
+[DEBUG] 2026-03-01T15:21:09.583Z - Goals: raw=4.64 reduc=0.75 surp=1.10 final=6
+[DEBUG] 2026-03-01T15:21:09.586Z - Goals: raw=2.23 reduc=0.9 surp=0.99 final=3
+[DEBUG] 2026-03-01T15:21:09.589Z - Goals: raw=1.38 reduc=0.95 surp=1.32 final=2
+[DEBUG] 2026-03-01T15:21:09.590Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T15:21:09.591Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T15:21:09.592Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T15:21:09.592Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T15:21:09.593Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T15:21:09.594Z - Match incertain (70%) → confiance réduite
+[DEBUG] 2026-03-01T15:21:09.594Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T15:21:09.595Z - Match incertain (60%) → confiance réduite
+[INFO] 2026-03-01T15:21:09.600Z - ✅ 10 prédictions VFL en 1860ms {
+  accuracy: '38%',
+  draw: '31%',
+  goalAcc: '23%',
+  within1: '65%',
+  bias: -0,
+  samples: 26
+}
+[DEBUG] 2026-03-01T15:21:10.373Z - Impossible de charger /round/36: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T15:21:11.034Z - Impossible de charger /round/35: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T15:21:11.679Z - Impossible de charger /round/34: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T15:21:12.257Z - Impossible de charger /round/33: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T15:21:12.827Z - Impossible de charger /round/32: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T15:21:13.418Z - Impossible de charger /round/31: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T15:21:14.015Z - Impossible de charger /round/30: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T15:21:14.709Z - Impossible de charger /round/29: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T15:21:15.257Z - Impossible de charger /round/28: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T15:21:15.927Z - Impossible de charger /round/27: Cache max keys amount exceeded
+[DEBUG] 2026-03-01T15:21:16.387Z - Impossible de charger /round/26: Cache max keys amount exceeded
+[INFO] 2026-03-01T15:44:46.719Z - Serveur démarré sur le port 3000
+[INFO] 2026-03-01T15:44:46.814Z - Mode développement actif
+[INFO] 2026-03-01T15:44:46.815Z - Utilisateur test
+[INFO] 2026-03-01T15:44:53.476Z - Connexion à Psql neon établie.
+[INFO] 2026-03-01T15:45:21.110Z - 🎯 Round à prédire : 9 — 10 matchs
+[INFO] 2026-03-01T15:45:21.454Z - État VFL chargé { accuracy: '47%', goalAccuracy: '6%', predictions: 1200 }
+[INFO] 2026-03-01T15:45:21.763Z - 20 ratings VFL chargés
+[DEBUG] 2026-03-01T15:45:21.807Z - Goals: raw=3.85 reduc=0.8 surp=1.00 final=3
+[DEBUG] 2026-03-01T15:45:21.818Z - Goals: raw=4.01 reduc=0.8 surp=0.90 final=3
+[DEBUG] 2026-03-01T15:45:21.823Z - Goals: raw=3.56 reduc=0.8 surp=1.00 final=3
+[DEBUG] 2026-03-01T15:45:21.826Z - Goals: raw=3.52 reduc=0.8 surp=0.90 final=3
+[DEBUG] 2026-03-01T15:45:21.831Z - Goals: raw=3.87 reduc=0.8 surp=1.00 final=4
+[DEBUG] 2026-03-01T15:45:21.835Z - Goals: raw=3.71 reduc=0.8 surp=1.20 final=3
+[DEBUG] 2026-03-01T15:45:21.844Z - Goals: raw=3.72 reduc=0.8 surp=1.00 final=3
+[DEBUG] 2026-03-01T15:45:21.847Z - Goals: raw=4.01 reduc=0.8 surp=0.90 final=3
+[DEBUG] 2026-03-01T15:45:21.851Z - Goals: raw=3.89 reduc=0.8 surp=0.90 final=3
+[DEBUG] 2026-03-01T15:45:21.857Z - Goals: raw=3.75 reduc=0.8 surp=1.00 final=4
+[INFO] 2026-03-01T15:45:21.887Z - ✅ 10 prédictions VFL en 2172ms {
+  accuracy: '0%',
+  draw: '0%',
+  goalAcc: '0%',
+  within1: '0%',
+  bias: 0,
+  samples: 0
+}
+[INFO] 2026-03-01T15:45:37.766Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T15:45:45.701Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T15:45:50.340Z - Ratings VFL sauvegardés
+[WARN] 2026-03-01T15:47:19.529Z - ⚠️  API [matches] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[WARN] 2026-03-01T15:47:19.562Z - ⚠️  API [results] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[INFO] 2026-03-01T15:47:20.984Z - 🎯 Round à prédire : 10 — 10 matchs
+[DEBUG] 2026-03-01T15:47:20.995Z - Goals: raw=2.98 reduc=0.85 surp=0.90 final=2
+[DEBUG] 2026-03-01T15:47:21.008Z - Goals: raw=4.51 reduc=0.75 surp=1.00 final=5
+[DEBUG] 2026-03-01T15:47:21.012Z - Goals: raw=2.82 reduc=0.85 surp=1.20 final=2
+[DEBUG] 2026-03-01T15:47:21.014Z - Goals: raw=3.99 reduc=0.8 surp=1.00 final=3
+[DEBUG] 2026-03-01T15:47:21.016Z - Goals: raw=4.28 reduc=0.75 surp=1.15 final=4
+[DEBUG] 2026-03-01T15:47:21.018Z - Goals: raw=3.41 reduc=0.85 surp=1.00 final=3
+[DEBUG] 2026-03-01T15:47:21.020Z - Goals: raw=4.16 reduc=0.8 surp=0.90 final=4
+[DEBUG] 2026-03-01T15:47:21.022Z - Goals: raw=4.33 reduc=0.75 surp=1.20 final=4
+[DEBUG] 2026-03-01T15:47:21.024Z - Goals: raw=3.27 reduc=0.85 surp=1.20 final=3
+[DEBUG] 2026-03-01T15:47:21.026Z - Goals: raw=2.73 reduc=0.9 surp=0.90 final=2
+[INFO] 2026-03-01T15:47:21.050Z - ✅ 10 prédictions VFL en 1877ms {
+  accuracy: '93%',
+  draw: '7%',
+  goalAcc: '40%',
+  within1: '47%',
+  bias: 1,
+  samples: 15
+}
+[INFO] 2026-03-01T15:47:29.169Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T15:57:53.985Z - Serveur démarré sur le port 3000
+[INFO] 2026-03-01T15:57:54.100Z - Mode développement actif
+[INFO] 2026-03-01T15:57:54.101Z - Utilisateur test
+[INFO] 2026-03-01T15:58:01.102Z - Connexion à Psql neon établie.
+[INFO] 2026-03-01T15:58:12.478Z - 🎯 Round à prédire : 16 — 10 matchs
+[INFO] 2026-03-01T15:58:12.798Z - État VFL chargé { accuracy: '47%', goalAccuracy: '6%', predictions: 1200 }
+[INFO] 2026-03-01T15:58:13.088Z - 20 ratings VFL chargés
+[DEBUG] 2026-03-01T15:58:13.125Z - Goals: raw=3.78 reduc=0.75 surp=1.00 final=3
+[DEBUG] 2026-03-01T15:58:13.137Z - Goals: raw=3.86 reduc=0.75 surp=1.00 final=4
+[DEBUG] 2026-03-01T15:58:13.142Z - Goals: raw=3.67 reduc=0.75 surp=1.00 final=3
+[DEBUG] 2026-03-01T15:58:13.146Z - Goals: raw=3.74 reduc=0.75 surp=1.00 final=3
+[DEBUG] 2026-03-01T15:58:13.152Z - Goals: raw=4.01 reduc=0.75 surp=1.10 final=3
+[DEBUG] 2026-03-01T15:58:13.155Z - Goals: raw=3.66 reduc=0.75 surp=1.00 final=4
+[DEBUG] 2026-03-01T15:58:13.158Z - Goals: raw=3.55 reduc=0.75 surp=1.00 final=3
+[DEBUG] 2026-03-01T15:58:13.163Z - Goals: raw=3.93 reduc=0.75 surp=1.00 final=4
+[DEBUG] 2026-03-01T15:58:13.167Z - Goals: raw=3.94 reduc=0.75 surp=1.00 final=3
+[DEBUG] 2026-03-01T15:58:13.173Z - Goals: raw=3.79 reduc=0.75 surp=1.00 final=3
+[DEBUG] 2026-03-01T15:58:13.191Z - Match incertain (70%) → confiance réduite
+[DEBUG] 2026-03-01T15:58:13.192Z - Match incertain (70%) → confiance réduite
+[INFO] 2026-03-01T15:58:13.208Z - ✅ 10 prédictions VFL en 2078ms {
+  accuracy: '0%',
+  draw: '0%',
+  goalAcc: '0%',
+  within1: '0%',
+  bias: 0,
+  samples: 0
+}
+[INFO] 2026-03-01T15:58:26.429Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T15:58:34.046Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T15:58:38.881Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T15:58:45.149Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T15:58:49.178Z - Ratings VFL sauvegardés
+[INFO] 2026-03-01T15:58:56.639Z - Ratings VFL sauvegardés
+[WARN] 2026-03-01T16:01:18.906Z - ⚠️  API [ranking] tentative 1/5 échouée (ETIMEDOUT) → retry dans 200ms
+[INFO] 2026-03-01T16:01:19.982Z - 🎯 Round à prédire : 17 — 10 matchs
+[DEBUG] 2026-03-01T16:01:19.993Z - Goals: raw=2.93 reduc=0.8 surp=1.00 final=3
+[DEBUG] 2026-03-01T16:01:19.998Z - Goals: raw=3.87 reduc=0.75 surp=0.92 final=3
+[DEBUG] 2026-03-01T16:01:20.002Z - Goals: raw=4.10 reduc=0.75 surp=1.00 final=4
+[DEBUG] 2026-03-01T16:01:20.005Z - Goals: raw=4.13 reduc=0.75 surp=0.92 final=3
+[DEBUG] 2026-03-01T16:01:20.007Z - Goals: raw=3.98 reduc=0.75 surp=1.00 final=4
+[DEBUG] 2026-03-01T16:01:20.015Z - Goals: raw=2.75 reduc=0.85 surp=1.00 final=3
+[DEBUG] 2026-03-01T16:01:20.017Z - Goals: raw=1.41 reduc=0.9 surp=1.00 final=1
+[DEBUG] 2026-03-01T16:01:20.018Z - Goals: raw=2.58 reduc=0.85 surp=1.00 final=3
+[DEBUG] 2026-03-01T16:01:20.020Z - Goals: raw=4.81 reduc=0.7 surp=1.00 final=5
+[DEBUG] 2026-03-01T16:01:20.022Z - Goals: raw=2.28 reduc=0.85 surp=1.10 final=2
+[DEBUG] 2026-03-01T16:01:20.025Z - Match incertain (60%) → confiance réduite
+[DEBUG] 2026-03-01T16:01:20.026Z - Match incertain (60%) → confiance réduite
+[INFO] 2026-03-01T16:01:20.030Z - ✅ 10 prédictions VFL en 1523ms {
+  accuracy: '23%',
+  draw: '23%',
+  goalAcc: '7%',
+  within1: '60%',
+  bias: 0.8,
+  samples: 30
+}
+[INFO] 2026-03-01T16:01:26.278Z - Ratings VFL sauvegardés

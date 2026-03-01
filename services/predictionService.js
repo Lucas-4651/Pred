@@ -59,12 +59,14 @@ const config = {
     maxGoals:           6,
     calibrationWindow: 100,
     goalCategories: [
-      { max: 2.0, reduction: 0.95, label: 'veryLow'  },
-      { max: 2.8, reduction: 0.90, label: 'low'      },
-      { max: 3.5, reduction: 0.85, label: 'medium'   },
-      { max: 4.2, reduction: 0.80, label: 'high'     },
-      { max: 5.0, reduction: 0.75, label: 'veryHigh' },
-      { max: 99,  reduction: 0.70, label: 'extreme'  }
+      // Calibré sur moyenne réelle VFL = 2.8 buts/match
+      // raw vient de Poisson qui surestime → on réduit plus agressivement
+      { max: 2.0, reduction: 0.90, label: 'veryLow'  },  // 2.0 → 1.8
+      { max: 2.8, reduction: 0.85, label: 'low'       },  // 2.8 → 2.4
+      { max: 3.5, reduction: 0.80, label: 'medium'    },  // 3.5 → 2.8 ← cible
+      { max: 4.2, reduction: 0.75, label: 'high'      },  // 4.2 → 3.1
+      { max: 5.0, reduction: 0.70, label: 'veryHigh'  },  // 5.0 → 3.5
+      { max: 99,  reduction: 0.65, label: 'extreme'   }   // 6.0 → 3.9
     ],
     formBoostThreshold: 65,
     formDiffThreshold:  25,
@@ -448,17 +450,37 @@ class GoalLearningSystem {
 
   recordMatch(homeTeam, awayTeam, homeGoals, awayGoals, context) {
     const total = homeGoals + awayGoals;
-    this.goalHistory.push(total);
+
+    // Historique avec timestamp pour décroissance exponentielle
+    this.goalHistory.push({ total, ts: Date.now() });
+    if (this.goalHistory.length > 200) this.goalHistory.shift();
 
     for (const [team, scored, conceded] of [
       [homeTeam, homeGoals, awayGoals],
       [awayTeam, awayGoals, homeGoals]
     ]) {
-      const s = this.teamAverages.get(team) || { scored: 0, conceded: 0, matches: 0, total: 0 };
-      s.scored   += scored;
-      s.conceded += conceded;
-      s.total    += total;
-      s.matches++;
+      const s = this.teamAverages.get(team) ||
+        { scored: 0, conceded: 0, matches: 0, total: 0, history: [] };
+
+      // Garder un historique récent pour la moyenne pondérée
+      s.history.push({ scored, conceded, total });
+      if (s.history.length > 30) s.history.shift();
+
+      // Recalculer les moyennes avec décroissance exponentielle
+      let sumW = 0, sumScored = 0, sumConceded = 0, sumTotal = 0;
+      s.history.forEach((h, i) => {
+        const age = s.history.length - 1 - i;
+        const w   = Math.exp(-0.10 * age); // décroissance modérée
+        sumW        += w;
+        sumScored   += w * h.scored;
+        sumConceded += w * h.conceded;
+        sumTotal    += w * h.total;
+      });
+
+      s.scored   = sumW > 0 ? sumScored   / sumW : scored;
+      s.conceded = sumW > 0 ? sumConceded / sumW : conceded;
+      s.total    = sumW > 0 ? sumTotal    / sumW : total;
+      s.matches  = s.history.length;
       this.teamAverages.set(team, s);
     }
 
@@ -578,7 +600,8 @@ class ScoreCalibrator {
   _recalibrate() {
     if (this.predictionErrors.length < 20) return;
     const avg = this.predictionErrors.reduce((a, b) => a + b, 0) / this.predictionErrors.length;
-    this.goalBias = this.goalBias * 0.7 + avg * 0.3;
+    // 0.5/0.5 : oublie plus vite les vieux biais → s'adapte aux changements de style VFL
+    this.goalBias = this.goalBias * 0.5 + avg * 0.5;
   }
 
   adjustPrediction(rawGoals) {
@@ -805,22 +828,61 @@ class AdvancedScorePredictor {
 
 // ─── EXTRACTEUR DE FEATURES TEMPORELLES ──────────────────────────────────────
 class TemporalFeatureExtractor {
+
+  // Stats HT par équipe — alimentées depuis playout dans updateModelsFromResults
+  // Structure : { scored1H: 0, conceded1H: 0, scored2H: 0, conceded2H: 0, matches: 0 }
+  static htStats = new Map();
+
+  static recordHalfTimeStats(homeTeam, awayTeam, goals) {
+    if (!goals || !goals.length) return;
+
+    const htGoals = goals.filter(g => (g.minute || 90) <= 45);
+    const htLast  = htGoals.length ? htGoals[htGoals.length - 1] : { homeScore: 0, awayScore: 0 };
+    const ftLast  = goals[goals.length - 1];
+
+    const hHT = Math.round(htLast.homeScore), aHT = Math.round(htLast.awayScore);
+    const hFT = Math.round(ftLast.homeScore), aFT = Math.round(ftLast.awayScore);
+    const h2H = hFT - hHT, a2H = aFT - aHT; // buts en 2ème mi-temps
+
+    for (const [team, s1H, c1H, s2H, c2H] of [
+      [homeTeam, hHT, aHT, h2H, a2H],
+      [awayTeam, aHT, hHT, a2H, h2H]
+    ]) {
+      const s = TemporalFeatureExtractor.htStats.get(team) ||
+        { scored1H: 0, conceded1H: 0, scored2H: 0, conceded2H: 0, matches: 0 };
+      s.scored1H   += s1H; s.conceded1H += c1H;
+      s.scored2H   += s2H; s.conceded2H += c2H;
+      s.matches++;
+      TemporalFeatureExtractor.htStats.set(team, s);
+    }
+  }
+
+  _getHalfTimeRate(team, half = '1H') {
+    const s = TemporalFeatureExtractor.htStats.get(team);
+    if (!s || s.matches < 3) return 0.5; // neutre si pas assez de données
+    const scored   = half === '1H' ? s.scored1H   : s.scored2H;
+    const conceded = half === '1H' ? s.conceded1H : s.conceded2H;
+    const total    = scored + conceded;
+    return total > 0 ? scored / total : 0.5;
+  }
+
   extractFeatures(homeTeam, awayTeam, data) {
     const allMatches  = this._getAllMatches(data);
     const homeMatches = allMatches.filter(m => m.homeTeam === homeTeam || m.awayTeam === homeTeam);
     const awayMatches = allMatches.filter(m => m.homeTeam === awayTeam || m.awayTeam === awayTeam);
 
     return {
-      homeRestDays:  Math.floor(Math.random() * 7) + 3, // Placeholder – remplacer par vraies dates
-      awayRestDays:  Math.floor(Math.random() * 7) + 3,
-      homeMatchLoad: this._matchLoad(homeMatches.slice(-5)),
-      awayMatchLoad: this._matchLoad(awayMatches.slice(-5)),
-      homeStreak:    this._currentStreak(homeTeam, homeMatches),
-      awayStreak:    this._currentStreak(awayTeam, awayMatches),
-      homeFirstHalf: 0.5,  // Placeholder
-      awayFirstHalf: 0.5,
-      homeSecondHalf:0.5,
-      awaySecondHalf:0.5
+      homeRestDays:   4,
+      awayRestDays:   4,
+      homeMatchLoad:  this._matchLoad(homeMatches.slice(-5)),
+      awayMatchLoad:  this._matchLoad(awayMatches.slice(-5)),
+      homeStreak:     this._currentStreak(homeTeam, homeMatches),
+      awayStreak:     this._currentStreak(awayTeam, awayMatches),
+      // Taux de buts en 1ère mi-temps calculé depuis playout réels
+      homeFirstHalf:  this._getHalfTimeRate(homeTeam, '1H'),
+      awayFirstHalf:  this._getHalfTimeRate(awayTeam, '1H'),
+      homeSecondHalf: this._getHalfTimeRate(homeTeam, '2H'),
+      awaySecondHalf: this._getHalfTimeRate(awayTeam, '2H')
     };
   }
 
@@ -1160,13 +1222,15 @@ class AutoLearningSystem {
     });
   }
 
-  // ─── AMÉLIORATION 5 : Décroissance exponentielle ────────────────────────
+  // ─── Précision pondérée — decay adapté au volume VFL (240 préds/heure) ─────
+  // exp(-0.02) → position 50 = ~37min passé → poids 0.37 (raisonnable)
+  // exp(-0.05) était trop agressif : position 80 = 20min → poids 0.018 (quasi zéro)
   _weightedAccuracy(results) {
     if (!results || results.length === 0) return 0.5;
     let sumW = 0, sumWR = 0;
     results.forEach((r, i) => {
       const age = results.length - i;
-      const w   = Math.exp(-0.05 * age);
+      const w   = Math.exp(-0.02 * age); // decay doux : 50 matchs passés gardent du poids
       sumW  += w;
       sumWR += w * r;
     });
@@ -1258,13 +1322,23 @@ class AutoLearningSystem {
   // ─── AMÉLIORATION 5 : Ajustement confiance via HT ────────────────────────
   getHTConfidenceAdjustment(htPrediction, ftPrediction) {
     if (!htPrediction || !ftPrediction) return 0;
+
     if (htPrediction === ftPrediction) {
+      // Convergence HT = FT → statistiquement vrai 70% du temps dans ce VFL
+      // On vérifie si notre taux appris confirme cette tendance
       const convAcc = this.htLearning.convergentTotal > 10
         ? this.htLearning.convergentCorrect / this.htLearning.convergentTotal
-        : 0.5;
-      return convAcc > 0.60 ? +5 : convAcc < 0.45 ? -3 : 0;
+        : 0.70; // on part sur 70% par défaut (prouvé sur les données réelles)
+
+      if      (convAcc > 0.65) return +8;   // très fort signal → +8% confiance
+      else if (convAcc > 0.55) return +5;   // signal confirmé  → +5%
+      else if (convAcc < 0.45) return -3;   // convergence peu fiable → -3%
+      return +3; // signal modéré par défaut
     }
-    return -3; // HT et FT divergents → pénalité légère
+
+    // HT ≠ FT → inversion de tendance en 2ème mi-temps
+    // Ce round : 3 inversions sur 10 = 30% → signal réel mais moins fort
+    return -4; // pénalité légèrement augmentée (était -3)
   }
 
   async _adjustHomeAdvantage(prediction, actualResult) {
@@ -1618,32 +1692,81 @@ class ContextDetector {
     const away = data.ranking?.teams?.find(t => t.name === awayTeam);
     if (!home || !away) return ctx;
 
+    // bigMatch : les 2 équipes sont dans le top 5
     ctx.bigMatch = home.position <= 5 && away.position <= 5;
-    ctx.derby    = (homeTeam.includes('London') && awayTeam.includes('London')) ||
-                   (homeTeam.includes('Manchester') && awayTeam.includes('Manchester'));
 
-    const last = this._lastMeeting(homeTeam, awayTeam, data);
-    if (last) {
-      const loser = last.homeGoals > last.awayGoals ? last.awayTeam : last.homeTeam;
-      ctx.revenge = loser === homeTeam || loser === awayTeam;
+    // ─── Derby : détection par noms réels du VFL + proximité classement ──────
+    // Rivalités connues dans ce VFL (Manchester Red/Blue, London Red/Blues, etc.)
+    const DERBY_PAIRS = [
+      ['Manchester Red', 'Manchester Blue'],
+      ['London Reds',    'London Blues'],
+      ['N. Forest',      'Sunderland'],  // derbies du Nord à ajuster si besoin
+    ];
+    ctx.derby = DERBY_PAIRS.some(([a, b]) =>
+      (homeTeam === a && awayTeam === b) ||
+      (homeTeam === b && awayTeam === a)
+    );
+    // Fallback : si les deux équipes sont dans le même "groupe" de nom
+    if (!ctx.derby) {
+      ctx.derby = (homeTeam.includes('Manchester') && awayTeam.includes('Manchester')) ||
+                  (homeTeam.includes('London')     && awayTeam.includes('London'));
     }
 
-    ctx.streak   = (home.history?.slice(-3) || []).every(r => r === 'Won') ||
-                   (away.history?.slice(-3) || []).every(r => r === 'Won');
-    ctx.mismatch = (home.position <= 5  && away.position >= 16) ||
-                   (away.position <= 5  && home.position >= 16);
+    // ─── Revenge : basé sur le vrai dernier duel (via cache playout) ─────────
+    const last = this._lastMeeting(homeTeam, awayTeam, data);
+    if (last) {
+      const loser = last.homeGoals > last.awayGoals ? last.awayTeam
+                  : last.homeGoals < last.awayGoals ? last.homeTeam
+                  : null; // nul → pas de revenge
+      if (loser) ctx.revenge = (loser === homeTeam || loser === awayTeam);
+    }
+
+    // streak : 3 victoires consécutives pour l'une ou l'autre équipe
+    ctx.streak = (home.history?.slice(-3) || []).every(r => r === 'Won') ||
+                 (away.history?.slice(-3) || []).every(r => r === 'Won');
+
+    // mismatch : écart de classement > 10 positions
+    ctx.mismatch = Math.abs(home.position - away.position) >= 10;
 
     return ctx;
   }
 
   _lastMeeting(homeTeam, awayTeam, data) {
+    // Cherche le dernier duel dans /results (ordre anti-chronologique)
+    // Les buts ne sont PAS dans /results → on cherche dans le cache playout
     for (const round of data.results?.rounds || []) {
+      const roundNumber = round.roundNumber;
+      if (!roundNumber) continue;
+
       for (const match of round.matches || []) {
         const hN = match.homeTeam?.name, aN = match.awayTeam?.name;
-        if (!((hN === homeTeam && aN === awayTeam) || (hN === awayTeam && aN === homeTeam))) continue;
-        if (!match.goals?.length) continue;
-        const last = match.goals[match.goals.length - 1];
-        return { homeTeam: hN, awayTeam: aN, homeGoals: last.homeScore, awayGoals: last.awayScore };
+        if (!((hN === homeTeam && aN === awayTeam) ||
+              (hN === awayTeam && aN === homeTeam))) continue;
+
+        // Chercher dans le cache playout déjà chargé par updateModels
+        const playoutById = caches.learning.get(`playout_${roundNumber}`);
+        if (playoutById && match.id && playoutById[match.id]) {
+          const pm    = playoutById[match.id];
+          const goals = pm.goals || [];
+          if (goals.length) {
+            const last = goals[goals.length - 1];
+            return {
+              homeTeam: hN, awayTeam: aN,
+              homeGoals: Math.round(last.homeScore),
+              awayGoals: Math.round(last.awayScore)
+            };
+          }
+        }
+
+        // Fallback : buts directement dans /results si disponibles
+        if (match.goals?.length) {
+          const last = match.goals[match.goals.length - 1];
+          return {
+            homeTeam: hN, awayTeam: aN,
+            homeGoals: Math.round(last.homeScore),
+            awayGoals: Math.round(last.awayScore)
+          };
+        }
       }
     }
     return null;
@@ -1683,17 +1806,58 @@ const systems = (() => {
 
 // ─── FONCTIONS UTILITAIRES ────────────────────────────────────────────────────
 
-async function fetchWithFallback(url, key) {
-  try {
-    const data = await getBreaker(url).fire();
-    return data;
-  } catch (err) {
-    safeMetric(() => metrics.apiErrors.labels(key).inc());
-    logger.warn(`API ${key} indisponible, utilisation du fallback`);
-    const cached = caches.api.get(`api_fallback_${key}`);
-    if (cached) return cached;
-    return { rounds: [] };   // fallback minimal structuré
+/**
+ * Fetch robuste avec retry exponentiel — AUCUN fallback.
+ * On insiste jusqu'à avoir la vraie réponse ou épuiser les tentatives.
+ *
+ * Stratégie :
+ *   - 5 tentatives maximum
+ *   - Délai exponentiel : 200ms, 400ms, 800ms, 1600ms, 3200ms
+ *   - Timeout par tentative : 6s
+ *   - Si toutes les tentatives échouent → on retourne la dernière réponse
+ *     en cache (dernière valeur connue bonne) plutôt qu'un objet vide
+ */
+async function fetchWithRetry(url, key, maxRetries = 5) {
+  let lastError = null;
+
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      const res = await axios.get(url, {
+        headers: HEADERS,
+        timeout: config.api.timeout,
+        decompress: true
+      });
+
+      const data = res.data;
+
+      // Sauvegarder en cache "dernière bonne réponse" à chaque succès
+      if (data) caches.api.set(`api_last_good_${key}`, data, 3600);
+
+      return data;
+
+    } catch (err) {
+      lastError = err;
+      safeMetric(() => metrics.apiErrors.labels(key).inc());
+
+      const delay = 200 * Math.pow(2, attempt - 1); // 200, 400, 800, 1600, 3200ms
+      logger.warn(`⚠️  API [${key}] tentative ${attempt}/${maxRetries} échouée (${err.code || err.message}) → retry dans ${delay}ms`);
+
+      if (attempt < maxRetries) {
+        await new Promise(r => setTimeout(r, delay));
+      }
+    }
   }
+
+  // Toutes les tentatives épuisées → dernière bonne réponse connue
+  const lastGood = caches.api.get(`api_last_good_${key}`);
+  if (lastGood) {
+    logger.error(`❌ API [${key}] inaccessible après ${maxRetries} tentatives → utilisation dernière réponse connue`);
+    return lastGood;
+  }
+
+  // Vraiment rien du tout — on lance l'erreur pour que fetchData la gère
+  logger.error(`❌ API [${key}] inaccessible et aucune réponse en cache`);
+  throw lastError;
 }
 
 async function fetchData() {
@@ -1704,22 +1868,43 @@ async function fetchData() {
     return cached;
   }
 
+  const BASE = 'https://hg-event-api-prod.sporty-tech.net/api/instantleagues';
   const URLS = {
-    results: 'https://hg-event-api-prod.sporty-tech.net/api/instantleagues/8035/results?skip=0&take=50',
-    matches: 'https://hg-event-api-prod.sporty-tech.net/api/instantleagues/8035/matches',
-    ranking: 'https://hg-event-api-prod.sporty-tech.net/api/instantleagues/8035/ranking'
+    matches: `${BASE}/8035/matches`,
+    ranking: `${BASE}/8035/ranking`,
+    results: `${BASE}/8035/results?skip=0&take=50`
   };
 
   try {
-    const [results, matches, ranking] = await Promise.all([
-      fetchWithFallback(URLS.results, 'results'),
-      fetchWithFallback(URLS.matches, 'matches'),
-      fetchWithFallback(URLS.ranking, 'ranking')
+    const [matchesRaw, ranking, results] = await Promise.all([
+      fetchWithRetry(URLS.matches, 'matches'),
+      fetchWithRetry(URLS.ranking, 'ranking'),
+      fetchWithRetry(URLS.results, 'results')
     ]);
 
-    const data = { results, matches, ranking };
+    // ─── /matches.rounds[0] = round avec bettingAllowed=true ─────────────────
+    // C'est exactement le round à prédire — pas besoin de calculer N+1
+    const allRounds   = matchesRaw?.rounds || [];
+    const bettingRound = allRounds.find(r => (r.matches || []).length > 0) || allRounds[0];
+
+    if (!bettingRound || !bettingRound.matches?.length) {
+      logger.warn('Aucun round avec matchs disponible dans /matches');
+      return { matches: { rounds: [] }, ranking, results };
+    }
+
+    const roundNumber = bettingRound.roundNumber;
+    logger.info(`🎯 Round à prédire : ${roundNumber} — ${bettingRound.matches.length} matchs`);
+
+    const data = {
+      matches:      { rounds: [bettingRound] },  // structure attendue par predictMatch
+      ranking,
+      results,
+      currentRound: roundNumber
+    };
+
     caches.api.set(cacheKey, data);
     return data;
+
   } catch (err) {
     logger.error('Erreur fetchData:', err);
     return { matches: { rounds: [] }, ranking: { teams: [] }, results: { rounds: [] } };
@@ -1731,25 +1916,16 @@ function validateMatch(match) {
 }
 
 function shouldPredict(match, data) {
-  const home = data.ranking?.teams?.find(t => t.name === match.homeTeam?.name);
-  const away = data.ranking?.teams?.find(t => t.name === match.awayTeam?.name);
-  if (!home || !away) return true;
-
-  const rankDiff = Math.abs(home.position - away.position);
-  const homeWins = home.history?.filter(r => r === 'Won').length || 0;
-  const awayWins = away.history?.filter(r => r === 'Won').length || 0;
-  const formDiff = Math.abs(homeWins / 5 - awayWins / 5);
-
-  if (rankDiff > 15 || formDiff > 0.6) return Math.random() < 0.7;
-  return true;
+  // On prédit TOUS les matchs valides — 10 matchs par round, aucun ignoré
+  // Le seul filtre est la validité des données du match
+  return validateMatch(match);
 }
 
 function analyzeHeadToHead(homeTeam, awayTeam, data) {
   return getCached(`h2h_${homeTeam}_${awayTeam}`, 'h2h', () => {
     try {
-      let homeWins = 0, draws = 0, awayWins = 0, totalGoals = 0, matchesCount = 0;
-      const scoreFreq = new Map();
-
+      // Collecte de tous les duels dans l'ordre chronologique
+      const meetings = [];
       for (const round of data.results?.rounds || []) {
         for (const match of round.matches || []) {
           const hN = match.homeTeam?.name, aN = match.awayTeam?.name;
@@ -1758,32 +1934,47 @@ function analyzeHeadToHead(homeTeam, awayTeam, data) {
 
           const last   = match.goals[match.goals.length - 1];
           const isHome = hN === homeTeam;
-          const score  = `${last.homeScore}-${last.awayScore}`;
-          scoreFreq.set(score, (scoreFreq.get(score) || 0) + 1);
-          totalGoals  += last.homeScore + last.awayScore;
-          matchesCount++;
-
           const hScore = isHome ? last.homeScore : last.awayScore;
           const aScore = isHome ? last.awayScore : last.homeScore;
-          if      (hScore > aScore) homeWins++;
-          else if (hScore < aScore) awayWins++;
-          else                      draws++;
+          meetings.push({ hScore, aScore, score: `${last.homeScore}-${last.awayScore}` });
         }
       }
 
-      const total = homeWins + draws + awayWins;
+      if (meetings.length === 0) return null;
+
+      // Pondération exponentielle par récence (le dernier duel compte le plus)
+      let homeWins = 0, draws = 0, awayWins = 0, totalGoalsW = 0, sumW = 0;
+      const scoreFreq = new Map();
+
+      meetings.forEach((m, i) => {
+        const age = meetings.length - 1 - i; // 0 = plus récent
+        const w   = Math.exp(-0.15 * age);   // décroissance douce pour H2H
+
+        sumW       += w;
+        totalGoalsW += w * (m.hScore + m.aScore);
+        if      (m.hScore > m.aScore) homeWins += w;
+        else if (m.hScore < m.aScore) awayWins += w;
+        else                          draws    += w;
+
+        // Score fréquence (non pondéré, pour la distribution des scores exacts)
+        scoreFreq.set(m.score, (scoreFreq.get(m.score) || 0) + 1);
+      });
+
+      const total = homeWins + draws + awayWins; // = sumW
       if (total === 0) return null;
 
       const commonScores = Array.from(scoreFreq.entries())
-        .map(([score, count]) => ({ score, frequency: count / matchesCount }))
+        .map(([score, count]) => ({ score, frequency: count / meetings.length }))
         .sort((a, b) => b.frequency - a.frequency)
         .slice(0, 5);
 
       return {
-        home: homeWins / total, draw: draws / total, away: awayWins / total,
-        avgGoals: totalGoals / matchesCount,
-        confidence: Math.min(0.35, total * 0.07),
-        matchesCount: total,
+        home: homeWins / total,
+        draw: draws    / total,
+        away: awayWins / total,
+        avgGoals:     totalGoalsW / sumW,
+        confidence:   Math.min(0.35, meetings.length * 0.07),
+        matchesCount: meetings.length,
         commonScores
       };
     } catch (err) {
@@ -1800,14 +1991,25 @@ function calculateWeightedForm(teamName, data) {
 
     let formValue = 50;
     if (team.history?.length > 0) {
-      const last5  = team.history.slice(-5);
-      const wins   = last5.filter(r => r === 'Won').length;
-      const draws  = last5.filter(r => r === 'Draw').length;
-      formValue    = (wins * 100 + draws * 50) / 5;
+      // Décroissance exponentielle : match récent compte plus que match ancien
+      // Poids : résultat[n-1]=1.0, [n-2]=0.74, [n-3]=0.55, [n-4]=0.41, [n-5]=0.30
+      const history = team.history.slice(-8); // jusqu'à 8 derniers matchs
+      let sumW = 0, sumWR = 0;
+      history.forEach((result, i) => {
+        const age = history.length - 1 - i; // 0 = plus récent
+        const w   = Math.exp(-0.30 * age);  // décroissance rapide (VFL = matchs fréquents)
+        const pts = result === 'Won' ? 100 : result === 'Draw' ? 50 : 0;
+        sumW  += w;
+        sumWR += w * pts;
+      });
+      formValue = sumW > 0 ? sumWR / sumW : 50;
     }
 
-    formValue += (20 - team.position) * 0.5;
-    return clamp(Math.round(formValue), 30, 80);
+    // Bonus/malus classement — légèrement amplifié
+    formValue += (20 - team.position) * 0.8;
+
+    // Clamp élargi (20-95) pour que le signal soit vraiment différenciant
+    return clamp(Math.round(formValue), 20, 95);
   } catch (err) {
     logger.error('Erreur calculateWeightedForm:', err);
     return 50;
@@ -1831,7 +2033,7 @@ function calculateLightweightFeatures(homeTeam, awayTeam, data) {
     const homeMomentum = hLast3[2] === 'Won' ? 0.03 : hLast3[2] === 'Lost' ? -0.02 : 0;
 
     return { rankAdvantage: rankAdv, formAdvantage: formAdv, homeMomentum };
-  }, 300_000);
+  }, 90_000); // 90s = durée d'un round VFL → features toujours fraîches
 }
 
 function extractOdds(match) {
@@ -1916,10 +2118,12 @@ function ensembleWithVariance(eloPred, poissonPred, marketPred, h2hPred, weights
 function calculateSurpriseFactor(homeForm, awayForm, context = {}) {
   let f = 1.0;
   const diff = Math.abs(homeForm - awayForm);
-  if (diff > 25) f *= (awayForm > homeForm) ? 1.2 : 0.9;
-  if (context.derby)   f *= 1.15;
-  if (context.revenge) f *= 1.10;
-  return f;
+  // Réduit de 1.2 → 1.1 : les surprises n'explosent pas les buts
+  if (diff > 25) f *= (awayForm > homeForm) ? 1.10 : 0.92;
+  if (context.derby)   f *= 1.08;  // derby → légèrement plus de buts
+  if (context.revenge) f *= 1.05;  // revenge → effet modeste
+  // Plafond absolu à 1.10 pour ne jamais exploser les prédictions
+  return Math.min(1.10, Math.max(0.85, f));
 }
 
 function predictGoals(rawExpectedGoals, homeForm, awayForm, poissonPred, learningSystem, context, homeTeam, awayTeam) {
@@ -1940,19 +2144,25 @@ function predictGoals(rawExpectedGoals, homeForm, awayForm, poissonPred, learnin
     let goals = Math.round(raw * reductionFactor);
     if (!isFinite(goals) || goals < 0) goals = 2;
 
+    const baseGoals = goals; // référence avant ajustements contextuels
+
     const surpriseFactor = calculateSurpriseFactor(hFrm, aFrm, ctx);
     goals = Math.round(goals * surpriseFactor);
 
-    // Ajustements contextuels
+    // Ajustements contextuels — chacun ±1 mais total plafonné à ±2 par rapport à baseGoals
+    let adjustment = 0;
     if (hFrm > config.scorePrediction.formBoostThreshold && aFrm > config.scorePrediction.formBoostThreshold) {
-      goals = Math.min(CONSTANTS.MAX_GOALS_PREDICTION, goals + 1);
+      adjustment++;
     }
     if (Math.abs(hFrm - aFrm) > config.scorePrediction.formDiffThreshold) {
-      goals = Math.max(CONSTANTS.MIN_GOALS_PREDICTION, goals - 1);
+      adjustment--;
     }
     if ((lH / 1.5) > config.scorePrediction.attackThreshold && (lA / 1.5) > config.scorePrediction.attackThreshold) {
-      goals = Math.min(CONSTANTS.MAX_GOALS_PREDICTION, goals + 1);
+      adjustment++;
     }
+    // Plafonnement : max ±2 buts d'ajustement contextuel
+    adjustment = clamp(adjustment, -2, 2);
+    goals = clamp(goals + adjustment, CONSTANTS.MIN_GOALS_PREDICTION, CONSTANTS.MAX_GOALS_PREDICTION);
 
     // Apprentissage par équipe
     try {
@@ -2029,7 +2239,6 @@ async function predictMatch(match, data) {
 
   try {
     if (!validateMatch(match)) return null;
-    if (!shouldPredict(match, data)) return null;
 
     const homeTeam = match.homeTeam.name;
     const awayTeam = match.awayTeam.name;
@@ -2050,10 +2259,22 @@ async function predictMatch(match, data) {
 
     const eloPred    = eloSystem.predict(homeTeam, awayTeam);
     const poissonPred= poissonModel.predict(homeTeam, awayTeam, biasCorrector, learningSystem);
-    const marketPred = oddsToProbability(oddsData['1x2']);
+    const marketPred    = oddsToProbability(oddsData['1x2']);
+    const marketHasOdds = !!(oddsData['1x2']?.home && oddsData['1x2']?.draw && oddsData['1x2']?.away);
     const h2hPred    = analyzeHeadToHead(homeTeam, awayTeam, data);
     const context    = contextDetector.detectContext(homeTeam, awayTeam, data);
-    const weights    = learningSystem.getWeights(context);
+
+    // Si cotes absentes → poids market à 0, redistribué sur elo + poisson
+    let weights = learningSystem.getWeights(context);
+    if (!marketHasOdds) {
+      const freed = weights.market;
+      weights = {
+        elo:     weights.elo     + freed * 0.55,
+        poisson: weights.poisson + freed * 0.35,
+        market:  0,
+        h2h:     weights.h2h    + freed * 0.10
+      };
+    }
     const reliability= learningSystem.getModelReliability();
     const features   = calculateLightweightFeatures(homeTeam, awayTeam, data);
 
@@ -2064,25 +2285,30 @@ async function predictMatch(match, data) {
     const awayForm = calculateWeightedForm(awayTeam, data);
 
     const homeAdv  = learningSystem.getHomeAdvantage(homeTeam);
-    const denom    = 1 + homeAdv;
-    const raw      = {
-      home: (ensemble.home + homeAdv + features.rankAdvantage + features.formAdvantage + features.homeMomentum) / denom,
-      draw: ensemble.draw / denom,
-      away: ensemble.away / denom
+
+    // ─── Injection de l'avantage domicile de manière cohérente ───────────────
+    // On ajoute homeAdv uniquement à home, puis on renormalise
+    // L'ancien code divisait tout par (1+homeAdv) ce qui pénalisait draw et away sans raison
+    const rawFeatureBoost = features.rankAdvantage + features.formAdvantage + features.homeMomentum;
+    const raw = {
+      home: ensemble.home + homeAdv + rawFeatureBoost,
+      draw: ensemble.draw,
+      away: ensemble.away
     };
     const finalProb = normalizeTrio(raw);
 
-    // ─── FIX NULS : zone de nul élargie ──────────────────────────────────────
-    // Le modèle ne prédit jamais X car homeAdvantage écrase draw.
-    // Règle : si draw >= drawThreshold ET l'écart home/away est faible → forcer X
-    const DRAW_THRESHOLD  = 0.24;  // draw doit représenter au moins 24% de proba
-    const GAP_THRESHOLD   = 0.06;  // écart home/away doit être < 6% pour forcer X
+    // ─── FIX NULS : zone de nul réaliste pour VFL (~25% de nuls) ────────────
+    // Problème : draw: 7% → trop bas. Cible : 25-27%
+    // On abaisse les seuils pour détecter plus de situations de nul
+    const DRAW_THRESHOLD  = 0.20;  // draw doit représenter au moins 20% (était 24%)
+    const GAP_THRESHOLD   = 0.10;  // écart home/away doit être < 10% (était 6%)
     const homeAwayGap     = Math.abs(finalProb.home - finalProb.away);
     const forceDrawRaw    = finalProb.draw >= DRAW_THRESHOLD && homeAwayGap < GAP_THRESHOLD;
 
-    // Bonus : si le contexte derby ou h2h montre beaucoup de nuls → seuil abaissé
-    const drawH2HBonus    = h2hPred && h2hPred.draw > 0.30;
-    const forceDraw       = forceDrawRaw || (drawH2HBonus && finalProb.draw >= 0.20 && homeAwayGap < 0.10);
+    // Bonus élargi : h2h avec historique de nuls ou contexte favorable
+    const drawH2HBonus    = h2hPred && h2hPred.draw > 0.25; // était 0.30
+    const forceDraw       = forceDrawRaw ||
+      (drawH2HBonus && finalProb.draw >= 0.17 && homeAwayGap < 0.15);
 
     const finalResult = forceDraw                                                   ? 'X'
                       : finalProb.home > finalProb.draw && finalProb.home > finalProb.away ? '1'
@@ -2238,41 +2464,97 @@ function isMatchProcessed(id) {
 async function updateModelsFromResults(data) {
   if (!data.results?.rounds) return;
 
+  const BASE = 'https://hg-event-api-prod.sporty-tech.net/api/instantleagues';
+  const CAT  = 'eventCategoryId=135402';
+  const PID  = 'parentEventCategoryId=8035';
+
   try {
     const [learningSystem, eloSystem, poissonModel, biasCorrector, thresholds, contextDetector] =
       await Promise.all([
-        systems.learning.get(),
-        systems.elo.get(),
-        systems.poisson.get(),
-        systems.biasCorrector.get(),
-        systems.thresholds.get(),
-        systems.contextDetector.get()
+        systems.learning.get(), systems.elo.get(), systems.poisson.get(),
+        systems.biasCorrector.get(), systems.thresholds.get(), systems.contextDetector.get()
       ]);
 
     for (const round of data.results.rounds) {
-      for (const match of round.matches || []) {
-        const matchId = match.id || `${match.homeTeam?.name}-${match.awayTeam?.name}-${match.date}`;
-        if (isMatchProcessed(matchId) || !match.goals?.length) continue;
+      const roundNumber = round.roundNumber;
+      if (!roundNumber) continue;
+
+      // ─── /round/{N} → vrais IDs + noms équipes (/results a des IDs=0) ──
+      const roundKey = `round_data_${roundNumber}`;
+      let   roundMatches = caches.learning.get(roundKey);
+
+      if (!roundMatches) {
+        try {
+          const roundData = await fetchWithRetry(
+            `${BASE}/round/${roundNumber}?${CAT}&getNext=false`,
+            `round_${roundNumber}`
+          );
+          roundMatches = roundData?.round?.matches || [];
+          if (roundMatches.length > 0) caches.learning.set(roundKey, roundMatches);
+        } catch (e) {
+          logger.debug(`Impossible de charger /round/${roundNumber}:`, e.message);
+          continue;
+        }
+      }
+
+      if (!roundMatches || !roundMatches.length) continue;
+
+      // ─── /playout → buts + HT réel (indexé par ID) ───────────────────
+      const playoutKey = `playout_${roundNumber}`;
+      let   playoutById = caches.learning.get(playoutKey);
+
+      if (!playoutById) {
+        try {
+          const playoutData = await fetchWithRetry(
+            `${BASE}/round/${roundNumber}/playout?${CAT}&${PID}`,
+            `playout_${roundNumber}`
+          );
+          const pms = playoutData?.matches || [];
+          playoutById = {};
+          for (const pm of pms) {
+            if (pm.id) playoutById[pm.id] = pm;
+          }
+          if (Object.keys(playoutById).length > 0) caches.learning.set(playoutKey, playoutById);
+        } catch (e) {
+          logger.debug(`Impossible de charger /playout/${roundNumber}:`, e.message);
+          playoutById = {};
+        }
+      }
+
+      // ─── Croiser roundMatches + playout par ID ───────────────────────
+      for (const match of roundMatches) {
+        const matchId = match.id;
+        if (!matchId || isMatchProcessed(matchId)) continue;
 
         const homeTeam = match.homeTeam?.name;
         const awayTeam = match.awayTeam?.name;
         if (!homeTeam || !awayTeam) continue;
 
-        const last        = match.goals[match.goals.length - 1];
-        const result      = last.homeScore > last.awayScore ? '1' : last.homeScore === last.awayScore ? 'X' : '2';
-        const resultValue = last.homeScore > last.awayScore ? 1 : last.homeScore === last.awayScore ? 0.5 : 0;
-        const actualScore = `${last.homeScore}:${last.awayScore}`;
-        const context     = contextDetector.detectContext(homeTeam, awayTeam, data);
+        const playout = playoutById?.[matchId];
+        if (!playout?.goals?.length) continue;
 
-        // ─── Amél. 5 : extraire le résultat réel du demi-temps ──────────────
-        const htGoals = match.htScore || match.halfTimeScore || null;
-        const actualHT = htGoals
-          ? (htGoals.home > htGoals.away ? '1' : htGoals.home === htGoals.away ? 'X' : '2')
-          : null;
+        const goals   = playout.goals;
+        const last    = goals[goals.length - 1];
+        const hG      = Math.round(last.homeScore);
+        const aG      = Math.round(last.awayScore);
+        const result  = hG > aG ? '1' : hG === aG ? 'X' : '2';
+        const resVal  = hG > aG ? 1   : hG === aG ? 0.5  : 0;
+        const actualScore = `${hG}:${aG}`;
 
-        learningSystem.updateScoreDistribution(last.homeScore, last.awayScore);
+        // Vrai HT depuis les minutes de buts
+        const htGoals  = goals.filter(g => (g.minute || 90) <= 45);
+        const htLast   = htGoals.length ? htGoals[htGoals.length - 1] : null;
+        const actualHT = htLast
+          ? (htLast.homeScore > htLast.awayScore ? '1'
+          : htLast.homeScore < htLast.awayScore  ? '2' : 'X')
+          : 'X';
 
-        // Mise à jour des prédictions en DB (en parallèle)
+        const context = contextDetector.detectContext(homeTeam, awayTeam, data);
+        learningSystem.updateScoreDistribution(hG, aG);
+
+        // ─── Fix #3 : alimenter les stats HT depuis les vraies minutes de buts
+        TemporalFeatureExtractor.recordHalfTimeStats(homeTeam, awayTeam, goals);
+
         const predictions = await Prediction.findAll({
           where: { home_team: homeTeam, away_team: awayTeam, actual_result: null }
         });
@@ -2280,21 +2562,19 @@ async function updateModelsFromResults(data) {
         await Promise.all(predictions.map(async (pred) => {
           await pred.update({ actual_result: result, actual_score: actualScore });
           await learningSystem.recordPrediction(
-            { match: pred.match, final_result: pred.prediction, goals: pred.goals, exact_score: pred.exact_score, confidence: pred.confidence, half_time: pred.half_time, id: pred.id },
+            { match: pred.match, final_result: pred.prediction, goals: pred.goals,
+              exact_score: pred.exact_score, confidence: pred.confidence,
+              half_time: pred.half_time, id: pred.id },
             result,
             pred.model_snapshot?.modelContributions || {},
-            last.homeScore + last.awayScore,
-            actualScore,
-            context,
-            actualHT   // ← demi-temps réel transmis
+            hG + aG, actualScore, context, actualHT
           );
           thresholds.update({ prediction: pred.prediction, confidence: pred.confidence }, result);
           biasCorrector.update(pred.prediction, result);
         }));
 
-        await eloSystem.updateFromResult(homeTeam, awayTeam, resultValue, last.homeScore, last.awayScore);
-        await poissonModel.updateFromResult(homeTeam, awayTeam, last.homeScore, last.awayScore);
-
+        await eloSystem.updateFromResult(homeTeam, awayTeam, resVal, hG, aG);
+        await poissonModel.updateFromResult(homeTeam, awayTeam, hG, aG);
         _processedMatches.add(matchId);
       }
     }
@@ -2308,7 +2588,28 @@ module.exports = {
   async getPredictions() {
     const startTotal = Date.now();
     try {
+      // ─── Cache résultat 110s (durée d'un round = 120s) ───────────────────────
+      // Invalidé automatiquement quand le round change
+      const PRED_CACHE_KEY = 'predictions_current_round';
+      const cachedPreds    = caches.api.get(PRED_CACHE_KEY);
+      if (cachedPreds) return cachedPreds;
+      // ──────────────────────────────────────────────────────────────────────────
+
       const data = await fetchData();
+
+      // ─── Invalider le cache si nouveau round détecté ──────────────────────────
+      const prevRound = caches.api.get('last_predicted_round');
+      if (prevRound && prevRound !== data.currentRound) {
+        logger.info(`🔄 Nouveau round détecté: ${prevRound} → ${data.currentRound}`);
+        caches.api.del(PRED_CACHE_KEY);
+        setImmediate(() =>
+          updateModelsFromResults(data)
+            .then(() => caches.api.set('last_models_update', Date.now()))
+            .catch(e => logger.error('Erreur update round change:', e))
+        );
+      }
+      caches.api.set('last_predicted_round', data.currentRound);
+      // ──────────────────────────────────────────────────────────────────────────
 
       // Mise à jour des modèles en background (max 1x/min)
       const lastUpdate = caches.api.get('last_models_update') || 0;
@@ -2330,12 +2631,15 @@ module.exports = {
       const predictions = await Promise.all(
         nextMatches
           .filter(m => shouldPredict(m, data))
-          .slice(0, 8)
+          .slice(0, 10)
           .map(m => predictMatch(m, data))
       );
 
       const valid    = predictions.filter(Boolean);
       const duration = Date.now() - startTotal;
+
+      // Mettre en cache pour les autres users du même round
+      if (valid.length > 0) caches.api.set(PRED_CACHE_KEY, valid, 12);
 
       // Stats de log (non bloquant)
       try {

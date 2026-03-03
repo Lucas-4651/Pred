@@ -25,7 +25,7 @@ const config = {
   cache: {
     api:         60,
     h2h:         14400,
-    learning:    40000,
+    learning:    10000,
     patterns:    7200,
     intermediate:300
   },
@@ -59,14 +59,12 @@ const config = {
     maxGoals:           6,
     calibrationWindow: 100,
     goalCategories: [
-      // Calibré sur moyenne réelle VFL = 2.8 buts/match
-      // raw vient de Poisson qui surestime → on réduit plus agressivement
-      { max: 2.0, reduction: 0.90, label: 'veryLow'  },  // 2.0 → 1.8
-      { max: 2.8, reduction: 0.85, label: 'low'       },  // 2.8 → 2.4
-      { max: 3.5, reduction: 0.80, label: 'medium'    },  // 3.5 → 2.8 ← cible
-      { max: 4.2, reduction: 0.75, label: 'high'      },  // 4.2 → 3.1
-      { max: 5.0, reduction: 0.70, label: 'veryHigh'  },  // 5.0 → 3.5
-      { max: 99,  reduction: 0.65, label: 'extreme'   }   // 6.0 → 3.9
+      { max: 2.0, reduction: 0.90, label: 'veryLow'  },
+      { max: 2.8, reduction: 0.85, label: 'low'       },
+      { max: 3.5, reduction: 0.80, label: 'medium'    },
+      { max: 4.2, reduction: 0.75, label: 'high'      },
+      { max: 5.0, reduction: 0.70, label: 'veryHigh'  },
+      { max: 99,  reduction: 0.65, label: 'extreme'   }
     ],
     formBoostThreshold: 65,
     formDiffThreshold:  25,
@@ -92,18 +90,14 @@ const FALLBACK_PREDICTION = {
 };
 
 // ─── UTILS MATHÉMATIQUES PARTAGÉS ────────────────────────────────────────────
-
-/** Valeur sûre, retourne `def` si val est NaN/Infinity/undefined/null */
 function safeNum(val, def = 0) {
   return (typeof val === 'number' && isFinite(val)) ? val : def;
 }
 
-/** Borne val entre min et max */
 function clamp(val, min, max) {
   return Math.min(max, Math.max(min, val));
 }
 
-/** Factorielle itérative */
 function factorial(n) {
   if (n <= 1) return 1;
   let r = 1;
@@ -111,13 +105,11 @@ function factorial(n) {
   return r;
 }
 
-/** Probabilité de Poisson P(X = k | λ) */
 function poissonProb(lambda, k) {
   if (k > 6 || lambda <= 0) return 0;
   return (Math.pow(lambda, k) * Math.exp(-lambda)) / factorial(k);
 }
 
-/** Normalise un objet {home, draw, away} pour que la somme = 1 */
 function normalizeTrio(obj) {
   const sum = (obj.home || 0) + (obj.draw || 0) + (obj.away || 0);
   if (sum <= 0) return { home: 0.33, draw: 0.34, away: 0.33 };
@@ -163,7 +155,6 @@ const metrics = {
   })
 };
 
-/** Helper : appel metric sans faire planter le flux principal */
 function safeMetric(fn) {
   try { fn(); } catch (e) { logger.debug('Metric error (non-bloquant)', e.message); }
 }
@@ -172,12 +163,11 @@ function safeMetric(fn) {
 const caches = {
   api:         new NodeCache({ stdTTL: config.cache.api,          checkperiod: 120, useClones: false, maxKeys: 100 }),
   h2h:         new NodeCache({ stdTTL: config.cache.h2h,          useClones: false, maxKeys: 500 }),
-  learning:    new NodeCache({ stdTTL: config.cache.learning,     useClones: false, maxKeys: 50  }),
-  patterns:    new NodeCache({ stdTTL: config.cache.patterns,     useClones: false, maxKeys: 100 }),
-  intermediate:new NodeCache({ stdTTL: config.cache.intermediate, useClones: false, maxKeys: 200 })
+  learning:    new NodeCache({ stdTTL: config.cache.learning,     useClones: false, maxKeys: 200  }),
+  patterns:    new NodeCache({ stdTTL: config.cache.patterns,     useClones: false, maxKeys: 150 }),
+  intermediate:new NodeCache({ stdTTL: config.cache.intermediate, useClones: false, maxKeys: 250 })
 };
 
-// Cache mémoire avec limite (pour calculs synchrones fréquents)
 const MAX_MEM_CACHE = 1000;
 const memoryCaches = { h2h: new Map(), intermediate: new Map() };
 
@@ -205,7 +195,6 @@ function getCached(key, cacheName, fn, ttlMs = 300_000) {
   return val;
 }
 
-// Nettoyage périodique des caches mémoire
 setInterval(() => {
   Object.values(memoryCaches).forEach(c => c.clear());
   logger.info('Caches mémoire nettoyés');
@@ -245,25 +234,23 @@ function getBreaker(url) {
   return breakers.get(url);
 }
 
-// ─── LAZY SYSTEM (avec gestion robuste des erreurs et de la concurrence) ──────
+// ─── LAZY SYSTEM ────────────────────────────────────────────────────────────
 class LazySystem {
   constructor(loader) {
     this.loader   = loader;
     this.instance = null;
-    this._promise = null;   // Promise partagée pendant le chargement
+    this._promise = null;
   }
 
   async get() {
     if (this.instance) return this.instance;
 
-    // Si un chargement est déjà en cours, on attend la même promise
     if (!this._promise) {
       this._promise = (async () => {
         try {
           this.instance = await this.loader();
           return this.instance;
         } catch (err) {
-          // Réinitialiser pour permettre un retry au prochain appel
           this._promise = null;
           throw err;
         }
@@ -451,7 +438,6 @@ class GoalLearningSystem {
   recordMatch(homeTeam, awayTeam, homeGoals, awayGoals, context) {
     const total = homeGoals + awayGoals;
 
-    // Historique avec timestamp pour décroissance exponentielle
     this.goalHistory.push({ total, ts: Date.now() });
     if (this.goalHistory.length > 200) this.goalHistory.shift();
 
@@ -462,15 +448,13 @@ class GoalLearningSystem {
       const s = this.teamAverages.get(team) ||
         { scored: 0, conceded: 0, matches: 0, total: 0, history: [] };
 
-      // Garder un historique récent pour la moyenne pondérée
       s.history.push({ scored, conceded, total });
       if (s.history.length > 30) s.history.shift();
 
-      // Recalculer les moyennes avec décroissance exponentielle
       let sumW = 0, sumScored = 0, sumConceded = 0, sumTotal = 0;
       s.history.forEach((h, i) => {
         const age = s.history.length - 1 - i;
-        const w   = Math.exp(-0.10 * age); // décroissance modérée
+        const w   = Math.exp(-0.10 * age);
         sumW        += w;
         sumScored   += w * h.scored;
         sumConceded += w * h.conceded;
@@ -600,7 +584,6 @@ class ScoreCalibrator {
   _recalibrate() {
     if (this.predictionErrors.length < 20) return;
     const avg = this.predictionErrors.reduce((a, b) => a + b, 0) / this.predictionErrors.length;
-    // 0.5/0.5 : oublie plus vite les vieux biais → s'adapte aux changements de style VFL
     this.goalBias = this.goalBias * 0.5 + avg * 0.5;
   }
 
@@ -660,7 +643,6 @@ class ScoreMetricsTracker {
     const aW = aH > aA ? 'H' : aH < aA ? 'A' : 'D';
     const exact = pH === aH && pA === aA;
 
-    // Incrémenter tous les totaux
     for (const key of Object.keys(this._m)) this._m[key].total++;
 
     if (exact)                                       this._m.exactMatch.correct++;
@@ -674,14 +656,12 @@ class ScoreMetricsTracker {
 
     this._goalBiasSum += (predictedGoals - actualGoals);
 
-    // Par type de score
     const type = this._categorizeScore(predictedScore);
     const ts   = this.byScoreType.get(type) || { correct: 0, total: 0 };
     ts.total++;
     if (exact) ts.correct++;
     this.byScoreType.set(type, ts);
 
-    // Par confiance
     const lvl = Math.floor(confidence / 10) * 10;
     const cs  = this.byConfidence.get(lvl) || { correct: 0, total: 0, exact: 0, goalsExact: 0 };
     cs.total++;
@@ -774,12 +754,11 @@ class AdvancedScorePredictor {
     const w      = config.scorePrediction.ensembleWeights;
     const lH     = safeNum(poissonPred?.lambdaHome, 1.5);
     const lA     = safeNum(poissonPred?.lambdaAway, 1.0);
-    const maxG   = config.scorePrediction.maxGoals; // 6
+    const maxG   = config.scorePrediction.maxGoals;
 
     const scoreProbs = [];
     for (let h = 0; h <= maxG; h++) {
       for (let a = 0; a <= maxG; a++) {
-        // Un match VFL ne peut pas dépasser maxGoals buts au total
         if (h + a > maxG) continue;
 
         const pPoisson = poissonProb(lH, h) * poissonProb(lA, a);
@@ -828,9 +807,6 @@ class AdvancedScorePredictor {
 
 // ─── EXTRACTEUR DE FEATURES TEMPORELLES ──────────────────────────────────────
 class TemporalFeatureExtractor {
-
-  // Stats HT par équipe — alimentées depuis playout dans updateModelsFromResults
-  // Structure : { scored1H: 0, conceded1H: 0, scored2H: 0, conceded2H: 0, matches: 0 }
   static htStats = new Map();
 
   static recordHalfTimeStats(homeTeam, awayTeam, goals) {
@@ -842,7 +818,7 @@ class TemporalFeatureExtractor {
 
     const hHT = Math.round(htLast.homeScore), aHT = Math.round(htLast.awayScore);
     const hFT = Math.round(ftLast.homeScore), aFT = Math.round(ftLast.awayScore);
-    const h2H = hFT - hHT, a2H = aFT - aHT; // buts en 2ème mi-temps
+    const h2H = hFT - hHT, a2H = aFT - aHT;
 
     for (const [team, s1H, c1H, s2H, c2H] of [
       [homeTeam, hHT, aHT, h2H, a2H],
@@ -859,7 +835,7 @@ class TemporalFeatureExtractor {
 
   _getHalfTimeRate(team, half = '1H') {
     const s = TemporalFeatureExtractor.htStats.get(team);
-    if (!s || s.matches < 3) return 0.5; // neutre si pas assez de données
+    if (!s || s.matches < 3) return 0.5;
     const scored   = half === '1H' ? s.scored1H   : s.scored2H;
     const conceded = half === '1H' ? s.conceded1H : s.conceded2H;
     const total    = scored + conceded;
@@ -878,7 +854,6 @@ class TemporalFeatureExtractor {
       awayMatchLoad:  this._matchLoad(awayMatches.slice(-5)),
       homeStreak:     this._currentStreak(homeTeam, homeMatches),
       awayStreak:     this._currentStreak(awayTeam, awayMatches),
-      // Taux de buts en 1ère mi-temps calculé depuis playout réels
       homeFirstHalf:  this._getHalfTimeRate(homeTeam, '1H'),
       awayFirstHalf:  this._getHalfTimeRate(awayTeam, '1H'),
       homeSecondHalf: this._getHalfTimeRate(homeTeam, '2H'),
@@ -954,7 +929,7 @@ class AutoLearningSystem {
       weights: { adjustmentRate: 0.04 }
     };
 
-    // ─── AMÉLIORATION 1 : Résultats récents (détection de rupture) ──────────
+    // ─── AMÉLIORATION 1 : Résultats récents ─────────────────────────────────
     this.recentResults = [];
 
     // ─── AMÉLIORATION 2 : Multiplicateurs contextuels appris ────────────────
@@ -975,7 +950,7 @@ class AutoLearningSystem {
       normal:   { elo: 1.00, poisson: 1.00, market: 1.00, h2h: 1.00 }
     };
 
-    // ─── AMÉLIORATION 3 : UCB (Upper Confidence Bound) ──────────────────────
+    // ─── AMÉLIORATION 3 : UCB ───────────────────────────────────────────────
     this.ucb = {
       elo:     { pulls: 1, rewards: 0.5 },
       poisson: { pulls: 1, rewards: 0.5 },
@@ -983,7 +958,7 @@ class AutoLearningSystem {
       h2h:     { pulls: 1, rewards: 0.5 }
     };
 
-    // ─── AMÉLIORATION 4 : Calibration de confiance par tranche ─────────────
+    // ─── AMÉLIORATION 4 : Calibration de confiance ─────────────────────────
     this.confidenceCalibration = {
       '30': { predicted: 0, correct: 0 },
       '40': { predicted: 0, correct: 0 },
@@ -1002,6 +977,14 @@ class AutoLearningSystem {
 
     // ─── AMÉLIORATION 6 : Profils de style de jeu par équipe ────────────────
     this.teamStyles = new Map();
+
+    // ========== 🔥 NOUVEAU : Forces Poisson persistées ==========
+    // On stocke les forces d'attaque et de défense pour chaque équipe
+    this.poissonForces = {
+      attack: new Map(),   // Map<team, attackStrength>
+      defense: new Map()   // Map<team, defenseStrength>
+    };
+    // ============================================================
 
     this._saveTimeout  = null;
     this._initialized  = false;
@@ -1030,7 +1013,8 @@ class AutoLearningSystem {
         if (saved.homeAdvantageByTeam) {
           this.homeAdvantage.byTeam = new Map(Object.entries(saved.homeAdvantageByTeam));
         }
-        // Restaurer l'état étendu (nouvelles améliorations)
+        
+        // Restaurer l'état étendu
         const ex = saved.extraState || {};
         if (ex.contextMultipliers)    this.contextMultipliers    = ex.contextMultipliers;
         if (ex.ucb)                   this.ucb                   = ex.ucb;
@@ -1038,6 +1022,17 @@ class AutoLearningSystem {
         if (ex.htLearning)            this.htLearning            = ex.htLearning;
         if (ex.recentResults)         this.recentResults         = ex.recentResults;
         if (ex.teamStyles)            this.teamStyles = new Map(Object.entries(ex.teamStyles));
+        
+        // ========== 🔥 NOUVEAU : Chargement des forces Poisson ==========
+        if (ex.poissonForces) {
+          // Convertir les objets en Maps
+          this.poissonForces = {
+            attack: new Map(Object.entries(ex.poissonForces.attack || {})),
+            defense: new Map(Object.entries(ex.poissonForces.defense || {}))
+          };
+          logger.info(`Forces Poisson chargées: ${this.poissonForces.attack.size} équipes en attaque, ${this.poissonForces.defense.size} en défense`);
+        }
+        // ================================================================
 
         logger.info('État VFL chargé', {
           accuracy:     Math.round((this.metrics.accuracy     || 0) * 100) + '%',
@@ -1056,6 +1051,18 @@ class AutoLearningSystem {
     if (this._saveTimeout) clearTimeout(this._saveTimeout);
     this._saveTimeout = setTimeout(async () => {
       try {
+        // ========== 🔥 NOUVEAU : Convertir les Maps Poisson en objets ==========
+        const attackObj = {};
+        const defenseObj = {};
+        
+        for (const [team, value] of this.poissonForces.attack) {
+          attackObj[team] = value;
+        }
+        for (const [team, value] of this.poissonForces.defense) {
+          defenseObj[team] = value;
+        }
+        // =======================================================================
+
         await LearningState.create({
           weights:             this.weights,
           metrics:             this.metrics,
@@ -1069,7 +1076,13 @@ class AutoLearningSystem {
             confidenceCalibration: this.confidenceCalibration,
             htLearning:            this.htLearning,
             recentResults:         this.recentResults.slice(-60),
-            teamStyles:            Object.fromEntries(this.teamStyles)
+            teamStyles:            Object.fromEntries(this.teamStyles),
+            // ========== 🔥 NOUVEAU : Sauvegarde des forces Poisson ==========
+            poissonForces: {
+              attack: attackObj,
+              defense: defenseObj
+            }
+            // ================================================================
           }
         });
         logger.info('État VFL sauvegardé');
@@ -1080,7 +1093,7 @@ class AutoLearningSystem {
     }, config.db.saveDelay);
   }
 
-  // ─── recordPrediction : point d'entrée principal ─────────────────────────
+  // ─── recordPrediction ──────────────────────────────────────────────────────
   async recordPrediction(prediction, actualResult, modelContributions, actualGoals = null, actualScore = null, context = null, actualHalfTime = null) {
     if (!prediction) return;
     try {
@@ -1089,14 +1102,12 @@ class AutoLearningSystem {
       if (wasCorrect) this.metrics.correctPredictions++;
       this.metrics.accuracy = this.metrics.correctPredictions / this.metrics.totalPredictions;
 
-      // ─── Amél. 1 : historique pour rupture de régime ──────────────────────
       this.recentResults.push(wasCorrect ? 1 : 0);
       if (this.recentResults.length > 60) this.recentResults.shift();
 
       safeMetric(() => metrics.accuracyGauge.set(this.metrics.accuracy));
       safeMetric(() => metrics.predictionsTotal.labels(actualResult || 'unknown').inc());
 
-      // ─── Amél. 4 : calibration de confiance par tranche ───────────────────
       if (prediction.confidence) {
         const slot = Math.floor(prediction.confidence / 10) * 10;
         const key  = String(Math.min(90, Math.max(30, slot)));
@@ -1121,12 +1132,10 @@ class AutoLearningSystem {
         this.advancedScorePredictor.updateFromMatch(homeTeam, awayTeam, hG, aG);
         this.goalLearning.recordMatch(homeTeam, awayTeam, hG, aG, context);
 
-        // ─── Amél. 6 : profils de style par équipe ────────────────────────
         this._updateTeamStyle(homeTeam, hG, aG);
         this._updateTeamStyle(awayTeam, aG, hG);
       }
 
-      // ─── Amél. 5 : apprentissage du demi-temps ────────────────────────────
       if (actualHalfTime && prediction.half_time) {
         this.htLearning.total++;
         const htCorrect = prediction.half_time === actualHalfTime;
@@ -1138,7 +1147,6 @@ class AutoLearningSystem {
         }
       }
 
-      // ─── Performance par modèle + UCB + contexte ─────────────────────────
       const ctxKey = this._contextKey(context);
       for (const [model, contribution] of Object.entries(modelContributions || {})) {
         if (contribution > 0.1 && this.performance[model]) {
@@ -1146,13 +1154,11 @@ class AutoLearningSystem {
           perf.push(wasCorrect ? 1 : 0);
           if (perf.length > config.learning.performanceWindow) perf.shift();
 
-          // Amél. 3 : UCB update
           if (this.ucb[model]) {
             this.ucb[model].pulls++;
             if (wasCorrect) this.ucb[model].rewards++;
           }
 
-          // Amél. 2 : performance contextuelle
           if (this.contextWeightPerf[ctxKey]?.[model]) {
             this.contextWeightPerf[ctxKey][model].push(wasCorrect ? 1 : 0);
             if (this.contextWeightPerf[ctxKey][model].length > 30)
@@ -1181,7 +1187,7 @@ class AutoLearningSystem {
     }
   }
 
-  // ─── AMÉLIORATION 1 : Ajustement indépendant par modèle + décroissance ───
+  // ─── _adjustWeights ────────────────────────────────────────────────────────
   async _adjustWeights() {
     const globalAcc  = this.metrics.accuracy;
     const totalPulls = Object.values(this.ucb).reduce((s, u) => s + u.pulls, 0);
@@ -1194,14 +1200,12 @@ class AutoLearningSystem {
     };
 
     for (const model of ['elo', 'poisson', 'market', 'h2h']) {
-      // Amél. 5 : précision avec décroissance exponentielle
       const recentAcc = this._weightedAccuracy(this.performance[model]);
       const bounds    = BOUNDS[model];
 
       if      (recentAcc > globalAcc + 0.08) this.weights[model] = Math.min(bounds.max, this.weights[model] + rate);
       else if (recentAcc < globalAcc - 0.08) this.weights[model] = Math.max(bounds.min, this.weights[model] - rate);
 
-      // Amél. 3 : bonus UCB pour l'exploration
       if (this.ucb[model] && totalPulls > 10) {
         const avgReward = this.ucb[model].rewards / this.ucb[model].pulls;
         const explore   = Math.sqrt(2 * Math.log(totalPulls) / this.ucb[model].pulls);
@@ -1212,7 +1216,6 @@ class AutoLearningSystem {
       this.metrics.modelAccuracy[model] = recentAcc;
     }
 
-    // Renormalisation
     const sum = Object.values(this.weights).reduce((a, b) => a + b, 0);
     if (sum > 0) for (const k in this.weights) this.weights[k] /= sum;
     this.metrics.lastAdjustment = Date.now();
@@ -1222,22 +1225,18 @@ class AutoLearningSystem {
     });
   }
 
-  // ─── Précision pondérée — decay adapté au volume VFL (240 préds/heure) ─────
-  // exp(-0.02) → position 50 = ~37min passé → poids 0.37 (raisonnable)
-  // exp(-0.05) était trop agressif : position 80 = 20min → poids 0.018 (quasi zéro)
   _weightedAccuracy(results) {
     if (!results || results.length === 0) return 0.5;
     let sumW = 0, sumWR = 0;
     results.forEach((r, i) => {
       const age = results.length - i;
-      const w   = Math.exp(-0.02 * age); // decay doux : 50 matchs passés gardent du poids
+      const w   = Math.exp(-0.02 * age);
       sumW  += w;
       sumWR += w * r;
     });
     return sumW > 0 ? sumWR / sumW : 0.5;
   }
 
-  // ─── AMÉLIORATION 3 : Détection de rupture de régime ────────────────────
   _detectRegimeChange() {
     if (this.recentResults.length < 60) return;
     const last30  = this.recentResults.slice(-30);
@@ -1255,7 +1254,6 @@ class AutoLearningSystem {
     }
   }
 
-  // ─── AMÉLIORATION 2 : Ajustement des multiplicateurs contextuels ─────────
   _adjustContextMultipliers() {
     const rate = 0.03;
     for (const ctx of Object.keys(this.contextWeightPerf)) {
@@ -1271,7 +1269,6 @@ class AutoLearningSystem {
     }
   }
 
-  // ─── AMÉLIORATION 6 : Style de jeu par équipe ────────────────────────────
   _updateTeamStyle(team, scored, conceded) {
     const s = this.teamStyles.get(team) || {
       totalScored: 0, totalConceded: 0, matches: 0, cleanSheets: 0, highScoreGames: 0
@@ -1296,7 +1293,6 @@ class AutoLearningSystem {
     };
   }
 
-  // ─── AMÉLIORATION 8 : Score d'incertitude ────────────────────────────────
   computeUncertaintyScore(finalProb, h2hCount = 0, variance = 0) {
     const gap    = Math.abs(finalProb.home - finalProb.away);
     const maxP   = Math.max(finalProb.home, finalProb.draw, finalProb.away);
@@ -1307,38 +1303,31 @@ class AutoLearningSystem {
     return Math.min(1, lowH2H + lowGap + highVar + lowMax);
   }
 
-  // ─── AMÉLIORATION 4 : Confiance calibrée réelle ──────────────────────────
   getCalibratedConfidence(rawConfidence) {
     const slot = Math.min(90, Math.max(30, Math.floor(rawConfidence / 10) * 10));
     const data = this.confidenceCalibration[String(slot)];
     if (!data || data.predicted < 20) return rawConfidence;
     const realRate  = data.correct / data.predicted;
     const predicted = rawConfidence / 100;
-    // 70% calibré + 30% brut (évite la sur-correction)
     return clamp(Math.round((realRate * 0.7 + predicted * 0.3) * 100),
       CONSTANTS.MIN_CONFIDENCE, CONSTANTS.MAX_CONFIDENCE);
   }
 
-  // ─── AMÉLIORATION 5 : Ajustement confiance via HT ────────────────────────
   getHTConfidenceAdjustment(htPrediction, ftPrediction) {
     if (!htPrediction || !ftPrediction) return 0;
 
     if (htPrediction === ftPrediction) {
-      // Convergence HT = FT → statistiquement vrai 70% du temps dans ce VFL
-      // On vérifie si notre taux appris confirme cette tendance
       const convAcc = this.htLearning.convergentTotal > 10
         ? this.htLearning.convergentCorrect / this.htLearning.convergentTotal
-        : 0.70; // on part sur 70% par défaut (prouvé sur les données réelles)
+        : 0.70;
 
-      if      (convAcc > 0.65) return +8;   // très fort signal → +8% confiance
-      else if (convAcc > 0.55) return +5;   // signal confirmé  → +5%
-      else if (convAcc < 0.45) return -3;   // convergence peu fiable → -3%
-      return +3; // signal modéré par défaut
+      if      (convAcc > 0.65) return +8;
+      else if (convAcc > 0.55) return +5;
+      else if (convAcc < 0.45) return -3;
+      return +3;
     }
 
-    // HT ≠ FT → inversion de tendance en 2ème mi-temps
-    // Ce round : 3 inversions sur 10 = 30% → signal réel mais moins fort
-    return -4; // pénalité légèrement augmentée (était -3)
+    return -4;
   }
 
   async _adjustHomeAdvantage(prediction, actualResult) {
@@ -1389,7 +1378,6 @@ class AutoLearningSystem {
       : currentAlpha;
   }
 
-  // ─── AMÉLIORATION 2 : Poids avec multiplicateurs contextuels appris ───────
   getWeights(context = {}) {
     const w      = { ...this.weights };
     const ctxKey = this._contextKey(context);
@@ -1444,7 +1432,6 @@ class AutoLearningSystem {
   getTemporalFeatureExtractor()    { return this.temporalExtractor; }
   getGoalLearning()                { return this.goalLearning; }
 }
-
 
 // ─── SYSTÈME ELO ─────────────────────────────────────────────────────────────
 class EloSystem {
@@ -1570,10 +1557,21 @@ class EloSystem {
 // ─── MODÈLE POISSON ───────────────────────────────────────────────────────────
 class PoissonModel {
   constructor(learningSystem) {
-    this.learning       = learningSystem;
-    this.attackStrength = new Map();
-    this.defenseStrength= new Map();
-    this._initStrengths();
+    this.learning = learningSystem;
+    
+    // ========== 🔥 MODIFIÉ : Utiliser les forces persistées ==========
+    // Si le learning system a des forces, on les utilise
+    if (learningSystem && learningSystem.poissonForces) {
+      this.attackStrength = learningSystem.poissonForces.attack;
+      this.defenseStrength = learningSystem.poissonForces.defense;
+      logger.info(`Modèle Poisson initialisé avec forces persistées: ${this.attackStrength.size} équipes`);
+    } else {
+      // Fallback si pas de forces (premier démarrage)
+      this.attackStrength = new Map();
+      this.defenseStrength = new Map();
+      this._initStrengths();
+    }
+    // ================================================================
   }
 
   _initStrengths() {
@@ -1596,7 +1594,6 @@ class PoissonModel {
     const matrix = [];
     for (let h = 0; h <= maxGoals; h++) {
       for (let a = 0; a <= maxGoals; a++) {
-        // Respecter le plafond total de buts du match
         if (h + a > maxGoals) continue;
         matrix.push({ home: h, away: a, probability: poissonProb(lH, h) * poissonProb(lA, a) });
       }
@@ -1610,26 +1607,21 @@ class PoissonModel {
       let lH = this.getAttack(homeTeam)  * this.getDefense(awayTeam) * (1.25 + hAdv * 0.4);
       let lA = this.getAttack(awayTeam)  * this.getDefense(homeTeam) * (1.10 - hAdv * 0.15);
 
-      // ─── AMÉLIORATION 9 : Affiner les lambdas via le style de jeu ──────────
       const ref = learningSystemRef || this.learning;
       if (ref && ref.getTeamStyle) {
         const hStyle = ref.getTeamStyle(homeTeam);
         const aStyle = ref.getTeamStyle(awayTeam);
         if (hStyle) {
-          // Pondérer avec la moyenne d'attaque observée (70% Poisson, 30% observé)
           lH = lH * 0.7 + hStyle.avgScored * 0.3;
-          // Équipe qui encaisse peu → réduire l'attaque adverse
           if (hStyle.cleanSheetRate > 0.35) lA *= (1 - hStyle.cleanSheetRate * 0.3);
         }
         if (aStyle) {
           lA = lA * 0.7 + aStyle.avgScored * 0.3;
           if (aStyle.cleanSheetRate > 0.35) lH *= (1 - aStyle.cleanSheetRate * 0.3);
         }
-        // Clamp pour éviter les lambdas aberrants
         lH = clamp(lH, 0.3, 3.5);
         lA = clamp(lA, 0.3, 3.5);
       }
-      // ────────────────────────────────────────────────────────────────────────
 
       const matrix = this._scoreMatrix(lH, lA, 6);
       let hW = 0, d = 0, aW = 0;
@@ -1662,6 +1654,15 @@ class PoissonModel {
     }
   }
 
+  // ========== 🔥 MODIFIÉ : Notifier le learning system après mise à jour ==========
+  async _notifyLearningSystem() {
+    if (this.learning && this.learning.queueSave) {
+      // Les Maps sont partagées (même référence), donc les forces sont déjà à jour
+      // On force juste une sauvegarde
+      this.learning.queueSave();
+    }
+  }
+
   async updateFromResult(homeTeam, awayTeam, homeGoals, awayGoals) {
     try {
       const alpha = this.learning
@@ -1678,10 +1679,15 @@ class PoissonModel {
       this.defenseStrength.set(homeTeam, Math.max(0.5, this.getDefense(homeTeam) - alpha * 1.2 * (awayGoals - eA)));
 
       if (this.learning) this.learning.learningRates.poisson.alpha = alpha;
+      
+      // 🔥 Forcer une sauvegarde des forces
+      await this._notifyLearningSystem();
+      
     } catch (err) {
       logger.error('Erreur updateFromResult Poisson:', err);
     }
   }
+  // =============================================================================
 }
 
 // ─── DÉTECTEUR DE CONTEXTE ────────────────────────────────────────────────────
@@ -1692,48 +1698,39 @@ class ContextDetector {
     const away = data.ranking?.teams?.find(t => t.name === awayTeam);
     if (!home || !away) return ctx;
 
-    // bigMatch : les 2 équipes sont dans le top 5
     ctx.bigMatch = home.position <= 5 && away.position <= 5;
 
-    // ─── Derby : détection par noms réels du VFL + proximité classement ──────
-    // Rivalités connues dans ce VFL (Manchester Red/Blue, London Red/Blues, etc.)
     const DERBY_PAIRS = [
       ['Manchester Red', 'Manchester Blue'],
       ['London Reds',    'London Blues'],
-      ['N. Forest',      'Sunderland'],  // derbies du Nord à ajuster si besoin
+      ['N. Forest',      'Sunderland'],
     ];
     ctx.derby = DERBY_PAIRS.some(([a, b]) =>
       (homeTeam === a && awayTeam === b) ||
       (homeTeam === b && awayTeam === a)
     );
-    // Fallback : si les deux équipes sont dans le même "groupe" de nom
     if (!ctx.derby) {
       ctx.derby = (homeTeam.includes('Manchester') && awayTeam.includes('Manchester')) ||
                   (homeTeam.includes('London')     && awayTeam.includes('London'));
     }
 
-    // ─── Revenge : basé sur le vrai dernier duel (via cache playout) ─────────
     const last = this._lastMeeting(homeTeam, awayTeam, data);
     if (last) {
       const loser = last.homeGoals > last.awayGoals ? last.awayTeam
                   : last.homeGoals < last.awayGoals ? last.homeTeam
-                  : null; // nul → pas de revenge
+                  : null;
       if (loser) ctx.revenge = (loser === homeTeam || loser === awayTeam);
     }
 
-    // streak : 3 victoires consécutives pour l'une ou l'autre équipe
     ctx.streak = (home.history?.slice(-3) || []).every(r => r === 'Won') ||
                  (away.history?.slice(-3) || []).every(r => r === 'Won');
 
-    // mismatch : écart de classement > 10 positions
     ctx.mismatch = Math.abs(home.position - away.position) >= 10;
 
     return ctx;
   }
 
   _lastMeeting(homeTeam, awayTeam, data) {
-    // Cherche le dernier duel dans /results (ordre anti-chronologique)
-    // Les buts ne sont PAS dans /results → on cherche dans le cache playout
     for (const round of data.results?.rounds || []) {
       const roundNumber = round.roundNumber;
       if (!roundNumber) continue;
@@ -1743,7 +1740,6 @@ class ContextDetector {
         if (!((hN === homeTeam && aN === awayTeam) ||
               (hN === awayTeam && aN === homeTeam))) continue;
 
-        // Chercher dans le cache playout déjà chargé par updateModels
         const playoutById = caches.learning.get(`playout_${roundNumber}`);
         if (playoutById && match.id && playoutById[match.id]) {
           const pm    = playoutById[match.id];
@@ -1758,7 +1754,6 @@ class ContextDetector {
           }
         }
 
-        // Fallback : buts directement dans /results si disponibles
         if (match.goals?.length) {
           const last = match.goals[match.goals.length - 1];
           return {
@@ -1773,9 +1768,8 @@ class ContextDetector {
   }
 }
 
-// ─── GESTIONNAIRE DES SYSTÈMES (avec ordre d'init correct) ───────────────────
+// ─── GESTIONNAIRE DES SYSTÈMES ────────────────────────────────────────────────
 const systems = (() => {
-  // learning est créé en premier car elo/poisson en dépendent
   const learningLazy = new LazySystem(async () => {
     const s = new AutoLearningSystem();
     await s.initialize();
@@ -1805,18 +1799,6 @@ const systems = (() => {
 })();
 
 // ─── FONCTIONS UTILITAIRES ────────────────────────────────────────────────────
-
-/**
- * Fetch robuste avec retry exponentiel — AUCUN fallback.
- * On insiste jusqu'à avoir la vraie réponse ou épuiser les tentatives.
- *
- * Stratégie :
- *   - 5 tentatives maximum
- *   - Délai exponentiel : 200ms, 400ms, 800ms, 1600ms, 3200ms
- *   - Timeout par tentative : 6s
- *   - Si toutes les tentatives échouent → on retourne la dernière réponse
- *     en cache (dernière valeur connue bonne) plutôt qu'un objet vide
- */
 async function fetchWithRetry(url, key, maxRetries = 5) {
   let lastError = null;
 
@@ -1830,7 +1812,6 @@ async function fetchWithRetry(url, key, maxRetries = 5) {
 
       const data = res.data;
 
-      // Sauvegarder en cache "dernière bonne réponse" à chaque succès
       if (data) caches.api.set(`api_last_good_${key}`, data, 3600);
 
       return data;
@@ -1839,7 +1820,7 @@ async function fetchWithRetry(url, key, maxRetries = 5) {
       lastError = err;
       safeMetric(() => metrics.apiErrors.labels(key).inc());
 
-      const delay = 200 * Math.pow(2, attempt - 1); // 200, 400, 800, 1600, 3200ms
+      const delay = 200 * Math.pow(2, attempt - 1);
       logger.warn(`⚠️  API [${key}] tentative ${attempt}/${maxRetries} échouée (${err.code || err.message}) → retry dans ${delay}ms`);
 
       if (attempt < maxRetries) {
@@ -1848,14 +1829,12 @@ async function fetchWithRetry(url, key, maxRetries = 5) {
     }
   }
 
-  // Toutes les tentatives épuisées → dernière bonne réponse connue
   const lastGood = caches.api.get(`api_last_good_${key}`);
   if (lastGood) {
     logger.error(`❌ API [${key}] inaccessible après ${maxRetries} tentatives → utilisation dernière réponse connue`);
     return lastGood;
   }
 
-  // Vraiment rien du tout — on lance l'erreur pour que fetchData la gère
   logger.error(`❌ API [${key}] inaccessible et aucune réponse en cache`);
   throw lastError;
 }
@@ -1882,8 +1861,6 @@ async function fetchData() {
       fetchWithRetry(URLS.results, 'results')
     ]);
 
-    // ─── /matches.rounds[0] = round avec bettingAllowed=true ─────────────────
-    // C'est exactement le round à prédire — pas besoin de calculer N+1
     const allRounds   = matchesRaw?.rounds || [];
     const bettingRound = allRounds.find(r => (r.matches || []).length > 0) || allRounds[0];
 
@@ -1896,7 +1873,7 @@ async function fetchData() {
     logger.info(`🎯 Round à prédire : ${roundNumber} — ${bettingRound.matches.length} matchs`);
 
     const data = {
-      matches:      { rounds: [bettingRound] },  // structure attendue par predictMatch
+      matches:      { rounds: [bettingRound] },
       ranking,
       results,
       currentRound: roundNumber
@@ -1916,15 +1893,12 @@ function validateMatch(match) {
 }
 
 function shouldPredict(match, data) {
-  // On prédit TOUS les matchs valides — 10 matchs par round, aucun ignoré
-  // Le seul filtre est la validité des données du match
   return validateMatch(match);
 }
 
 function analyzeHeadToHead(homeTeam, awayTeam, data) {
   return getCached(`h2h_${homeTeam}_${awayTeam}`, 'h2h', () => {
     try {
-      // Collecte de tous les duels dans l'ordre chronologique
       const meetings = [];
       for (const round of data.results?.rounds || []) {
         for (const match of round.matches || []) {
@@ -1942,13 +1916,12 @@ function analyzeHeadToHead(homeTeam, awayTeam, data) {
 
       if (meetings.length === 0) return null;
 
-      // Pondération exponentielle par récence (le dernier duel compte le plus)
       let homeWins = 0, draws = 0, awayWins = 0, totalGoalsW = 0, sumW = 0;
       const scoreFreq = new Map();
 
       meetings.forEach((m, i) => {
-        const age = meetings.length - 1 - i; // 0 = plus récent
-        const w   = Math.exp(-0.15 * age);   // décroissance douce pour H2H
+        const age = meetings.length - 1 - i;
+        const w   = Math.exp(-0.15 * age);
 
         sumW       += w;
         totalGoalsW += w * (m.hScore + m.aScore);
@@ -1956,11 +1929,10 @@ function analyzeHeadToHead(homeTeam, awayTeam, data) {
         else if (m.hScore < m.aScore) awayWins += w;
         else                          draws    += w;
 
-        // Score fréquence (non pondéré, pour la distribution des scores exacts)
         scoreFreq.set(m.score, (scoreFreq.get(m.score) || 0) + 1);
       });
 
-      const total = homeWins + draws + awayWins; // = sumW
+      const total = homeWins + draws + awayWins;
       if (total === 0) return null;
 
       const commonScores = Array.from(scoreFreq.entries())
@@ -1991,13 +1963,11 @@ function calculateWeightedForm(teamName, data) {
 
     let formValue = 50;
     if (team.history?.length > 0) {
-      // Décroissance exponentielle : match récent compte plus que match ancien
-      // Poids : résultat[n-1]=1.0, [n-2]=0.74, [n-3]=0.55, [n-4]=0.41, [n-5]=0.30
-      const history = team.history.slice(-8); // jusqu'à 8 derniers matchs
+      const history = team.history.slice(-8);
       let sumW = 0, sumWR = 0;
       history.forEach((result, i) => {
-        const age = history.length - 1 - i; // 0 = plus récent
-        const w   = Math.exp(-0.30 * age);  // décroissance rapide (VFL = matchs fréquents)
+        const age = history.length - 1 - i;
+        const w   = Math.exp(-0.30 * age);
         const pts = result === 'Won' ? 100 : result === 'Draw' ? 50 : 0;
         sumW  += w;
         sumWR += w * pts;
@@ -2005,10 +1975,8 @@ function calculateWeightedForm(teamName, data) {
       formValue = sumW > 0 ? sumWR / sumW : 50;
     }
 
-    // Bonus/malus classement — légèrement amplifié
     formValue += (20 - team.position) * 0.8;
 
-    // Clamp élargi (20-95) pour que le signal soit vraiment différenciant
     return clamp(Math.round(formValue), 20, 95);
   } catch (err) {
     logger.error('Erreur calculateWeightedForm:', err);
@@ -2033,7 +2001,7 @@ function calculateLightweightFeatures(homeTeam, awayTeam, data) {
     const homeMomentum = hLast3[2] === 'Won' ? 0.03 : hLast3[2] === 'Lost' ? -0.02 : 0;
 
     return { rankAdvantage: rankAdv, formAdvantage: formAdv, homeMomentum };
-  }, 90_000); // 90s = durée d'un round VFL → features toujours fraîches
+  }, 90_000);
 }
 
 function extractOdds(match) {
@@ -2118,11 +2086,9 @@ function ensembleWithVariance(eloPred, poissonPred, marketPred, h2hPred, weights
 function calculateSurpriseFactor(homeForm, awayForm, context = {}) {
   let f = 1.0;
   const diff = Math.abs(homeForm - awayForm);
-  // Réduit de 1.2 → 1.1 : les surprises n'explosent pas les buts
   if (diff > 25) f *= (awayForm > homeForm) ? 1.10 : 0.92;
-  if (context.derby)   f *= 1.08;  // derby → légèrement plus de buts
-  if (context.revenge) f *= 1.05;  // revenge → effet modeste
-  // Plafond absolu à 1.10 pour ne jamais exploser les prédictions
+  if (context.derby)   f *= 1.08;
+  if (context.revenge) f *= 1.05;
   return Math.min(1.10, Math.max(0.85, f));
 }
 
@@ -2135,7 +2101,6 @@ function predictGoals(rawExpectedGoals, homeForm, awayForm, poissonPred, learnin
     const lA   = safeNum(poissonPred?.lambdaAway, 1.0);
     const ctx  = context || {};
 
-    // Facteur de réduction par catégorie
     let reductionFactor = 0.75;
     for (const cat of config.scorePrediction.goalCategories) {
       if (raw <= cat.max) { reductionFactor = cat.reduction; break; }
@@ -2144,12 +2109,11 @@ function predictGoals(rawExpectedGoals, homeForm, awayForm, poissonPred, learnin
     let goals = Math.round(raw * reductionFactor);
     if (!isFinite(goals) || goals < 0) goals = 2;
 
-    const baseGoals = goals; // référence avant ajustements contextuels
+    const baseGoals = goals;
 
     const surpriseFactor = calculateSurpriseFactor(hFrm, aFrm, ctx);
     goals = Math.round(goals * surpriseFactor);
 
-    // Ajustements contextuels — chacun ±1 mais total plafonné à ±2 par rapport à baseGoals
     let adjustment = 0;
     if (hFrm > config.scorePrediction.formBoostThreshold && aFrm > config.scorePrediction.formBoostThreshold) {
       adjustment++;
@@ -2160,11 +2124,9 @@ function predictGoals(rawExpectedGoals, homeForm, awayForm, poissonPred, learnin
     if ((lH / 1.5) > config.scorePrediction.attackThreshold && (lA / 1.5) > config.scorePrediction.attackThreshold) {
       adjustment++;
     }
-    // Plafonnement : max ±2 buts d'ajustement contextuel
     adjustment = clamp(adjustment, -2, 2);
     goals = clamp(goals + adjustment, CONSTANTS.MIN_GOALS_PREDICTION, CONSTANTS.MAX_GOALS_PREDICTION);
 
-    // Apprentissage par équipe
     try {
       const gl = learningSystem?.getGoalLearning?.();
       if (gl) {
@@ -2175,7 +2137,6 @@ function predictGoals(rawExpectedGoals, homeForm, awayForm, poissonPred, learnin
       logger.debug('goalLearning non-bloquant:', e.message);
     }
 
-    // Calibration
     try {
       const cal = learningSystem?.getScoreCalibrator?.();
       if (cal) {
@@ -2242,7 +2203,6 @@ async function predictMatch(match, data) {
     const homeTeam = match.homeTeam.name;
     const awayTeam = match.awayTeam.name;
 
-    // Chargement des systèmes en parallèle (learning/elo/poisson initialisés dans l'ordre via LazySystem)
     const [learningSystem, eloSystem, poissonModel, thresholds, biasCorrector, contextDetector] =
       await Promise.all([
         systems.learning.get(),
@@ -2263,7 +2223,6 @@ async function predictMatch(match, data) {
     const h2hPred    = analyzeHeadToHead(homeTeam, awayTeam, data);
     const context    = contextDetector.detectContext(homeTeam, awayTeam, data);
 
-    // Si cotes absentes → poids market à 0, redistribué sur elo + poisson
     let weights = learningSystem.getWeights(context);
     if (!marketHasOdds) {
       const freed = weights.market;
@@ -2285,9 +2244,6 @@ async function predictMatch(match, data) {
 
     const homeAdv  = learningSystem.getHomeAdvantage(homeTeam);
 
-    // ─── Injection de l'avantage domicile de manière cohérente ───────────────
-    // On ajoute homeAdv uniquement à home, puis on renormalise
-    // L'ancien code divisait tout par (1+homeAdv) ce qui pénalisait draw et away sans raison
     const rawFeatureBoost = features.rankAdvantage + features.formAdvantage + features.homeMomentum;
     const raw = {
       home: ensemble.home + homeAdv + rawFeatureBoost,
@@ -2296,16 +2252,12 @@ async function predictMatch(match, data) {
     };
     const finalProb = normalizeTrio(raw);
 
-    // ─── FIX NULS : zone de nul réaliste pour VFL (~25% de nuls) ────────────
-    // Problème : draw: 7% → trop bas. Cible : 25-27%
-    // On abaisse les seuils pour détecter plus de situations de nul
-    const DRAW_THRESHOLD  = 0.20;  // draw doit représenter au moins 20% (était 24%)
-    const GAP_THRESHOLD   = 0.10;  // écart home/away doit être < 10% (était 6%)
+    const DRAW_THRESHOLD  = 0.20;
+    const GAP_THRESHOLD   = 0.10;
     const homeAwayGap     = Math.abs(finalProb.home - finalProb.away);
     const forceDrawRaw    = finalProb.draw >= DRAW_THRESHOLD && homeAwayGap < GAP_THRESHOLD;
 
-    // Bonus élargi : h2h avec historique de nuls ou contexte favorable
-    const drawH2HBonus    = h2hPred && h2hPred.draw > 0.25; // était 0.30
+    const drawH2HBonus    = h2hPred && h2hPred.draw > 0.25;
     const forceDraw       = forceDrawRaw ||
       (drawH2HBonus && finalProb.draw >= 0.17 && homeAwayGap < 0.15);
 
@@ -2313,7 +2265,6 @@ async function predictMatch(match, data) {
                       : finalProb.home > finalProb.draw && finalProb.home > finalProb.away ? '1'
                       : finalProb.away > finalProb.home && finalProb.away > finalProb.draw ? '2'
                       : 'X';
-    // ─────────────────────────────────────────────────────────────────────────
 
     const safeExpected = safeNum(ensemble.expectedGoals, 2.5) > 0 ? safeNum(ensemble.expectedGoals, 2.5) : 2.5;
     const goalPrediction = predictGoals(safeExpected, homeForm, awayForm, poissonPred, learningSystem, context, homeTeam, awayTeam);
@@ -2321,8 +2272,7 @@ async function predictMatch(match, data) {
 
     const scorePrediction = await predictExactScore(poissonPred, h2hPred, homeTeam, awayTeam, homeForm, awayForm, learningSystem);
 
-    // ─── FIX COHÉRENCE : score exact aligné avec résultat + buts ─────────────
-    const GOALS_TOLERANCE = 1; // ±1 but de tolérance sur le total prédit
+    const GOALS_TOLERANCE = 1;
 
     const coherentScores = scorePrediction.top5.filter(s => {
       const [h, a] = s.score.split(':').map(Number);
@@ -2333,7 +2283,6 @@ async function predictMatch(match, data) {
       return totalOk && resultOk;
     });
 
-    // Si le filtre a tout éliminé, construire un score de secours cohérent
     if (coherentScores.length === 0) {
       let fallbackScore;
       if (finalResult === 'X') {
@@ -2347,23 +2296,18 @@ async function predictMatch(match, data) {
       coherentScores.push({ score: fallbackScore, prob: 0 });
     }
 
-    // Remplacer top5 et topScore par les scores cohérents
     scorePrediction.top5      = coherentScores;
     scorePrediction.topScore  = coherentScores[0].score;
     scorePrediction.topProbability = coherentScores[0].prob || 0;
-    // ─────────────────────────────────────────────────────────────────────────
 
     const thresholdData = thresholds.get();
     let confidence      = computeConfidence(finalProb, finalResult, homeForm, awayForm, ensemble);
     if (confidence < thresholdData.confidence) confidence = Math.round(confidence * 0.95);
 
-    // ─── AMÉLIORATION 4 : Confiance calibrée réelle ──────────────────────────
     confidence = learningSystem.getCalibratedConfidence(confidence);
 
-    // ─── AMÉLIORATION 5 : Ajustement via convergence HT/FT ───────────────────
     confidence += learningSystem.getHTConfidenceAdjustment(htResult, finalResult);
 
-    // ─── AMÉLIORATION 8 : Score d'incertitude → pénalité si match flou ───────
     const uncertainty = learningSystem.computeUncertaintyScore(
       finalProb,
       h2hPred?.matchesCount || 0,
@@ -2390,7 +2334,6 @@ async function predictMatch(match, data) {
       ? `${o.home.toFixed(2)}/${o.draw.toFixed(2)}/${o.away.toFixed(2)}`
       : '-/-/-';
 
-    // Sauvegarde asynchrone non-bloquante
     setImmediate(async () => {
       try {
         await Prediction.create({
@@ -2446,13 +2389,10 @@ async function predictMatch(match, data) {
 }
 
 // ─── MISE À JOUR DES MODÈLES ──────────────────────────────────────────────────
-
-// Set en mémoire avec TTL géré manuellement (évite le problème de sérialisation NodeCache + Set)
 const _processedMatches = new Set();
 let   _processedClearedAt = Date.now();
 
 function isMatchProcessed(id) {
-  // Vidage toutes les heures
   if (Date.now() - _processedClearedAt > 3_600_000) {
     _processedMatches.clear();
     _processedClearedAt = Date.now();
@@ -2478,7 +2418,6 @@ async function updateModelsFromResults(data) {
       const roundNumber = round.roundNumber;
       if (!roundNumber) continue;
 
-      // ─── /round/{N} → vrais IDs + noms équipes (/results a des IDs=0) ──
       const roundKey = `round_data_${roundNumber}`;
       let   roundMatches = caches.learning.get(roundKey);
 
@@ -2498,7 +2437,6 @@ async function updateModelsFromResults(data) {
 
       if (!roundMatches || !roundMatches.length) continue;
 
-      // ─── /playout → buts + HT réel (indexé par ID) ───────────────────
       const playoutKey = `playout_${roundNumber}`;
       let   playoutById = caches.learning.get(playoutKey);
 
@@ -2520,7 +2458,6 @@ async function updateModelsFromResults(data) {
         }
       }
 
-      // ─── Croiser roundMatches + playout par ID ───────────────────────
       for (const match of roundMatches) {
         const matchId = match.id;
         if (!matchId || isMatchProcessed(matchId)) continue;
@@ -2540,7 +2477,6 @@ async function updateModelsFromResults(data) {
         const resVal  = hG > aG ? 1   : hG === aG ? 0.5  : 0;
         const actualScore = `${hG}:${aG}`;
 
-        // Vrai HT depuis les minutes de buts
         const htGoals  = goals.filter(g => (g.minute || 90) <= 45);
         const htLast   = htGoals.length ? htGoals[htGoals.length - 1] : null;
         const actualHT = htLast
@@ -2551,7 +2487,6 @@ async function updateModelsFromResults(data) {
         const context = contextDetector.detectContext(homeTeam, awayTeam, data);
         learningSystem.updateScoreDistribution(hG, aG);
 
-        // ─── Fix #3 : alimenter les stats HT depuis les vraies minutes de buts
         TemporalFeatureExtractor.recordHalfTimeStats(homeTeam, awayTeam, goals);
 
         const predictions = await Prediction.findAll({
@@ -2587,16 +2522,12 @@ module.exports = {
   async getPredictions() {
     const startTotal = Date.now();
     try {
-      // ─── Cache résultat 110s (durée d'un round = 120s) ───────────────────────
-      // Invalidé automatiquement quand le round change
       const PRED_CACHE_KEY = 'predictions_current_round';
       const cachedPreds    = caches.api.get(PRED_CACHE_KEY);
       if (cachedPreds) return cachedPreds;
-      // ──────────────────────────────────────────────────────────────────────────
 
       const data = await fetchData();
 
-      // ─── Invalider le cache si nouveau round détecté ──────────────────────────
       const prevRound = caches.api.get('last_predicted_round');
       if (prevRound && prevRound !== data.currentRound) {
         logger.info(`🔄 Nouveau round détecté: ${prevRound} → ${data.currentRound}`);
@@ -2608,9 +2539,7 @@ module.exports = {
         );
       }
       caches.api.set('last_predicted_round', data.currentRound);
-      // ──────────────────────────────────────────────────────────────────────────
 
-      // Mise à jour des modèles en background (max 1x/min)
       const lastUpdate = caches.api.get('last_models_update') || 0;
       const now        = Date.now();
       if (now - lastUpdate > 60_000) {
@@ -2637,10 +2566,8 @@ module.exports = {
       const valid    = predictions.filter(Boolean);
       const duration = Date.now() - startTotal;
 
-      // Mettre en cache pour les autres users du même round
       if (valid.length > 0) caches.api.set(PRED_CACHE_KEY, valid, 12);
 
-      // Stats de log (non bloquant)
       try {
         const biasCorrector  = await systems.biasCorrector.get();
         const learningSystem = await systems.learning.get();
